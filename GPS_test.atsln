@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "GPS_test", "GPS_test\GPS_test.cproj", "{FC9723A6-210B-44E8-A923-09198541666F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC9723A6-210B-44E8-A923-09198541666F}.Debug|AVR.ActiveCfg = Debug|AVR
+		{FC9723A6-210B-44E8-A923-09198541666F}.Debug|AVR.Build.0 = Debug|AVR
+		{FC9723A6-210B-44E8-A923-09198541666F}.Release|AVR.ActiveCfg = Release|AVR
+		{FC9723A6-210B-44E8-A923-09198541666F}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
