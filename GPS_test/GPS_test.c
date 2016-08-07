@@ -5,7 +5,7 @@
  *  Author: Vjera
  * 
  */ 
-//test2
+//test4
 /*
 decimal  degrees    distance
 places
@@ -132,7 +132,11 @@ struct CurrentGpsReading
 	//$GPRMC	
 	char fix; //A-Active, V- Void in $GPRMC
 	float speed;
+	
 	float angle;
+	
+	char speed_c[3];
+	char angle_c[3];
 	
 } currentReading;
 
@@ -392,9 +396,8 @@ int readGPRMC() {
 				// found RMC
 		
 				p = strstr(fullLine, "$GPRMC"); //1
-				*p = *fullLine; //my
 				
-				strncpy(storesGPRMC, p, 20); 
+				//strncpy(storesGPRMC, p, 20); 
 				
 				p = strchr(p, ',')+1;
 				strncpy(tHours, p, 2); // hours
@@ -506,6 +509,7 @@ int readGPRMC() {
 				if (',' != *p)
 				{
 					currentReading.speed = atof(p);
+					strncpy(storesGPRMC, p, 20); 
 				}
 				
 				p = strchr(p, ',')+1;
@@ -557,41 +561,31 @@ int main(void)
 		//readGPGGA();
 		//if(1){
 		if(fix){
-			/*
-			lcd_puts(itoa(currentReading.hours, s, 10));
-			lcd_puts(itoa(currentReading.minutes, s, 10));
-			lcd_puts(itoa(currentReading.seconds, s, 10));
-			*/
-			//long latitude_fixed; /**< Fixed point latitude value with degrees stored in units of 1/100000 degrees and minutes stored in units of 1/100000 degrees */
-			//lcd_puts(itoa(currentReading.latitude_fixed, s, 10)); //!!! promijenjiva vrijednost- zasto??
+			
 			lcd_clrscr();
 			lcd_putc(currentReading.fix); // 'A' i 'V'
 			
+			//lcd_puts_P("angle:");
+			//lcd_gotoxy(1,1);
+			//lcd_puts_P("speed:");
 			
-			//lcd_puts(ltoa(currentReading.latitude,s,10));
-			//lcd_puts(ltoa(currentReading.minutesLat,s,10));
+			lcd_puts(ltoa(currentReading.minutesLat,s,10));
+			lcd_gotoxy(1,2);
+			lcd_puts(ltoa(currentReading.minutesLon,s,10));
 			
-			//lcd_puts(itoa(currentReading.latitude,s,10));
-			//lcd_puts(itoa(currentReading.minutesLat,s,10));
-			
-			
-			//lcd_puts(itoa(currentReading.angle, s, 10)); //!!!!!
-			//lcd_puts(itoa(currentReading.speed, s, 10)); //!!!!!
-			
-			
-			lcd_puts(ltoa(currentReading.latitude_fixed,s,10));
-			lcd_gotoxy(0,2);
-			lcd_puts(ltoa(currentReading.longitude_fixed,s,10));
-		
-			lcd_gotoxy(11,1);
+			lcd_gotoxy(8,1);
 			lcd_puts(itoa(currentReading.hours,s,10));
 			lcd_putc(':');
 			lcd_puts(itoa(currentReading.minutes,s,10));
+			lcd_putc(':');
+			lcd_puts(itoa(currentReading.seconds,s,10));
 			_delay_ms(1000);
+		/*
 			if(currentReading.latitude_fixed == atol("7816")){
 				lcd_gotoxy(0,1);
 				lcd_puts_P("^");				
 			}
+		*/
 			lcd_clrscr();
 			lcd_puts(storesGPRMC);
 			_delay_ms(2000);
