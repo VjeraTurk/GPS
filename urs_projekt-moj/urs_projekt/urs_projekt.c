@@ -80,7 +80,7 @@ void showLiveGPS();
 
 void Needle(float angle, int r, int fill);
 
-void DrawDegrees(float angle, int r, int step);
+void DrawDegrees(int r, int step);
 
 void showLiveCompass();
 
@@ -111,6 +111,7 @@ void showCalc();
  */
 void readGPS();
 
+int readGPRMC();
 /**
  * @brief A function for calculating a distance between two GPS points
  *
@@ -547,7 +548,7 @@ void ScanPen(void)
 	}
 }
 
-void DrawDegrees(float angle, int r, int step){
+void DrawDegrees(int r, int step){
 	
 	SetColor(TURQUOISE);
 	Circle(GetMaxX()/2, (GetMaxY()/2)+40, R, 1);
@@ -585,7 +586,7 @@ void Needle(float angle, int r, int fill)
 	if (fill){
 	
 	north = north + deg2rad(180)- deg2rad(w);	
-	float a=north;
+	//float a=north;
 	
 	x1 = x2;
 	y1 = y2;
@@ -595,7 +596,7 @@ void Needle(float angle, int r, int fill)
 
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 
-	north= north+ 2*deg2rad(w);
+	north = north+ 2*deg2rad(w);
 
 	x2 = x1 + cos(north) * r;
 	y2 = y1 -( sin(north) * r);
@@ -603,7 +604,7 @@ void Needle(float angle, int r, int fill)
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 	
 	Line((int) _x, (int) _y, (int) x2, (int) y2);
-	
+
 	////
 /*
 		for(north = north; north>a; north = north - deg2rad(0.1))
@@ -622,12 +623,11 @@ void Needle(float angle, int r, int fill)
 }
 void showLiveCompass(){
 	
-	
-	
+
 	currentReading.lat[1] = '\0';
 	int firstShow = 1; /**< A flag showing if this is the first time showing the screen */
 	char str[20]; /**< A helper string used to store text that is to be shown on the screen */
-	
+	char s[10];
 
 	SetColor(CLOUDS);
 	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
@@ -642,7 +642,7 @@ void showLiveCompass(){
 	DrawText(0, 40, GetMaxX(), 80, "Live Compass", ALINE_CENTER);
 	SetColor(CLOUDS);
 	
-	DrawDegrees(40,R,10); //angle 40 test
+	DrawDegrees(R,10); //angle 40 test
 
 
 	while(currentScreen == 1) {
@@ -655,6 +655,8 @@ void showLiveCompass(){
 		
 		SetFgColor(WET_ASPHALT);
 		sprintf(str, "tra:%f         speed:%f", currentReading.angle, currentReading.speed);
+		
+		sprintf(str, "angle: ",  itoa((int)currentReading.angle,s,10) );
 		
 		if (currentReading.angle != previousReading.angle || firstShow) { //pobriši prošlo stanje
 			BevelFill(70, 83, 95, 110, 0);
@@ -672,11 +674,11 @@ void showLiveCompass(){
 		
 		
 		SetColor(RED);
-		//Needle(currentReading.angle,R);
+		Needle(currentReading.angle,R-5,1);
 		/*for(angle=0;angle!=360;angle=angle+10){
 		Needle(angle,R-5,1);	
 		}*/
-		Needle(40,R-5,1);	
+		//Needle(40,R-5,1);	
 		SetColor(CLOUDS);	
 	}
 	
@@ -1107,7 +1109,7 @@ int readGPRMC() {
 		char tSeconds[3]; /**< A temporary string storing seconds */
 		char *p; /**< Pointer used for sliding through an array of chars */
 		///int32_t degree; /**< A degree from the degree buffer is stored here */
-		char s[MAXLINELENGHT];
+		//char s[MAXLINELENGHT];
 		
 		currentReading.lat[1] = '\0';
 	while(currentReading.j <= MAXLINELENGHT-1) {
@@ -1527,14 +1529,14 @@ void showAltitude() {
 }
 
 void showCalc() {
-	
+	/*
 	currentReading.lat[1] = '\0';
-	int firstShow = 1; /**< A flag showing if this is the first time showing the screen */
-	char str[20]; /**< A helper string used to store text that is to be shown on the screen */
-	double latDouble; /**< Double precision latitude value */
-	double lonDouble; /**< Double precision longitude value */
+	int firstShow = 1; 
+	char str[20]; 
+	double latDouble; 
+	double lonDouble; 
 	
-	focusedField = 0; /**< A flag showing which input field is focused */
+	focusedField = 0;
 	memset(longitudeInput, 0, 11);
 	memset(latitudeInput, 0, 11);
 	
@@ -1661,7 +1663,7 @@ void showCalc() {
 		
 		firstShow = 1;
 		
-	}
+	}*/
 }
 
 
