@@ -188,39 +188,39 @@ void RoundRectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned 
     }   
 }   
 
-void Circle(unsigned int x, unsigned int y, unsigned int radius, unsigned char fill)   
-{   
-   signed int a, b, P;   
-   a = 0;   
-   b = radius;   
-   P = 1 - radius;   
-   
-   do   
-   {   
-      if(fill)   
-      {   
-         FillRectangle(x-a, y+b, x+a, y+b);   
-         FillRectangle(x-a, y-b, x+a, y-b);   
-         FillRectangle(x-b, y+a, x+b, y+a);   
-         FillRectangle(x-b, y-a, x+b, y-a);   
-      }   
-      else   
-      {   
-         PutPixel(a+x, b+y);   
-         PutPixel(b+x, a+y);   
-         PutPixel(x-a, b+y);   
-         PutPixel(x-b, a+y);   
-         PutPixel(b+x, y-a);   
-         PutPixel(a+x, y-b);   
-         PutPixel(x-a, y-b);   
-         PutPixel(x-b, y-a);   
-      }   
-   
-      if(P < 0)   
-         P+= 3 + 2*a++;   
-      else   
-         P+= 5 + 2*(a++ - b--);   
-    } while(a <= b);   
-}
 
+void Circle(unsigned int x, unsigned int y, unsigned int radius, unsigned char fill)
+{
+	signed int a, b, P;
+	a = 0;
+	b = radius;
+	P = 1 - radius;
+	
+	do
+	{
+		if(fill)
+		{
+			FillRectangle(x-a, y+b, x+a, y+b);
+			FillRectangle(x-a, y-b, x+a, y-b);
+			FillRectangle(x-b, y+a, x+b, y+a);
+			FillRectangle(x-b, y-a, x+b, y-a);
+		}
+		else
+		{
+			PutPixel(a+x, b+y);
+			PutPixel(b+x, a+y);
+			PutPixel(x-a, b+y);
+			PutPixel(x-b, a+y);
+			PutPixel(b+x, y-a);
+			PutPixel(a+x, y-b);
+			PutPixel(x-a, y-b);
+			PutPixel(x-b, y-a);
+		}
+		
+		if(P < 0)
+		P+= 3 + 2*a++;
+		else
+		P+= 5 + 2*(a++ - b--);
+	} while(a <= b);
+}
 

@@ -551,25 +551,29 @@ void ScanPen(void)
 void DrawDegrees(int r, int step){
 	
 	SetColor(TURQUOISE);
-	Circle(GetMaxX()/2, (GetMaxY()/2)+40, R, 1);
+	Circle(GetMaxX()/2, (GetMaxY()/2) + 40 ,r, 1);
 	int full;
+
 	for(full=0; full!=360; full=full+step){
-	
-		SetColor(CLOUDS);
-		Needle(full, R, 0);
-	
+		Needle(full, r, 0);
 	}
+	
 	SetColor(TURQUOISE);
-	Circle(GetMaxX()/2,GetMaxY()/2+40, R-5,1);
+	Circle(GetMaxX()/2,GetMaxY()/2 + 40, r-5,1);
 	
 }
+
 void Needle(float angle, int r, int fill)
 {
+	//north
 	float north = angle + 90 ;
 	if(north>360) north = north-360;
 	
 	north=deg2rad(north);
-
+	
+	float south=north+deg2rad(180);
+	if(south>360) north = north-360;
+		
 	float x1, x2, y1, y2, _x, _y;
 	
 	x1 = GetMaxX()/2;
@@ -604,7 +608,9 @@ void Needle(float angle, int r, int fill)
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 	
 	Line((int) _x, (int) _y, (int) x2, (int) y2);
-
+	SetColor(BLACK);
+	Circle(GetMaxX()/2,GetMaxY()/2 + 40, 1,1);
+	
 	////
 /*
 		for(north = north; north>a; north = north - deg2rad(0.1))
@@ -618,72 +624,125 @@ void Needle(float angle, int r, int fill)
 
 */
 	}
+	SetColor(CLOUDS);	
+	x1 = GetMaxX()/2;
+	y1 = GetMaxY()/2 + 40;
+
+	x2 = x1 + cos(south) * r;
+	y2 = y1 -( sin(south) * r);
+
+	if(!fill) Line((int) x1, (int) y1, (int) x2, (int) y2);
+
+	if(fill){
 	
+	south = south + deg2rad(180)- deg2rad(w);
+	//float a=north;
+	
+	x1 = x2;
+	y1 = y2;
+	
+	x2 =_x = x1 + cos(south) * r;
+	y2 =_y= y1 -( sin(south) * r);
+
+	Line((int) x1, (int) y1, (int) x2, (int) y2);
+
+	south = south+ 2*deg2rad(w);
+
+	x2 = x1 + cos(south) * r;
+	y2 = y1 -( sin(south) * r);
+
+	Line((int) x1, (int) y1, (int) x2, (int) y2);
+	
+	Line((int) _x, (int) _y, (int) x2, (int) y2);
+
+	}
 	
 }
+
 void showLiveCompass(){
 	
-
 	currentReading.lat[1] = '\0';
 	int firstShow = 1; /**< A flag showing if this is the first time showing the screen */
 	char str[20]; /**< A helper string used to store text that is to be shown on the screen */
 	char s[10];
 
-	SetColor(CLOUDS);
+	SetColor(CLOUDS); //CLOUDS
 	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
+	
 	SetColor(TURQUOISE);
+	Circle(GetMaxX()/2, (GetMaxY()/2) + 40 ,R, 1);
+
+	DrawDegrees(R,10);
+
+	SetColor(TURQUOISE);//TURQUOISE
 	BevelFill(0, 40, GetMaxX(), 80, 0);
-	SetColor(GREEN_SEA);
+	SetColor(GREEN_SEA);//GREEN_SEA
 	BevelFill(0, 40, 40, 80, 0);
 	
 	
-	SetFgColor(CLOUDS);
+	SetFgColor(CLOUDS);//CLOUDS
 	DrawText(0, 40, 40, 80, "<", ALINE_CENTER);
 	DrawText(0, 40, GetMaxX(), 80, "Live Compass", ALINE_CENTER);
-	SetColor(CLOUDS);
+	SetColor(CLOUDS);//CLOUDS
 	
-	DrawDegrees(R,10); //angle 40 test
-
+	
 
 	while(currentScreen == 1) {
 		
 		ScanPen();
-		//readGPS();
-		int fix=readGPRMC();
 
+		previousReading.speed = currentReading.speed;
+		previousReading.angle = currentReading.angle;
+	
+		int fix=readGPRMC();
+		
+	if( fix && ( (int)currentReading.angle != (int)previousReading.angle ||  (int)currentReading.speed != (int)previousReading.speed || firstShow ) ){
+		
 		memset(str, 0, 20);
 		
-		SetFgColor(WET_ASPHALT);
-		sprintf(str, "tra:%f         speed:%f", currentReading.angle, currentReading.speed);
+		SetFgColor(WET_ASPHALT);//WET_ASPHALT
+	/*	
+		if ((int)currentReading.speed != (int)previousReading.speed || firstShow) {
+			SetColor(CLOUDS);
 		
-		sprintf(str, "angle: ",  itoa((int)currentReading.angle,s,10) );
+			BevelFill(127, 83, GetMaxX(), 110, 0);
+			sprintf(str, "speed:%d", (int)currentReading.speed);
+			DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_RIGHT);
 		
-		if (currentReading.angle != previousReading.angle || firstShow) { //pobriši prošlo stanje
-			BevelFill(70, 83, 95, 110, 0);
 		}
-		if (currentReading.speed != previousReading.speed || firstShow) {
-			BevelFill(101, 83, 121, 110, 0);
+	*/	
+		
+		if (/*currentReading.speed>1 &&*/ ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
+		
+				SetColor(CLOUDS);
+				BevelFill(10, 83, GetMaxX()/2, 110, 0);
+				//sprintf(str, "tra:%d tra_ex: %d", (int)currentReading.angle,(int)previousReading.angle);
+				sprintf(str, "tra:%d ", (int)currentReading.angle);
+				DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_LEFT);
+				
+				BevelFill(127, 83, GetMaxX(), 110, 0);
+				sprintf(str, "ex:%d", (int)previousReading.angle);
+				DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_RIGHT);
+						
+				if(currentReading.angle<(float) 361 && currentReading.angle>(float) 0 ){
+					
+					SetColor(TURQUOISE); //pobrisi prosli kut
+					Circle(GetMaxX()/2,GetMaxY()/2+40, R-5,1);
+					SetColor(RED);
+					Needle(currentReading.angle,R-5,1);
+				
+				} 
+			}
+		
+			
+		
 		}
-		
-		BevelFill(127, 83, GetMaxX(), 110, 0);
-		DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_LEFT);
-		
-	
-		SetColor(TURQUOISE);
-		Circle(GetMaxX()/2,GetMaxY()/2+40, R-5,1);
-		
-		
-		SetColor(RED);
-		Needle(currentReading.angle,R-5,1);
-		/*for(angle=0;angle!=360;angle=angle+10){
-		Needle(angle,R-5,1);	
-		}*/
-		//Needle(40,R-5,1);	
-		SetColor(CLOUDS);	
-	}
 	
 	firstShow = 0;
-	
+		
+			
+	}
+		
 	
 }
 void showMenu() {
@@ -1140,12 +1199,9 @@ int readGPRMC() {
 					  sum ^= fullLine[i];
 				  }
 				  if (sum != 0) {
-					  // bad checksum :(
-					  //lcd_gotoxy(0,0);
-					  //lcd_puts("!bad check sum");
 					  return 0;
 				  }else{
-					  return 0;
+					  return 0; //Github Adafruit newest commit 8_2016
 				  }
 			  }
 			
@@ -1161,9 +1217,6 @@ int readGPRMC() {
 				// found RMC
 		
 				p = strstr(fullLine, "$GPRMC"); //1
-				
-				//strncpy(storesGPRMC, p, 20); 
-				
 				p = strchr(p, ',')+1;
 				strncpy(tHours, p, 2); // hours
 				p = p + 2;
@@ -1227,7 +1280,6 @@ int readGPRMC() {
 					currentReading.latitudeDegrees = (currentReading.latitude-100*(int)(currentReading.latitude/100))/60.0;
 					currentReading.latitudeDegrees += (int)(currentReading.latitude/100);
 						
-					//compass:
 				}
 				
 				
@@ -1267,9 +1319,11 @@ int readGPRMC() {
 				}
 				
 				p = strchr(p, ',')+1;
+				
 				if (',' != *p)
 				{
-					previousReading.speed = currentReading.speed;
+					//parse out speed
+					//previousReading.speed = currentReading.speed;
 					currentReading.speed = atof(p);
 					strncpy(storesGPRMC, p, 20); 
 				}
@@ -1277,9 +1331,8 @@ int readGPRMC() {
 				p = strchr(p, ',')+1;
 				if (',' != *p)
 				{	
-					previousReading.angle = currentReading.angle;
+					//previousReading.angle = currentReading.angle;
 					currentReading.angle = atof(p);
-					//tracking angle!
 				}
 				p = strchr(p, ',')+1;
 				
