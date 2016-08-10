@@ -35,6 +35,7 @@
 #define pi 3.14159265358979323846 /**< Value of the PI constant */
 
 #define R 90
+#define LOWER 50
 const long chalfx = TS_SIZE_X/2;
 const long chalfy = TS_SIZE_Y/2;
 
@@ -550,16 +551,17 @@ void ScanPen(void)
 
 void DrawDegrees(int r, int step){
 	
-	SetColor(TURQUOISE);
-	Circle(GetMaxX()/2, (GetMaxY()/2) + 40 ,r, 1);
-	int full;
+	//SetColor(TURQUOISE);
+	//Circle(GetMaxX()/2, (GetMaxY()/2) + LOWER ,r, 1);
 
+	int full;
+	SetColor(BLACK);
 	for(full=0; full!=360; full=full+step){
-		Needle(full, r, 0);
+		Needle(full, r+10, 0);
 	}
 	
 	SetColor(TURQUOISE);
-	Circle(GetMaxX()/2,GetMaxY()/2 + 40, r-5,1);
+	Circle(GetMaxX()/2,GetMaxY()/2 + LOWER, r-5,1);
 	
 }
 
@@ -577,7 +579,7 @@ void Needle(float angle, int r, int fill)
 	float x1, x2, y1, y2, _x, _y;
 	
 	x1 = GetMaxX()/2;
-	y1 = GetMaxY()/2 + 40;
+	y1 = GetMaxY()/2 + LOWER;
 
 	x2 = x1 + cos(north) * r;
 	y2 = y1 -( sin(north) * r);
@@ -608,9 +610,6 @@ void Needle(float angle, int r, int fill)
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 	
 	Line((int) _x, (int) _y, (int) x2, (int) y2);
-	SetColor(BLACK);
-	Circle(GetMaxX()/2,GetMaxY()/2 + 40, 1,1);
-	
 	////
 /*
 		for(north = north; north>a; north = north - deg2rad(0.1))
@@ -624,17 +623,17 @@ void Needle(float angle, int r, int fill)
 
 */
 	}
-	SetColor(CLOUDS);	
+	
 	x1 = GetMaxX()/2;
-	y1 = GetMaxY()/2 + 40;
+	y1 = GetMaxY()/2 + LOWER;
 
 	x2 = x1 + cos(south) * r;
 	y2 = y1 -( sin(south) * r);
 
-	if(!fill) Line((int) x1, (int) y1, (int) x2, (int) y2);
+	//if(!fill) Line((int) x1, (int) y1, (int) x2, (int) y2);
 
 	if(fill){
-	
+	SetColor(CLOUDS);
 	south = south + deg2rad(180)- deg2rad(w);
 	//float a=north;
 	
@@ -663,14 +662,15 @@ void showLiveCompass(){
 	
 	currentReading.lat[1] = '\0';
 	int firstShow = 1; /**< A flag showing if this is the first time showing the screen */
+	int no_speed = 0; 
 	char str[20]; /**< A helper string used to store text that is to be shown on the screen */
 	char s[10];
 
 	SetColor(CLOUDS); //CLOUDS
 	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
 	
-	SetColor(TURQUOISE);
-	Circle(GetMaxX()/2, (GetMaxY()/2) + 40 ,R, 1);
+	//SetColor(TURQUOISE);
+	//Circle(GetMaxX()/2, (GetMaxY()/2) + LOWER ,R, 1);
 
 	DrawDegrees(R,10);
 
@@ -701,42 +701,53 @@ void showLiveCompass(){
 		memset(str, 0, 20);
 		
 		SetFgColor(WET_ASPHALT);//WET_ASPHALT
-	/*	
+
 		if ((int)currentReading.speed != (int)previousReading.speed || firstShow) {
 			SetColor(CLOUDS);
 		
 			BevelFill(127, 83, GetMaxX(), 110, 0);
 			sprintf(str, "speed:%d", (int)currentReading.speed);
-			DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_RIGHT);
+			DrawText(20, 90, GetMaxX() - 20, 100, str, ALINE_RIGHT);
 		
 		}
-	*/	
+
 		
-		if (/*currentReading.speed>1 &&*/ ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
-		
-				SetColor(CLOUDS);
-				BevelFill(10, 83, GetMaxX()/2, 110, 0);
-				//sprintf(str, "tra:%d tra_ex: %d", (int)currentReading.angle,(int)previousReading.angle);
-				sprintf(str, "tra:%d ", (int)currentReading.angle);
-				DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_LEFT);
+		if (currentReading.speed>1 && ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
+			
+			if(currentReading.speed>1)no_speed=0;
+				else no_speed=1;
 				
-				BevelFill(127, 83, GetMaxX(), 110, 0);
-				sprintf(str, "ex:%d", (int)previousReading.angle);
-				DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_RIGHT);
-						
-				if(currentReading.angle<(float) 361 && currentReading.angle>(float) 0 ){
+			if(currentReading.angle<(float) 361 && currentReading.angle>(float) 0 ){
+			
+					SetColor(CLOUDS);
+					BevelFill(10, 83, 130, 110, 0);
+					
+					sprintf(str, "tra:%d ", (int)currentReading.angle);
+					DrawText(20, 90, GetMaxX() - 20, 100, str, ALINE_LEFT);
+					/*
+					BevelFill(127, 83, GetMaxX(), 110, 0);
+					sprintf(str, "ex:%d", (int)previousReading.angle);
+					DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_RIGHT);
+					*/		
 					
 					SetColor(TURQUOISE); //pobrisi prosli kut
-					Circle(GetMaxX()/2,GetMaxY()/2+40, R-5,1);
+					Circle(GetMaxX()/2,GetMaxY()/2+LOWER, R-5,1);
 					SetColor(RED);
 					Needle(currentReading.angle,R-5,1);
 				
-				} 
-			}
+			} 
+		}
 		
 			
 		
-		}
+	}else if( no_speed!=1 && currentReading.speed<1){
+		
+		no_speed=1;
+		BevelFill(10, 83, 130, 110, 0);
+		SetFgColor(RED);
+		sprintf(str,"Gain speed");
+		DrawText(10, 90, GetMaxX() - 20, 100, str, ALINE_LEFT);
+	}
 	
 	firstShow = 0;
 		
