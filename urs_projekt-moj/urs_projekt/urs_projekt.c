@@ -36,6 +36,8 @@
 
 #define R 90
 #define LOWER 50
+#define minSpeed 0.7
+
 const long chalfx = TS_SIZE_X/2;
 const long chalfy = TS_SIZE_Y/2;
 
@@ -84,7 +86,7 @@ void Needle(float angle, int r, int fill);
 void DrawDegrees(int r, int step);
 
 void showLiveCompass();
-
+void test_circle();
 
 /**
  * @brief A function for showing distances from the current GPS location to some hardcoded cities on a dedicated screen.
@@ -359,36 +361,40 @@ void ScanPen(void)
 
 				if (p_stat == PST_DOWN)
 				{
-					
 					switch (currentScreen) {
 						case 0:
-						if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 62 && hpos <= 117) {
+						if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 45 && hpos <= 95) {
 							SetColor(GREEN_SEA);
-							FillRectangle(GetMaxX() - 5, 62, GetMaxX(), 117);
+							FillRectangle(GetMaxX() - 5, 45, GetMaxX(), 95);
 							SetColor(CLOUDS);
 							currentScreen = 1;
-							//showLiveGPS();
-							showLiveCompass();
-							} else if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 122 && hpos <= 177) {
+							showLiveGPS();
+							} else if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 100 && hpos <= 150) {
 							SetColor(GREEN_SEA);
-							FillRectangle(GetMaxX() - 5, 122, GetMaxX(), 177);
+							FillRectangle(GetMaxX() - 5, 100, GetMaxX(), 150);
 							SetColor(CLOUDS);
 							currentScreen = 2;
 							BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
 							showDistances();
-							//showLiveCompass();
-							} else if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 182 && hpos <= 237) {
+							} else if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 155 && hpos <= 205) {
 							SetColor(GREEN_SEA);
-							FillRectangle(GetMaxX() - 5, 182, GetMaxX(), 237);
+							FillRectangle(GetMaxX() - 5, 155, GetMaxX(), 205);
 							SetColor(CLOUDS);
 							currentScreen = 4;
 							showAltitude();
-							} else if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 242 && hpos <= 297) {
-							SetColor(GREEN_SEA);
-							FillRectangle(GetMaxX() - 5, 242, GetMaxX(), 297);
+							} else if (vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 210 && hpos <= 260) {
+							//SetColor(GREEN_SEA);
+							//FillRectangle(GetMaxX() - 5, 210, GetMaxX(), 260);
 							SetColor(CLOUDS);
 							currentScreen = 5;
-							showCalc(); 
+							break;
+							//showCalc(); 
+							} else if(vpos >= 5 && vpos <= GetMaxX() - 5 && hpos >= 265 && hpos <= 315){
+							SetColor(GREEN_SEA);
+							FillRectangle(GetMaxX() - 5, 265, GetMaxX(), 315);
+							SetColor(CLOUDS);
+							currentScreen = 6;
+							showLiveCompass();
 						}
 						break;
 						case 1:
@@ -441,7 +447,7 @@ void ScanPen(void)
 							showMenu();
 						}
 						break;
-						case 5:
+						case 5:/*
 						if (vpos >= 0 && vpos <= 40 && hpos >= 40 && hpos <= 80) {
 							SetColor(WET_ASPHALT);
 							FillRectangle(0, 40, 40, 80);
@@ -521,7 +527,19 @@ void ScanPen(void)
 							} else if (focusedField < 2 && vpos >= 195 && vpos <= GetMaxX() - 10 && hpos >= GetMaxY() - 45 && hpos <= GetMaxY() - 10) {
 							focusedField++;
 							} else if (focusedField >= 2 && vpos >= 0 && vpos <= GetMaxX() && hpos >= GetMaxY() - 50 && hpos <= GetMaxY()) {
-							showCalc();
+							//showCalc();
+						}*/
+						break;
+						case 6:  
+						
+						if (vpos >= 0 && vpos <= 40 && hpos >= 40 && hpos <= 80) {
+							SetColor(WET_ASPHALT);
+							FillRectangle(0, 40, 40, 80);
+							SetFgColor(CLOUDS);
+							DrawText(0, 40, 40, 80, "<", ALINE_CENTER);
+							SetColor(CLOUDS);
+							currentScreen = 0;
+							showMenu();
 						}
 						break;
 					}
@@ -657,37 +675,41 @@ void Needle(float angle, int r, int fill)
 	}
 	
 }
-
+void test_circle(){
+	SetColor(CLOUDS); //CLOUDS
+	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
+	while(1){
+		SetColor(TURQUOISE); //CLOUDS		
+		Circle(GetMaxX()/2, GetMaxY()/2,80,1);
+	}
+}
 void showLiveCompass(){
 	
 	currentReading.lat[1] = '\0';
 	int firstShow = 1; /**< A flag showing if this is the first time showing the screen */
 	int no_speed = 0; 
 	char str[20]; /**< A helper string used to store text that is to be shown on the screen */
-	char s[10];
 
 	SetColor(CLOUDS); //CLOUDS
 	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
 	
-	//SetColor(TURQUOISE);
-	//Circle(GetMaxX()/2, (GetMaxY()/2) + LOWER ,R, 1);
 
-	DrawDegrees(R,10);
-
-	SetColor(TURQUOISE);//TURQUOISE
+	SetColor(CLOUDS);
+	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
+	SetColor(TURQUOISE);
 	BevelFill(0, 40, GetMaxX(), 80, 0);
-	SetColor(GREEN_SEA);//GREEN_SEA
+	SetColor(GREEN_SEA);
 	BevelFill(0, 40, 40, 80, 0);
-	
-	
-	SetFgColor(CLOUDS);//CLOUDS
+		
+		
+	SetFgColor(CLOUDS);
 	DrawText(0, 40, 40, 80, "<", ALINE_CENTER);
 	DrawText(0, 40, GetMaxX(), 80, "Live Compass", ALINE_CENTER);
-	SetColor(CLOUDS);//CLOUDS
-	
-	
+	SetColor(CLOUDS);
+		
+	DrawDegrees(R,10);
 
-	while(currentScreen == 1) {
+	while(currentScreen == 6) {
 		
 		ScanPen();
 
@@ -706,15 +728,15 @@ void showLiveCompass(){
 			SetColor(CLOUDS);
 		
 			BevelFill(127, 83, GetMaxX(), 110, 0);
-			sprintf(str, "speed:%d", (int)currentReading.speed);
+			sprintf(str, "speed:%d", (int)currentReading.speed /* * 1.85200*/);
 			DrawText(20, 90, GetMaxX() - 20, 100, str, ALINE_RIGHT);
-		
+			//1 knots =	1.85200 kilometers per hour
 		}
 
 		
-		if (currentReading.speed>1 && ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
+		if (currentReading.speed>minSpeed && ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
 			
-			if(currentReading.speed>1)no_speed=0;
+			if(currentReading.speed>minSpeed)no_speed=0;
 				else no_speed=1;
 				
 			if(currentReading.angle<(float) 361 && currentReading.angle>(float) 0 ){
@@ -740,9 +762,10 @@ void showLiveCompass(){
 		
 			
 		
-	}else if( no_speed!=1 && currentReading.speed<1){
+	}else if( no_speed!=1 && currentReading.speed<minSpeed){
 		
 		no_speed=1;
+		SetColor(CLOUDS);
 		BevelFill(10, 83, 130, 110, 0);
 		SetFgColor(RED);
 		sprintf(str,"Gain speed");
@@ -763,29 +786,35 @@ void showMenu() {
 	currentScreen = 0;
 	SetColor(CLOUDS);
 	BevelFill(0, 40, GetMaxX(), GetMaxY(), 0);
+	
 	SetColor(TURQUOISE);
-	FillRectangle(5, 62, GetMaxX() - 5, 117);
-	FillRectangle(5, 122, GetMaxX() - 5, 177);
-	FillRectangle(5, 182, GetMaxX() -5, 237);
-	FillRectangle(5, 242, GetMaxX() -5, 297);
+	FillRectangle(5, 45, GetMaxX() - 5, 95); 
+	FillRectangle(5, 100, GetMaxX() - 5, 150);
+	FillRectangle(5, 155, GetMaxX() - 5, 205);
+	FillRectangle(5, 210, GetMaxX() - 5, 260);
+	FillRectangle(5, 265, GetMaxX() - 5, 315);
 	
 	SetColor(GREEN_SEA);
-	FillRectangle(GetMaxX() - 60, 62, GetMaxX() - 5, 117);
-	FillRectangle(GetMaxX() - 60, 122, GetMaxX() - 5, 177);
-	FillRectangle(GetMaxX() - 60, 182, GetMaxX() -5, 237);
-	FillRectangle(GetMaxX() - 60, 242, GetMaxX() -5, 297);
+	FillRectangle(GetMaxX() - 60, 45, GetMaxX() - 5, 95);
+	FillRectangle(GetMaxX() - 60, 100, GetMaxX() - 5, 150);
+	FillRectangle(GetMaxX() - 60, 155, GetMaxX() - 5, 205);
+	FillRectangle(GetMaxX() - 60, 210, GetMaxX() - 5, 260);
+	FillRectangle(GetMaxX() - 60, 265, GetMaxX() - 5, 315);
+	
 	
 	SetFgColor(CLOUDS);
-	DrawText(25, 62, GetMaxX() - 5, 114, "Live GPS", ALINE_LEFT);
-	DrawText(25, 122, GetMaxX() - 5, 174, "Distances", ALINE_LEFT);
-	DrawText(25, 182, GetMaxX() -5, 234, "Altitude", ALINE_LEFT);
-	DrawText(25, 242, GetMaxX() -5, 294, "Distance Calc.", ALINE_LEFT); 
+	DrawText(25, 45, GetMaxX() - 5, 95, "Live GPS", ALINE_LEFT);
+	DrawText(25, 100, GetMaxX() - 5, 150, "Distances", ALINE_LEFT);
+	DrawText(25, 155, GetMaxX() -5, 205, "Altitude", ALINE_LEFT);
+	DrawText(25, 210, GetMaxX() -5, 260, "Distance Calc.", ALINE_LEFT);
+	DrawText(25, 265, GetMaxX() -5, 315, "Live Compass", ALINE_LEFT);
 	
 	
-	DrawText(GetMaxX() - 60, 62, GetMaxX() - 5, 114, ">", ALINE_CENTER);
-	DrawText(GetMaxX() - 60, 122, GetMaxX() - 5, 174, ">", ALINE_CENTER);
-	DrawText(GetMaxX() - 60, 182, GetMaxX() -5, 234, ">", ALINE_CENTER);
-	DrawText(GetMaxX() - 60, 242, GetMaxX() -5, 294, ">", ALINE_CENTER);
+	DrawText(GetMaxX() - 60, 45, GetMaxX() - 5, 95, ">", ALINE_CENTER);
+	DrawText(GetMaxX() - 60, 100, GetMaxX() - 5, 150, ">", ALINE_CENTER);
+	DrawText(GetMaxX() - 60, 155, GetMaxX() -5, 205, ">", ALINE_CENTER);
+	DrawText(GetMaxX() - 60, 210, GetMaxX() -5, 260, ">", ALINE_CENTER);
+	DrawText(GetMaxX() - 60, 265, GetMaxX() -5, 315, ">", ALINE_CENTER);
 	
 	
 	
@@ -836,7 +865,7 @@ void showMenu() {
 					showMenu();
 				}
 				*/
-}
+	}
 
 }
 
@@ -928,7 +957,7 @@ void readGPS() {
 			memset(degreebuff, 0, 10);
 			memset(currentReading.lat, 0, 1);
 			
-			/*
+			
 			if (strstr(fullLine, "$GPGGA")) {
 				// found GGA
 				p = strstr(fullLine, "$GPGGA");
@@ -1045,117 +1074,6 @@ void readGPS() {
 				 p = strchr(p, ',')+1;
 
 			} 
-			*/
-		/**get $GPRMC**/
-			
-			if (strstr(fullLine, "$GPRMC")) {
-				// found RMC
-				p = strstr(fullLine, "$GPRMC"); //1
-				p = strchr(p, ',')+1;
-				strncpy(tHours, p, 2); // hours
-				p = p + 2;
-				strncpy(tMinutes, p, 2); // minutes
-				p = p + 2;
-				strncpy(tSeconds, p, 2); // seconds
-				previousReading.hours = currentReading.hours;
-				currentReading.hours = atoi(tHours);
-				previousReading.minutes = currentReading.minutes;
-				currentReading.minutes = atoi(tMinutes);
-				currentReading.seconds = atoi(tSeconds);
-				
-				if (currentReading.hours < 22) {
-					currentReading.hours = currentReading.hours + 2;
-					} else if (currentReading.hours == 22){
-					currentReading.hours = 0;
-					} else {
-					currentReading.hours = 1;
-				}
-				
-				p = strchr(p, ',')+1; //2
-				if (p[0] == 'A')
-				{
-					currentReading.fix = 1;
-					currentReading.fixquality=1;
-				}
-				else if (p[0] == 'V')
-				{
-					currentReading.fix = 0;
-					currentReading.fixquality=0;
-				}
-				p = strchr(p, ',')+1; //3
-				
-				if (',' != *p)
-				{
-					strncpy(degreebuff, p, 2);
-					p += 2;
-					degreebuff[2] = '\0';
-					degree = atol(degreebuff) * 10000000;
-					strncpy(degreebuff, p, 2); // minutes
-					p += 3; // skip decimal point
-					strncpy(degreebuff + 2, p, 4);
-					degreebuff[6] = '\0';
-					
-					currentReading.minutesLat = 50 * atol(degreebuff) / 3;
-					previousReading.latitude = currentReading.latitude;
-					currentReading.latitude = degree / 100000 + currentReading.minutesLat * 0.000006F;
-					currentReading.latitudeDegrees = (currentReading.latitude-100*(int)(currentReading.latitude/100))/60.0;
-					currentReading.latitudeDegrees += (int)(currentReading.latitude/100);
-					currentReading.latitude_fixed = degree + currentReading.minutesLat;
-					
-				}
-				
-				
-				p = strchr(p, ',')+1; //4
-				if (',' != *p)
-				{
-					if (p[0] == 'S') currentReading.latitudeDegrees *= -1.0;
-					if (p[0] == 'N') currentReading.lat[0] = 'N';
-					else if (p[0] == 'S') currentReading.lat[0] = 'S';
-					else if (p[0] == ',') currentReading.lat[0] = '/';
-				}
-				
-				// parse out longitude
-				p = strchr(p, ',')+1; //5
-				if (',' != *p)
-				{
-					strncpy(degreebuff, p, 3);
-					p += 3;
-					degreebuff[3] = '\0';
-					degree = atol(degreebuff) * 10000000;
-					strncpy(degreebuff, p, 2); // minutes
-					p += 3; // skip decimal point
-					strncpy(degreebuff + 2, p, 4);
-					degreebuff[6] = '\0';
-						
-					currentReading.minutesLon = 50 * atol(degreebuff) / 3;
-					previousReading.longitude = currentReading.longitude;
-					currentReading.longitude = degree / 100000 + currentReading.minutesLon * 0.000006F;
-					currentReading.longitudeDegrees = (currentReading.longitude-100*(int)(currentReading.longitude/100))/60.0;
-					currentReading.longitudeDegrees += (int)(currentReading.longitude/100);
-					currentReading.longitude_fixed = degree + currentReading.minutesLon;
-				}
-				p = strchr(p, ',')+1;
-				if (',' != *p)
-				{
-					if (p[0] == 'W') currentReading.longitudeDegrees *= -1.0;
-				}
-				
-				p = strchr(p, ',')+1;
-				if (',' != *p)
-				{
-					currentReading.speed = atof(p);
-				}
-				
-				p = strchr(p, ',')+1;
-				if (',' != *p)
-				{
-					currentReading.angle = atof(p);
-					//tracking angle!
-				}
-				p = strchr(p, ',')+1;
-				
-				
-			}
 		
 		}
 		
@@ -1380,14 +1298,14 @@ void showLiveGPS() {
 	while(currentScreen == 1) {
 		
 		ScanPen();
-		//readGPS();
-		int fix=readGPRMC();
+		readGPS();
+		//int fix=readGPRMC();
 
 				memset(str, 0, 20);
 				
 				SetFgColor(WET_ASPHALT);
-				//sprintf(str, "Time: %02d:%02d:%02d", currentReading.hours, currentReading.minutes, currentReading.seconds);
-				sprintf(str, "tra:%f speed:%f", currentReading.angle, currentReading.speed);	
+				sprintf(str, "Time: %02d:%02d:%02d", currentReading.hours, currentReading.minutes, currentReading.seconds);
+				//sprintf(str, "tra:%f speed:%f", currentReading.angle, currentReading.speed);	
 				if (currentReading.hours != previousReading.hours || firstShow) { //pobriši prošlo stanje
 					BevelFill(70, 83, 95, 110, 0);
 				}
@@ -1567,8 +1485,7 @@ void showAltitude() {
 		memset(str, 0, 20);
 	
 				SetFgColor(WET_ASPHALT);
-				
-				
+
 				if ((currentReading.altitude != previousReading.altitude || firstShow) && currentReading.altitude > 0) {
 
 					SetColor(CLOUDS);
@@ -1584,7 +1501,7 @@ void showAltitude() {
 					DrawText(15, GetMaxY() - 60 - (int) (currentReading.altitude * 0.163), GetMaxX(), GetMaxY() - 50 - (int) (currentReading.altitude * 0.163), str, ALINE_LEFT);
 					Line(6, GetMaxY() - 40 - (int) (currentReading.altitude * 0.163), 100, GetMaxY() - 40 - (int) (currentReading.altitude * 0.163));
 					Line(GetMaxX() - 6, GetMaxY() - 40 - (int) (currentReading.altitude * 0.163), GetMaxX() - 101, GetMaxY() - 40 - (int) (currentReading.altitude * 0.163));
-					//Circle(GetMaxX() / 2, GetMaxY() - 40 - (int) (currentReading.altitude * 0.163), 5, 1);
+					Circle(GetMaxX() / 2, GetMaxY() - 40 - (int) (currentReading.altitude * 0.163), 5, 1);
 
 				}
 				
@@ -1594,8 +1511,10 @@ void showAltitude() {
 
 void showCalc() {
 	/*
-	currentReading.lat[1] = '\0';
 	int firstShow = 1; 
+	
+	currentReading.lat[1] = '\0';
+	
 	char str[20]; 
 	double latDouble; 
 	double lonDouble; 
@@ -1610,6 +1529,7 @@ void showCalc() {
 	FillRectangle(0, 40, 40, 80);
 	SetFgColor(CLOUDS);
 	DrawText(0, 40, 40, 80, "<", ALINE_CENTER);
+
 	DrawText(0, 40, GetMaxX(), 80, "Distance Calc.", ALINE_CENTER);
 	SetColor(CLOUDS);
 	BevelFill(0, 81, GetMaxX(), GetMaxY(), 0);
@@ -1670,7 +1590,7 @@ void showCalc() {
 	while(1) {
 		
 		ScanPen();
-		
+	
 		memset(str, 0, 20);
 		
 		SetFgColor(WET_ASPHALT);
@@ -1724,9 +1644,9 @@ void showCalc() {
 			memset(str, 0, 20);
 			sprintf(str, "%s", longitudeInput);
 			DrawText(10, 120, GetMaxX() - 5, 150, str, ALINE_LEFT);
-		
+			
 		firstShow = 1;
-		
+	
 	}*/
 }
 
