@@ -1,0 +1,480 @@
+\hypertarget{font_8h}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/font.h File Reference}
+\label{font_8h}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/font.\+h@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/font.\+h}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{font_8h_a013857b0cfa308ff06c920bed3ac3268}{A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T}~0
+\item 
+\#define \hyperlink{font_8h_a3c679771776cd77293f2ee8ad992eeaf}{A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R}~1
+\item 
+\#define \hyperlink{font_8h_af395b2b1ffe32ddb615d34bdae4692a6}{A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T}~2
+\item 
+\#define \hyperlink{font_8h_af2984900459f2a8478a208c9fa916e95}{Get\+Cursor\+X}()~\hyperlink{font_8h_a31b3e0f195ebe68aeeaab5a2805b362a}{cursor\+X}
+\item 
+\#define \hyperlink{font_8h_a288c82ea7ac5df48fe5c4c75de8062fe}{Get\+Cursor\+Y}()~\hyperlink{font_8h_afeb0001391a3ce8a4043f3a6dfc4fb5e}{cursor\+Y}
+\item 
+\#define \hyperlink{font_8h_a2a721fb5260d320bc3a66a5faa11268b}{Set\+Cursor\+X}(x)~\hyperlink{font_8h_a31b3e0f195ebe68aeeaab5a2805b362a}{cursor\+X} = x
+\item 
+\#define \hyperlink{font_8h_aa2bc9e00b6c73e047343efd184f064d1}{Set\+Cursor\+Y}(y)~\hyperlink{font_8h_afeb0001391a3ce8a4043f3a6dfc4fb5e}{cursor\+Y} = y
+\item 
+\#define \hyperlink{font_8h_a11564a0c0ae8e34bf16da5fc2155d608}{Set\+Cursor}(x,  y)~\{\hyperlink{font_8h_a31b3e0f195ebe68aeeaab5a2805b362a}{cursor\+X} = x; \hyperlink{font_8h_afeb0001391a3ce8a4043f3a6dfc4fb5e}{cursor\+Y} = y;\}
+\item 
+\#define \hyperlink{font_8h_a0b487edc697664a2222f5ce6dd001c6c}{Lcd\+Rot}(n)~\hyperlink{font_8h_ad60cbe58e4e297fd42c0891c4fc2d290}{rot} = n
+\item 
+\#define \hyperlink{font_8h_a8b675b7d72a1dd43811340823a3966af}{Lcd\+Font\+Fixed}(n)~\hyperlink{font_8h_a6dd56539d1ca92245b880fb10f414887}{Font\+Fixed} = n
+\item 
+\#define \hyperlink{font_8h_aa97840147170c14aa3f4553f1a6fc869}{Lcd\+Non\+Transparence}(n)~Non\+Transparenz = n
+\item 
+\#define \hyperlink{font_8h_a5e705e0454f90b6ae171b3b5c32996fa}{Set\+Fg\+Color}(n)~\hyperlink{font_8h_a195f0db2fa98af670b120f35349b2086}{Fg\+Color} = n
+\item 
+\#define \hyperlink{font_8h_ab5a31dfe04a40a3d7b49de6e9f5dbe26}{Set\+Bk\+Color}(n)~\hyperlink{font_8h_a1d6424906df5072a8b98f6f9d816d075}{Bk\+Color} = n
+\item 
+\#define \hyperlink{font_8h_ab1295200dc2aa61da5cfa9dc71773b28}{Get\+Fg\+Color}()~\hyperlink{font_8h_a195f0db2fa98af670b120f35349b2086}{Fg\+Color}
+\item 
+\#define \hyperlink{font_8h_ab3269b8497d3bec51e1b67647e343077}{Get\+Bk\+Color}()~\hyperlink{font_8h_a1d6424906df5072a8b98f6f9d816d075}{Bk\+Color}
+\item 
+\#define \hyperlink{font_8h_aeb0da9d0c7574c8cffbdf4323930e271}{Lcd\+Font\+X\+Scale}(n)~\hyperlink{font_8h_a191ad500e2c744ff7f535fa7e5edc8ff}{Font\+X\+Scale} = n
+\item 
+\#define \hyperlink{font_8h_a8758b20e1d8f60c3cdbe7fd7b7ac9cde}{Lcd\+Font\+Y\+Scale}(n)~\hyperlink{font_8h_a014c9d60e5be295c9a3aef6253eed2a0}{Font\+Y\+Scale} = n
+\item 
+\#define \hyperlink{font_8h_ace5ef80ac7cee6ab6f8cb03fbfbac7a9}{Lcd\+Font\+Space}(n)~\hyperlink{font_8h_af2cbfe329b4ba66cd2686939b21cb0df}{Font\+Space}  = n
+\item 
+\#define \hyperlink{font_8h_aa1df4c4238d9bdb3e83ce5a5b93c7d98}{Lcd\+Font\+Width}()~\hyperlink{font_8h_a021249d2eb1fb7335050c2e883335f5b}{Font\+Width}
+\item 
+\#define \hyperlink{font_8h_a8b2d3e43260aa248045fc6c0ca0efb49}{Lcd\+Font\+Height}()~\hyperlink{font_8h_a62f376116f9d475e50cf9f8c73b7d5c4}{Font\+Height}
+\item 
+\#define \hyperlink{font_8h_ad3bbfe5dac848c97af7051a28e52c432}{Draw\+String\+At}(x,  y,  s)~\hyperlink{font_8h_a2a721fb5260d320bc3a66a5faa11268b}{Set\+Cursor\+X}(x); \hyperlink{font_8h_aa2bc9e00b6c73e047343efd184f064d1}{Set\+Cursor\+Y}(y); \hyperlink{font_8h_a61dc643cdd2a1e0a5f8dc9fcf6f72ee1}{Draw\+Str}(s)
+\item 
+\#define \hyperlink{font_8h_adcf13077c57464c15f0e6acd3ae8016c}{Draw\+String\+At\+P}(x,  y,  s)~\hyperlink{font_8h_a2a721fb5260d320bc3a66a5faa11268b}{Set\+Cursor\+X}(x); \hyperlink{font_8h_aa2bc9e00b6c73e047343efd184f064d1}{Set\+Cursor\+Y}(y); \hyperlink{font_8h_a8682bf821ce8edbe7c92f4eec5b73699}{Draw\+Str\+P}(s)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{font_8h_aa80237c6f19aaeca9b1c1c0c9781fbfa}{Lcd\+Font} (uint8\+\_\+t $\ast$pointer)
+\begin{DoxyCompactList}\small\item\em Set lcd font. \end{DoxyCompactList}\item 
+void \hyperlink{font_8h_ad5f521ad3ea5a61ea2d741bb4d5abb29}{Lcd\+Rot} (uint8\+\_\+t r)
+\item 
+void \hyperlink{font_8h_adeb8ae328bc298d0a7aaffb49c609447}{Lcd\+Font\+Fixed} (uint8\+\_\+t typ)
+\item 
+void \hyperlink{font_8h_a695fa410d9b0912a8df0b2383a71f939}{Lcd\+Non\+Transparence} (uint8\+\_\+t nt)
+\item 
+void \hyperlink{font_8h_a4d6420394d14001a2dea6454698f47d7}{Lcd\+Fg\+Color} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Set font color. \end{DoxyCompactList}\item 
+void \hyperlink{font_8h_ae70a635e387612643c99f4fc9e16acc6}{Lcd\+Bk\+Color} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Set background color. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{font_8h_ad42677c472344ed2d3b57688a5c0a444}{Draw\+Char} (uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Draw a char. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{font_8h_a61dc643cdd2a1e0a5f8dc9fcf6f72ee1}{Draw\+Str} (char $\ast$c)
+\begin{DoxyCompactList}\small\item\em Draw a string. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{font_8h_a8682bf821ce8edbe7c92f4eec5b73699}{Draw\+Str\+P} (char $\ast$Text)
+\item 
+unsigned int \hyperlink{font_8h_abfcc1ee7d5c12775f4e4fde03158a62b}{Calc\+Text\+Width} (char $\ast$Text)
+\begin{DoxyCompactList}\small\item\em Calculate the width of a string. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{font_8h_a15309fa52fbdc936dabe70a3858818bb}{Calc\+Text\+Height} (char $\ast$Text)
+\begin{DoxyCompactList}\small\item\em Calculate the height of a string. \end{DoxyCompactList}\item 
+void \hyperlink{font_8h_a81c1f29eb5be83b4d7acc27eff070d45}{Draw\+Text} (uint16\+\_\+t left, uint16\+\_\+t top, uint16\+\_\+t right, uint16\+\_\+t bottom, char $\ast$Text, uint8\+\_\+t aline)
+\begin{DoxyCompactList}\small\item\em Draw text on a screen. \end{DoxyCompactList}\item 
+void \hyperlink{font_8h_ab68a2197105e0a21c64cec87867bd6ee}{Draw\+Text\+P} (uint16\+\_\+t left, uint16\+\_\+t top, uint16\+\_\+t right, uint16\+\_\+t bottom, const char $\ast$Text, uint8\+\_\+t aline)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_ad60cbe58e4e297fd42c0891c4fc2d290}{rot}
+\item 
+uint16\+\_\+t \hyperlink{font_8h_a195f0db2fa98af670b120f35349b2086}{Fg\+Color}
+\item 
+uint16\+\_\+t \hyperlink{font_8h_a1d6424906df5072a8b98f6f9d816d075}{Bk\+Color}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_a6dd56539d1ca92245b880fb10f414887}{Font\+Fixed}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_abc7c4d8e80ef62cd26b71c61eba5782b}{Non\+Transparence}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_a021249d2eb1fb7335050c2e883335f5b}{Font\+Width}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_a62f376116f9d475e50cf9f8c73b7d5c4}{Font\+Height}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_a191ad500e2c744ff7f535fa7e5edc8ff}{Font\+X\+Scale}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_a014c9d60e5be295c9a3aef6253eed2a0}{Font\+Y\+Scale}
+\item 
+uint8\+\_\+t \hyperlink{font_8h_af2cbfe329b4ba66cd2686939b21cb0df}{Font\+Space}
+\item 
+unsigned int \hyperlink{font_8h_a31b3e0f195ebe68aeeaab5a2805b362a}{cursor\+X}
+\item 
+unsigned int \hyperlink{font_8h_afeb0001391a3ce8a4043f3a6dfc4fb5e}{cursor\+Y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{font_8h_a3c679771776cd77293f2ee8ad992eeaf}{}\index{font.\+h@{font.\+h}!A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R@{A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R}}
+\index{A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R@{A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R}!font.\+h@{font.\+h}}
+\subsubsection[{A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+N\+E\+\_\+\+C\+E\+N\+T\+E\+R~1}\label{font_8h_a3c679771776cd77293f2ee8ad992eeaf}
+\hypertarget{font_8h_a013857b0cfa308ff06c920bed3ac3268}{}\index{font.\+h@{font.\+h}!A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T@{A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T}}
+\index{A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T@{A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T}!font.\+h@{font.\+h}}
+\subsubsection[{A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+N\+E\+\_\+\+L\+E\+F\+T~0}\label{font_8h_a013857b0cfa308ff06c920bed3ac3268}
+\hypertarget{font_8h_af395b2b1ffe32ddb615d34bdae4692a6}{}\index{font.\+h@{font.\+h}!A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T@{A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T}}
+\index{A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T@{A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T}!font.\+h@{font.\+h}}
+\subsubsection[{A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+N\+E\+\_\+\+R\+I\+G\+H\+T~2}\label{font_8h_af395b2b1ffe32ddb615d34bdae4692a6}
+\hypertarget{font_8h_ad3bbfe5dac848c97af7051a28e52c432}{}\index{font.\+h@{font.\+h}!Draw\+String\+At@{Draw\+String\+At}}
+\index{Draw\+String\+At@{Draw\+String\+At}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+String\+At}]{\setlength{\rightskip}{0pt plus 5cm}\#define Draw\+String\+At(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf Set\+Cursor\+X}(x); {\bf Set\+Cursor\+Y}(y); {\bf Draw\+Str}(s)}\label{font_8h_ad3bbfe5dac848c97af7051a28e52c432}
+\hypertarget{font_8h_adcf13077c57464c15f0e6acd3ae8016c}{}\index{font.\+h@{font.\+h}!Draw\+String\+At\+P@{Draw\+String\+At\+P}}
+\index{Draw\+String\+At\+P@{Draw\+String\+At\+P}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+String\+At\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define Draw\+String\+At\+P(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf Set\+Cursor\+X}(x); {\bf Set\+Cursor\+Y}(y); {\bf Draw\+Str\+P}(s)}\label{font_8h_adcf13077c57464c15f0e6acd3ae8016c}
+\hypertarget{font_8h_ab3269b8497d3bec51e1b67647e343077}{}\index{font.\+h@{font.\+h}!Get\+Bk\+Color@{Get\+Bk\+Color}}
+\index{Get\+Bk\+Color@{Get\+Bk\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Get\+Bk\+Color}]{\setlength{\rightskip}{0pt plus 5cm}\#define Get\+Bk\+Color(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Bk\+Color}}\label{font_8h_ab3269b8497d3bec51e1b67647e343077}
+\hypertarget{font_8h_af2984900459f2a8478a208c9fa916e95}{}\index{font.\+h@{font.\+h}!Get\+Cursor\+X@{Get\+Cursor\+X}}
+\index{Get\+Cursor\+X@{Get\+Cursor\+X}!font.\+h@{font.\+h}}
+\subsubsection[{Get\+Cursor\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define Get\+Cursor\+X(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf cursor\+X}}\label{font_8h_af2984900459f2a8478a208c9fa916e95}
+\hypertarget{font_8h_a288c82ea7ac5df48fe5c4c75de8062fe}{}\index{font.\+h@{font.\+h}!Get\+Cursor\+Y@{Get\+Cursor\+Y}}
+\index{Get\+Cursor\+Y@{Get\+Cursor\+Y}!font.\+h@{font.\+h}}
+\subsubsection[{Get\+Cursor\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Get\+Cursor\+Y(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf cursor\+Y}}\label{font_8h_a288c82ea7ac5df48fe5c4c75de8062fe}
+\hypertarget{font_8h_ab1295200dc2aa61da5cfa9dc71773b28}{}\index{font.\+h@{font.\+h}!Get\+Fg\+Color@{Get\+Fg\+Color}}
+\index{Get\+Fg\+Color@{Get\+Fg\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Get\+Fg\+Color}]{\setlength{\rightskip}{0pt plus 5cm}\#define Get\+Fg\+Color(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Fg\+Color}}\label{font_8h_ab1295200dc2aa61da5cfa9dc71773b28}
+\hypertarget{font_8h_a8b675b7d72a1dd43811340823a3966af}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+Fixed@{Lcd\+Font\+Fixed}}
+\index{Lcd\+Font\+Fixed@{Lcd\+Font\+Fixed}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+Fixed}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Font\+Fixed(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Font\+Fixed} = n}\label{font_8h_a8b675b7d72a1dd43811340823a3966af}
+\hypertarget{font_8h_a8b2d3e43260aa248045fc6c0ca0efb49}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+Height@{Lcd\+Font\+Height}}
+\index{Lcd\+Font\+Height@{Lcd\+Font\+Height}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+Height}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Font\+Height(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Font\+Height}}\label{font_8h_a8b2d3e43260aa248045fc6c0ca0efb49}
+\hypertarget{font_8h_ace5ef80ac7cee6ab6f8cb03fbfbac7a9}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+Space@{Lcd\+Font\+Space}}
+\index{Lcd\+Font\+Space@{Lcd\+Font\+Space}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+Space}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Font\+Space(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Font\+Space}  = n}\label{font_8h_ace5ef80ac7cee6ab6f8cb03fbfbac7a9}
+\hypertarget{font_8h_aa1df4c4238d9bdb3e83ce5a5b93c7d98}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+Width@{Lcd\+Font\+Width}}
+\index{Lcd\+Font\+Width@{Lcd\+Font\+Width}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+Width}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Font\+Width(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Font\+Width}}\label{font_8h_aa1df4c4238d9bdb3e83ce5a5b93c7d98}
+\hypertarget{font_8h_aeb0da9d0c7574c8cffbdf4323930e271}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+X\+Scale@{Lcd\+Font\+X\+Scale}}
+\index{Lcd\+Font\+X\+Scale@{Lcd\+Font\+X\+Scale}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+X\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Font\+X\+Scale(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Font\+X\+Scale} = n}\label{font_8h_aeb0da9d0c7574c8cffbdf4323930e271}
+\hypertarget{font_8h_a8758b20e1d8f60c3cdbe7fd7b7ac9cde}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+Y\+Scale@{Lcd\+Font\+Y\+Scale}}
+\index{Lcd\+Font\+Y\+Scale@{Lcd\+Font\+Y\+Scale}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+Y\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Font\+Y\+Scale(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Font\+Y\+Scale} = n}\label{font_8h_a8758b20e1d8f60c3cdbe7fd7b7ac9cde}
+\hypertarget{font_8h_aa97840147170c14aa3f4553f1a6fc869}{}\index{font.\+h@{font.\+h}!Lcd\+Non\+Transparence@{Lcd\+Non\+Transparence}}
+\index{Lcd\+Non\+Transparence@{Lcd\+Non\+Transparence}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Non\+Transparence}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Non\+Transparence(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~Non\+Transparenz = n}\label{font_8h_aa97840147170c14aa3f4553f1a6fc869}
+\hypertarget{font_8h_a0b487edc697664a2222f5ce6dd001c6c}{}\index{font.\+h@{font.\+h}!Lcd\+Rot@{Lcd\+Rot}}
+\index{Lcd\+Rot@{Lcd\+Rot}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Rot}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lcd\+Rot(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf rot} = n}\label{font_8h_a0b487edc697664a2222f5ce6dd001c6c}
+\hypertarget{font_8h_ab5a31dfe04a40a3d7b49de6e9f5dbe26}{}\index{font.\+h@{font.\+h}!Set\+Bk\+Color@{Set\+Bk\+Color}}
+\index{Set\+Bk\+Color@{Set\+Bk\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Set\+Bk\+Color}]{\setlength{\rightskip}{0pt plus 5cm}\#define Set\+Bk\+Color(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Bk\+Color} = n}\label{font_8h_ab5a31dfe04a40a3d7b49de6e9f5dbe26}
+\hypertarget{font_8h_a11564a0c0ae8e34bf16da5fc2155d608}{}\index{font.\+h@{font.\+h}!Set\+Cursor@{Set\+Cursor}}
+\index{Set\+Cursor@{Set\+Cursor}!font.\+h@{font.\+h}}
+\subsubsection[{Set\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}\#define Set\+Cursor(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~\{{\bf cursor\+X} = x; {\bf cursor\+Y} = y;\}}\label{font_8h_a11564a0c0ae8e34bf16da5fc2155d608}
+\hypertarget{font_8h_a2a721fb5260d320bc3a66a5faa11268b}{}\index{font.\+h@{font.\+h}!Set\+Cursor\+X@{Set\+Cursor\+X}}
+\index{Set\+Cursor\+X@{Set\+Cursor\+X}!font.\+h@{font.\+h}}
+\subsubsection[{Set\+Cursor\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define Set\+Cursor\+X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf cursor\+X} = x}\label{font_8h_a2a721fb5260d320bc3a66a5faa11268b}
+\hypertarget{font_8h_aa2bc9e00b6c73e047343efd184f064d1}{}\index{font.\+h@{font.\+h}!Set\+Cursor\+Y@{Set\+Cursor\+Y}}
+\index{Set\+Cursor\+Y@{Set\+Cursor\+Y}!font.\+h@{font.\+h}}
+\subsubsection[{Set\+Cursor\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Set\+Cursor\+Y(
+\begin{DoxyParamCaption}
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf cursor\+Y} = y}\label{font_8h_aa2bc9e00b6c73e047343efd184f064d1}
+\hypertarget{font_8h_a5e705e0454f90b6ae171b3b5c32996fa}{}\index{font.\+h@{font.\+h}!Set\+Fg\+Color@{Set\+Fg\+Color}}
+\index{Set\+Fg\+Color@{Set\+Fg\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Set\+Fg\+Color}]{\setlength{\rightskip}{0pt plus 5cm}\#define Set\+Fg\+Color(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Fg\+Color} = n}\label{font_8h_a5e705e0454f90b6ae171b3b5c32996fa}
+
+
+\subsection{Function Documentation}
+\hypertarget{font_8h_a15309fa52fbdc936dabe70a3858818bb}{}\index{font.\+h@{font.\+h}!Calc\+Text\+Height@{Calc\+Text\+Height}}
+\index{Calc\+Text\+Height@{Calc\+Text\+Height}!font.\+h@{font.\+h}}
+\subsubsection[{Calc\+Text\+Height(char $\ast$\+Text)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Calc\+Text\+Height (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{Text}
+\end{DoxyParamCaption}
+)}\label{font_8h_a15309fa52fbdc936dabe70a3858818bb}
+
+
+Calculate the height of a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Text} & The string \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_abfcc1ee7d5c12775f4e4fde03158a62b}{}\index{font.\+h@{font.\+h}!Calc\+Text\+Width@{Calc\+Text\+Width}}
+\index{Calc\+Text\+Width@{Calc\+Text\+Width}!font.\+h@{font.\+h}}
+\subsubsection[{Calc\+Text\+Width(char $\ast$\+Text)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Calc\+Text\+Width (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{Text}
+\end{DoxyParamCaption}
+)}\label{font_8h_abfcc1ee7d5c12775f4e4fde03158a62b}
+
+
+Calculate the width of a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Text} & The string \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_ad42677c472344ed2d3b57688a5c0a444}{}\index{font.\+h@{font.\+h}!Draw\+Char@{Draw\+Char}}
+\index{Draw\+Char@{Draw\+Char}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+Char(uint8\+\_\+t c)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Draw\+Char (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{c}
+\end{DoxyParamCaption}
+)}\label{font_8h_ad42677c472344ed2d3b57688a5c0a444}
+
+
+Draw a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The char \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_a61dc643cdd2a1e0a5f8dc9fcf6f72ee1}{}\index{font.\+h@{font.\+h}!Draw\+Str@{Draw\+Str}}
+\index{Draw\+Str@{Draw\+Str}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+Str(char $\ast$c)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Draw\+Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\label{font_8h_a61dc643cdd2a1e0a5f8dc9fcf6f72ee1}
+
+
+Draw a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The string \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_a8682bf821ce8edbe7c92f4eec5b73699}{}\index{font.\+h@{font.\+h}!Draw\+Str\+P@{Draw\+Str\+P}}
+\index{Draw\+Str\+P@{Draw\+Str\+P}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+Str\+P(char $\ast$\+Text)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Draw\+Str\+P (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{Text}
+\end{DoxyParamCaption}
+)}\label{font_8h_a8682bf821ce8edbe7c92f4eec5b73699}
+\hypertarget{font_8h_a81c1f29eb5be83b4d7acc27eff070d45}{}\index{font.\+h@{font.\+h}!Draw\+Text@{Draw\+Text}}
+\index{Draw\+Text@{Draw\+Text}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+Text(uint16\+\_\+t left, uint16\+\_\+t top, uint16\+\_\+t right, uint16\+\_\+t bottom, char $\ast$\+Text, uint8\+\_\+t aline)}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Text (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{left, }
+\item[{uint16\+\_\+t}]{top, }
+\item[{uint16\+\_\+t}]{right, }
+\item[{uint16\+\_\+t}]{bottom, }
+\item[{char $\ast$}]{Text, }
+\item[{uint8\+\_\+t}]{aline}
+\end{DoxyParamCaption}
+)}\label{font_8h_a81c1f29eb5be83b4d7acc27eff070d45}
+
+
+Draw text on a screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & x coordinate of the top left point \\
+\hline
+{\em top} & y coordinate of the top left point \\
+\hline
+{\em right} & x coordinate of the bottom right point \\
+\hline
+{\em bottom} & y coordinate of the bottom right point \\
+\hline
+{\em Text} & String \\
+\hline
+{\em aline} & The alignment of text \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_ab68a2197105e0a21c64cec87867bd6ee}{}\index{font.\+h@{font.\+h}!Draw\+Text\+P@{Draw\+Text\+P}}
+\index{Draw\+Text\+P@{Draw\+Text\+P}!font.\+h@{font.\+h}}
+\subsubsection[{Draw\+Text\+P(uint16\+\_\+t left, uint16\+\_\+t top, uint16\+\_\+t right, uint16\+\_\+t bottom, const char $\ast$\+Text, uint8\+\_\+t aline)}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\+Text\+P (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{left, }
+\item[{uint16\+\_\+t}]{top, }
+\item[{uint16\+\_\+t}]{right, }
+\item[{uint16\+\_\+t}]{bottom, }
+\item[{const char $\ast$}]{Text, }
+\item[{uint8\+\_\+t}]{aline}
+\end{DoxyParamCaption}
+)}\label{font_8h_ab68a2197105e0a21c64cec87867bd6ee}
+\hypertarget{font_8h_ae70a635e387612643c99f4fc9e16acc6}{}\index{font.\+h@{font.\+h}!Lcd\+Bk\+Color@{Lcd\+Bk\+Color}}
+\index{Lcd\+Bk\+Color@{Lcd\+Bk\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Bk\+Color(uint16\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}void Lcd\+Bk\+Color (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{color}
+\end{DoxyParamCaption}
+)}\label{font_8h_ae70a635e387612643c99f4fc9e16acc6}
+
+
+Set background color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Background color \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_a4d6420394d14001a2dea6454698f47d7}{}\index{font.\+h@{font.\+h}!Lcd\+Fg\+Color@{Lcd\+Fg\+Color}}
+\index{Lcd\+Fg\+Color@{Lcd\+Fg\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Fg\+Color(uint16\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}void Lcd\+Fg\+Color (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{color}
+\end{DoxyParamCaption}
+)}\label{font_8h_a4d6420394d14001a2dea6454698f47d7}
+
+
+Set font color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Font color \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_aa80237c6f19aaeca9b1c1c0c9781fbfa}{}\index{font.\+h@{font.\+h}!Lcd\+Font@{Lcd\+Font}}
+\index{Lcd\+Font@{Lcd\+Font}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font(uint8\+\_\+t $\ast$pointer)}]{\setlength{\rightskip}{0pt plus 5cm}void Lcd\+Font (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{pointer}
+\end{DoxyParamCaption}
+)}\label{font_8h_aa80237c6f19aaeca9b1c1c0c9781fbfa}
+
+
+Set lcd font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointer} & Font \\
+\hline
+\end{DoxyParams}
+\hypertarget{font_8h_adeb8ae328bc298d0a7aaffb49c609447}{}\index{font.\+h@{font.\+h}!Lcd\+Font\+Fixed@{Lcd\+Font\+Fixed}}
+\index{Lcd\+Font\+Fixed@{Lcd\+Font\+Fixed}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Font\+Fixed(uint8\+\_\+t typ)}]{\setlength{\rightskip}{0pt plus 5cm}void Lcd\+Font\+Fixed (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{typ}
+\end{DoxyParamCaption}
+)}\label{font_8h_adeb8ae328bc298d0a7aaffb49c609447}
+\hypertarget{font_8h_a695fa410d9b0912a8df0b2383a71f939}{}\index{font.\+h@{font.\+h}!Lcd\+Non\+Transparence@{Lcd\+Non\+Transparence}}
+\index{Lcd\+Non\+Transparence@{Lcd\+Non\+Transparence}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Non\+Transparence(uint8\+\_\+t nt)}]{\setlength{\rightskip}{0pt plus 5cm}void Lcd\+Non\+Transparence (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{nt}
+\end{DoxyParamCaption}
+)}\label{font_8h_a695fa410d9b0912a8df0b2383a71f939}
+\hypertarget{font_8h_ad5f521ad3ea5a61ea2d741bb4d5abb29}{}\index{font.\+h@{font.\+h}!Lcd\+Rot@{Lcd\+Rot}}
+\index{Lcd\+Rot@{Lcd\+Rot}!font.\+h@{font.\+h}}
+\subsubsection[{Lcd\+Rot(uint8\+\_\+t r)}]{\setlength{\rightskip}{0pt plus 5cm}void Lcd\+Rot (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{r}
+\end{DoxyParamCaption}
+)}\label{font_8h_ad5f521ad3ea5a61ea2d741bb4d5abb29}
+
+
+\subsection{Variable Documentation}
+\hypertarget{font_8h_a1d6424906df5072a8b98f6f9d816d075}{}\index{font.\+h@{font.\+h}!Bk\+Color@{Bk\+Color}}
+\index{Bk\+Color@{Bk\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Bk\+Color}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t Bk\+Color}\label{font_8h_a1d6424906df5072a8b98f6f9d816d075}
+\hypertarget{font_8h_a31b3e0f195ebe68aeeaab5a2805b362a}{}\index{font.\+h@{font.\+h}!cursor\+X@{cursor\+X}}
+\index{cursor\+X@{cursor\+X}!font.\+h@{font.\+h}}
+\subsubsection[{cursor\+X}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int cursor\+X}\label{font_8h_a31b3e0f195ebe68aeeaab5a2805b362a}
+\hypertarget{font_8h_afeb0001391a3ce8a4043f3a6dfc4fb5e}{}\index{font.\+h@{font.\+h}!cursor\+Y@{cursor\+Y}}
+\index{cursor\+Y@{cursor\+Y}!font.\+h@{font.\+h}}
+\subsubsection[{cursor\+Y}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int cursor\+Y}\label{font_8h_afeb0001391a3ce8a4043f3a6dfc4fb5e}
+\hypertarget{font_8h_a195f0db2fa98af670b120f35349b2086}{}\index{font.\+h@{font.\+h}!Fg\+Color@{Fg\+Color}}
+\index{Fg\+Color@{Fg\+Color}!font.\+h@{font.\+h}}
+\subsubsection[{Fg\+Color}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t Fg\+Color}\label{font_8h_a195f0db2fa98af670b120f35349b2086}
+\hypertarget{font_8h_a6dd56539d1ca92245b880fb10f414887}{}\index{font.\+h@{font.\+h}!Font\+Fixed@{Font\+Fixed}}
+\index{Font\+Fixed@{Font\+Fixed}!font.\+h@{font.\+h}}
+\subsubsection[{Font\+Fixed}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Font\+Fixed}\label{font_8h_a6dd56539d1ca92245b880fb10f414887}
+\hypertarget{font_8h_a62f376116f9d475e50cf9f8c73b7d5c4}{}\index{font.\+h@{font.\+h}!Font\+Height@{Font\+Height}}
+\index{Font\+Height@{Font\+Height}!font.\+h@{font.\+h}}
+\subsubsection[{Font\+Height}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Font\+Height}\label{font_8h_a62f376116f9d475e50cf9f8c73b7d5c4}
+\hypertarget{font_8h_af2cbfe329b4ba66cd2686939b21cb0df}{}\index{font.\+h@{font.\+h}!Font\+Space@{Font\+Space}}
+\index{Font\+Space@{Font\+Space}!font.\+h@{font.\+h}}
+\subsubsection[{Font\+Space}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Font\+Space}\label{font_8h_af2cbfe329b4ba66cd2686939b21cb0df}
+\hypertarget{font_8h_a021249d2eb1fb7335050c2e883335f5b}{}\index{font.\+h@{font.\+h}!Font\+Width@{Font\+Width}}
+\index{Font\+Width@{Font\+Width}!font.\+h@{font.\+h}}
+\subsubsection[{Font\+Width}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Font\+Width}\label{font_8h_a021249d2eb1fb7335050c2e883335f5b}
+\hypertarget{font_8h_a191ad500e2c744ff7f535fa7e5edc8ff}{}\index{font.\+h@{font.\+h}!Font\+X\+Scale@{Font\+X\+Scale}}
+\index{Font\+X\+Scale@{Font\+X\+Scale}!font.\+h@{font.\+h}}
+\subsubsection[{Font\+X\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Font\+X\+Scale}\label{font_8h_a191ad500e2c744ff7f535fa7e5edc8ff}
+\hypertarget{font_8h_a014c9d60e5be295c9a3aef6253eed2a0}{}\index{font.\+h@{font.\+h}!Font\+Y\+Scale@{Font\+Y\+Scale}}
+\index{Font\+Y\+Scale@{Font\+Y\+Scale}!font.\+h@{font.\+h}}
+\subsubsection[{Font\+Y\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Font\+Y\+Scale}\label{font_8h_a014c9d60e5be295c9a3aef6253eed2a0}
+\hypertarget{font_8h_abc7c4d8e80ef62cd26b71c61eba5782b}{}\index{font.\+h@{font.\+h}!Non\+Transparence@{Non\+Transparence}}
+\index{Non\+Transparence@{Non\+Transparence}!font.\+h@{font.\+h}}
+\subsubsection[{Non\+Transparence}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Non\+Transparence}\label{font_8h_abc7c4d8e80ef62cd26b71c61eba5782b}
+\hypertarget{font_8h_ad60cbe58e4e297fd42c0891c4fc2d290}{}\index{font.\+h@{font.\+h}!rot@{rot}}
+\index{rot@{rot}!font.\+h@{font.\+h}}
+\subsubsection[{rot}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rot}\label{font_8h_ad60cbe58e4e297fd42c0891c4fc2d290}

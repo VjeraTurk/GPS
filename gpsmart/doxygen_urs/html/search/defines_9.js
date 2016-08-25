@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['setb',['Setb',['../app__config_8h.html#a2c3331aae60137d40a30d78276167000',1,'app_config.h']]],
+  ['setbkcolor',['SetBkColor',['../font_8h.html#ab5a31dfe04a40a3d7b49de6e9f5dbe26',1,'font.h']]],
+  ['setcursor',['SetCursor',['../font_8h.html#a11564a0c0ae8e34bf16da5fc2155d608',1,'font.h']]],
+  ['setcursorx',['SetCursorX',['../font_8h.html#a2a721fb5260d320bc3a66a5faa11268b',1,'font.h']]],
+  ['setcursory',['SetCursorY',['../font_8h.html#aa2bc9e00b6c73e047343efd184f064d1',1,'font.h']]],
+  ['setfgcolor',['SetFgColor',['../font_8h.html#a5e705e0454f90b6ae171b3b5c32996fa',1,'font.h']]],
+  ['so_5fpos_5ft',['so_pos_t',['../app__config_8h.html#a6140d5bcb437e2f03b47518b9d236d56',1,'app_config.h']]],
+  ['spi_5fclk_5fdiv128',['SPI_CLK_DIV128',['../spi_8h.html#aed6bc4681004f40d82303293ab1100bd',1,'spi.h']]],
+  ['spi_5fclk_5fdiv16',['SPI_CLK_DIV16',['../spi_8h.html#ae4e762ec420277da6e3fb020fc465ceb',1,'spi.h']]],
+  ['spi_5fclk_5fdiv4',['SPI_CLK_DIV4',['../spi_8h.html#ab64853e9c725f8ad7bb085830935b5a8',1,'spi.h']]],
+  ['spi_5fclk_5fdiv64',['SPI_CLK_DIV64',['../spi_8h.html#a3433c8d7bb5c2bbb2f80574639edefbd',1,'spi.h']]],
+  ['spi_5fenable',['SPI_ENABLE',['../spi_8h.html#a27537db92d0837cc77baa0d99b8cac48',1,'spi.h']]],
+  ['spi_5ffal_5ffirst',['SPI_FAL_FIRST',['../spi_8h.html#a6b2a2fc510bbc7654a5ff143b0c4e950',1,'spi.h']]],
+  ['spi_5fint_5fdisable',['SPI_INT_DISABLE',['../spi_8h.html#a5b4b492d11ab8d1a45e54cde4a083dbf',1,'spi.h']]],
+  ['spi_5fint_5fenable',['SPI_INT_ENABLE',['../spi_8h.html#afa9464d1e027eef964a5857fe8b90dca',1,'spi.h']]],
+  ['spi_5flsb_5ffirst',['SPI_LSB_FIRST',['../spi_8h.html#a8d194446c8ac9f3c878ead3c9382c9e4',1,'spi.h']]],
+  ['spi_5fmaster',['SPI_MASTER',['../spi_8h.html#ae09a2779c2d141aa6a8f8be6d78fe210',1,'spi.h']]],
+  ['spi_5fmsb_5ffirst',['SPI_MSB_FIRST',['../spi_8h.html#a701fce0a1e220262d9912911e87c9e00',1,'spi.h']]],
+  ['spi_5fris_5ffirst',['SPI_RIS_FIRST',['../spi_8h.html#ad9961a2b15891c9c4024982b037002b2',1,'spi.h']]],
+  ['spi_5fsam_5ffirst',['SPI_SAM_FIRST',['../spi_8h.html#a06d06b956a88bc488d8b6b338013a512',1,'spi.h']]],
+  ['spi_5fset_5ffirst',['SPI_SET_FIRST',['../spi_8h.html#a4142ce2d43240cced05989255e9e9e8e',1,'spi.h']]],
+  ['spi_5fslave',['SPI_SLAVE',['../spi_8h.html#a943af7f8a98cf5a3f2107ed593215a4b',1,'spi.h']]]
+];

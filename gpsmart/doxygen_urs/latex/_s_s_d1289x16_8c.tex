@@ -1,0 +1,87 @@
+\hypertarget{_s_s_d1289x16_8c}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/\+S\+S\+D1289x16.c File Reference}
+\label{_s_s_d1289x16_8c}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/\+S\+S\+D1289x16.\+c@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/\+S\+S\+D1289x16.\+c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+{\ttfamily \#include $<$avr/pgmspace.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}S\+S\+D1289x16.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_s_s_d1289x16_8c_a4af86aed25d6ccfbc18d7bbe1dd864be}{L\+C\+D\+\_\+\+Wait\+Ms} (unsigned int ms)
+\item 
+void \hyperlink{_s_s_d1289x16_8c_a3613e02ea9ee24e2c94e85415f4ad804}{L\+C\+D\+\_\+\+Wr\+Cmd} (unsigned char cmd)
+\item 
+void \hyperlink{_s_s_d1289x16_8c_afdeae128e4ca9eae01ea1a3176ab1a1e}{L\+C\+D\+\_\+\+Wr\+Dat} (unsigned int val)
+\item 
+void \hyperlink{_s_s_d1289x16_8c_a1b5b016b7b481be3f707c48b1c63b368}{L\+C\+D\+\_\+\+Set\+Reg} (unsigned char index, unsigned int val)
+\item 
+unsigned int \hyperlink{_s_s_d1289x16_8c_ae33bf14d1c0ffb132ecae30f1b520f66}{L\+C\+D\+\_\+\+Get\+Reg} (unsigned char index)
+\item 
+void \hyperlink{_s_s_d1289x16_8c_a4ec2f55080fe6531260b1a44d85d91be}{L\+C\+D\+\_\+\+Init\+Port} (void)
+\item 
+void \hyperlink{group___s_s_d1289_ga8415c163ade706484e9bd7e65d69a975}{L\+C\+D\+\_\+\+Reset} (void)
+\begin{DoxyCompactList}\small\item\em This function reset lcd module. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_gad1acded161cfdfc338c8aa8cfc55cb84}{L\+C\+D\+\_\+\+Set\+Cursor} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em set start address of lcd ram \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_gae82c2502fde8414761fed4988062bc21}{L\+C\+D\+\_\+\+Set\+Area} (unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)
+\begin{DoxyCompactList}\small\item\em set paint area \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_ga1e7159fb1589ae14a93d4b8e5503a571}{L\+C\+D\+\_\+\+Put\+Pixel} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em puts pixel \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_ga69b45f8c8ad7e99e27138691149cd1f9}{L\+C\+D\+\_\+\+Bar} (unsigned int left, unsigned int top, unsigned int right, unsigned int bottom, unsigned int color)
+\begin{DoxyCompactList}\small\item\em draws rectangle filled with current color \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_ga717bc21df8d87525158f373d9e25ca8a}{L\+C\+D\+\_\+\+Clear} (unsigned int color)
+\begin{DoxyCompactList}\small\item\em fill display with color \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_gab6b9360350119d9db001227f1ead6f67}{L\+C\+D\+\_\+\+Draw\+Symbol} (unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned char t, const unsigned char $\ast$p\+Image)
+\begin{DoxyCompactList}\small\item\em display image array to lcd \end{DoxyCompactList}\item 
+void \hyperlink{group___s_s_d1289_ga6c3731dbcd49b5cee77a323faedbc4d5}{L\+C\+D\+\_\+\+Draw\+Image} (unsigned int x, unsigned int y, const unsigned char $\ast$p\+Image)
+\begin{DoxyCompactList}\small\item\em display image array to lcd \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{group___s_s_d1289_ga00cf2e4785ac08040a181b166e244e4c}{\+\_\+color} = \hyperlink{group___s_s_d1289_ga87b537f5fa5c109d3c05c13d6b18f382}{W\+H\+I\+T\+E}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_s_d1289x16_8c_ae33bf14d1c0ffb132ecae30f1b520f66}{}\index{S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}!L\+C\+D\+\_\+\+Get\+Reg@{L\+C\+D\+\_\+\+Get\+Reg}}
+\index{L\+C\+D\+\_\+\+Get\+Reg@{L\+C\+D\+\_\+\+Get\+Reg}!S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}}
+\subsubsection[{L\+C\+D\+\_\+\+Get\+Reg(unsigned char index)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int L\+C\+D\+\_\+\+Get\+Reg (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{index}
+\end{DoxyParamCaption}
+)}\label{_s_s_d1289x16_8c_ae33bf14d1c0ffb132ecae30f1b520f66}
+\hypertarget{_s_s_d1289x16_8c_a4ec2f55080fe6531260b1a44d85d91be}{}\index{S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}!L\+C\+D\+\_\+\+Init\+Port@{L\+C\+D\+\_\+\+Init\+Port}}
+\index{L\+C\+D\+\_\+\+Init\+Port@{L\+C\+D\+\_\+\+Init\+Port}!S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}}
+\subsubsection[{L\+C\+D\+\_\+\+Init\+Port(void)}]{\setlength{\rightskip}{0pt plus 5cm}void L\+C\+D\+\_\+\+Init\+Port (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_s_s_d1289x16_8c_a4ec2f55080fe6531260b1a44d85d91be}
+\hypertarget{_s_s_d1289x16_8c_a1b5b016b7b481be3f707c48b1c63b368}{}\index{S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}!L\+C\+D\+\_\+\+Set\+Reg@{L\+C\+D\+\_\+\+Set\+Reg}}
+\index{L\+C\+D\+\_\+\+Set\+Reg@{L\+C\+D\+\_\+\+Set\+Reg}!S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}}
+\subsubsection[{L\+C\+D\+\_\+\+Set\+Reg(unsigned char index, unsigned int val)}]{\setlength{\rightskip}{0pt plus 5cm}void L\+C\+D\+\_\+\+Set\+Reg (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{index, }
+\item[{unsigned int}]{val}
+\end{DoxyParamCaption}
+)}\label{_s_s_d1289x16_8c_a1b5b016b7b481be3f707c48b1c63b368}
+\hypertarget{_s_s_d1289x16_8c_a4af86aed25d6ccfbc18d7bbe1dd864be}{}\index{S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}!L\+C\+D\+\_\+\+Wait\+Ms@{L\+C\+D\+\_\+\+Wait\+Ms}}
+\index{L\+C\+D\+\_\+\+Wait\+Ms@{L\+C\+D\+\_\+\+Wait\+Ms}!S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}}
+\subsubsection[{L\+C\+D\+\_\+\+Wait\+Ms(unsigned int ms)}]{\setlength{\rightskip}{0pt plus 5cm}void L\+C\+D\+\_\+\+Wait\+Ms (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ms}
+\end{DoxyParamCaption}
+)}\label{_s_s_d1289x16_8c_a4af86aed25d6ccfbc18d7bbe1dd864be}
+\hypertarget{_s_s_d1289x16_8c_a3613e02ea9ee24e2c94e85415f4ad804}{}\index{S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}!L\+C\+D\+\_\+\+Wr\+Cmd@{L\+C\+D\+\_\+\+Wr\+Cmd}}
+\index{L\+C\+D\+\_\+\+Wr\+Cmd@{L\+C\+D\+\_\+\+Wr\+Cmd}!S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}}
+\subsubsection[{L\+C\+D\+\_\+\+Wr\+Cmd(unsigned char cmd)}]{\setlength{\rightskip}{0pt plus 5cm}void L\+C\+D\+\_\+\+Wr\+Cmd (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{cmd}
+\end{DoxyParamCaption}
+)}\label{_s_s_d1289x16_8c_a3613e02ea9ee24e2c94e85415f4ad804}
+\hypertarget{_s_s_d1289x16_8c_afdeae128e4ca9eae01ea1a3176ab1a1e}{}\index{S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}!L\+C\+D\+\_\+\+Wr\+Dat@{L\+C\+D\+\_\+\+Wr\+Dat}}
+\index{L\+C\+D\+\_\+\+Wr\+Dat@{L\+C\+D\+\_\+\+Wr\+Dat}!S\+S\+D1289x16.\+c@{S\+S\+D1289x16.\+c}}
+\subsubsection[{L\+C\+D\+\_\+\+Wr\+Dat(unsigned int val)}]{\setlength{\rightskip}{0pt plus 5cm}void L\+C\+D\+\_\+\+Wr\+Dat (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{val}
+\end{DoxyParamCaption}
+)}\label{_s_s_d1289x16_8c_afdeae128e4ca9eae01ea1a3176ab1a1e}

@@ -1,0 +1,115 @@
+\hypertarget{struct_current_gps_reading}{}\section{Current\+Gps\+Reading Struct Reference}
+\label{struct_current_gps_reading}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+
+
+A structure to keep the current G\+P\+S data.  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{struct_current_gps_reading_a37d972ae0b47b9099e30983131d31916}{j}
+\item 
+int \hyperlink{struct_current_gps_reading_a691915f3fb4792e167a2351c6e932483}{satellites}
+\item 
+int \hyperlink{struct_current_gps_reading_a9e54ec2d7e031746f3e5b03e7c36a28e}{altitude}
+\item 
+int \hyperlink{struct_current_gps_reading_a5fc94f0bd71207a944918191dbba4c44}{fixquality}
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Time Values}\par
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{struct_current_gps_reading_af23005df06fc3cd4264e5eee2dfa2f8c}{hours}
+\item 
+int \hyperlink{struct_current_gps_reading_ab693b677bdc9ded12b06daf49778101c}{minutes}
+\item 
+int \hyperlink{struct_current_gps_reading_a77bd4f876bdc3afed5acdd936f775d34}{seconds}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Latitude Values}\par
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{struct_current_gps_reading_a04bf03d81f573f06783641463a84ae29}{latitude}
+\item 
+long \hyperlink{struct_current_gps_reading_aa3c709569d317a96ed8adb103f97f92b}{latitude\+Degrees}
+\item 
+long \hyperlink{struct_current_gps_reading_a636fa3631a9a6236e7dfbf2bb7e6030d}{latitude\+\_\+fixed}
+\item 
+long \hyperlink{struct_current_gps_reading_aa17df66ce835adf67ec6fbaf721b62c6}{minutes\+Lat}
+\item 
+char \hyperlink{struct_current_gps_reading_aa4087acf248a5b20278f44c9abe2fa62}{lat} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Longitude Values}\par
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{struct_current_gps_reading_ad3da7a89e7a97e8ccb592897339bf9c1}{longitude}
+\item 
+long \hyperlink{struct_current_gps_reading_a945cd91f9de479289bc93bc4018e978d}{longitude\+Degrees}
+\item 
+long \hyperlink{struct_current_gps_reading_a98f8cd096504fecb797f338438cad86f}{longitude\+\_\+fixed}
+\item 
+long \hyperlink{struct_current_gps_reading_a714b41fa9a0ab79d6e1188fe2b2f5bdc}{minutes\+Lon}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+A structure to keep the current G\+P\+S data. 
+
+This data gets updated every time new data is received. 
+
+\subsection{Field Documentation}
+\hypertarget{struct_current_gps_reading_a9e54ec2d7e031746f3e5b03e7c36a28e}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!altitude@{altitude}}
+\index{altitude@{altitude}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{altitude}]{\setlength{\rightskip}{0pt plus 5cm}int altitude}\label{struct_current_gps_reading_a9e54ec2d7e031746f3e5b03e7c36a28e}
+Altitude value in meters \hypertarget{struct_current_gps_reading_a5fc94f0bd71207a944918191dbba4c44}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!fixquality@{fixquality}}
+\index{fixquality@{fixquality}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{fixquality}]{\setlength{\rightskip}{0pt plus 5cm}int fixquality}\label{struct_current_gps_reading_a5fc94f0bd71207a944918191dbba4c44}
+Fix quality, 0 for no fix, 1 for fix \hypertarget{struct_current_gps_reading_af23005df06fc3cd4264e5eee2dfa2f8c}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!hours@{hours}}
+\index{hours@{hours}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{hours}]{\setlength{\rightskip}{0pt plus 5cm}int hours}\label{struct_current_gps_reading_af23005df06fc3cd4264e5eee2dfa2f8c}
+Current hour \hypertarget{struct_current_gps_reading_a37d972ae0b47b9099e30983131d31916}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!j@{j}}
+\index{j@{j}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{j}]{\setlength{\rightskip}{0pt plus 5cm}int j}\label{struct_current_gps_reading_a37d972ae0b47b9099e30983131d31916}
+A counter that gets incremented on every symbol from the gps module \hypertarget{struct_current_gps_reading_aa4087acf248a5b20278f44c9abe2fa62}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!lat@{lat}}
+\index{lat@{lat}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{lat}]{\setlength{\rightskip}{0pt plus 5cm}char lat\mbox{[}2\mbox{]}}\label{struct_current_gps_reading_aa4087acf248a5b20278f44c9abe2fa62}
+Hemisphere letter, N or S \hypertarget{struct_current_gps_reading_a04bf03d81f573f06783641463a84ae29}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!latitude@{latitude}}
+\index{latitude@{latitude}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{latitude}]{\setlength{\rightskip}{0pt plus 5cm}long latitude}\label{struct_current_gps_reading_a04bf03d81f573f06783641463a84ae29}
+Latitude value in degrees \hypertarget{struct_current_gps_reading_a636fa3631a9a6236e7dfbf2bb7e6030d}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!latitude\+\_\+fixed@{latitude\+\_\+fixed}}
+\index{latitude\+\_\+fixed@{latitude\+\_\+fixed}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{latitude\+\_\+fixed}]{\setlength{\rightskip}{0pt plus 5cm}long latitude\+\_\+fixed}\label{struct_current_gps_reading_a636fa3631a9a6236e7dfbf2bb7e6030d}
+Fixed point latitude value with degrees stored in units of 1/100000 degrees and minutes stored in units of 1/100000 degrees \hypertarget{struct_current_gps_reading_aa3c709569d317a96ed8adb103f97f92b}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!latitude\+Degrees@{latitude\+Degrees}}
+\index{latitude\+Degrees@{latitude\+Degrees}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{latitude\+Degrees}]{\setlength{\rightskip}{0pt plus 5cm}long latitude\+Degrees}\label{struct_current_gps_reading_aa3c709569d317a96ed8adb103f97f92b}
+Only latitude degrees \hypertarget{struct_current_gps_reading_ad3da7a89e7a97e8ccb592897339bf9c1}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!longitude@{longitude}}
+\index{longitude@{longitude}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{longitude}]{\setlength{\rightskip}{0pt plus 5cm}long longitude}\label{struct_current_gps_reading_ad3da7a89e7a97e8ccb592897339bf9c1}
+Longitude value in degrees \hypertarget{struct_current_gps_reading_a98f8cd096504fecb797f338438cad86f}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!longitude\+\_\+fixed@{longitude\+\_\+fixed}}
+\index{longitude\+\_\+fixed@{longitude\+\_\+fixed}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{longitude\+\_\+fixed}]{\setlength{\rightskip}{0pt plus 5cm}long longitude\+\_\+fixed}\label{struct_current_gps_reading_a98f8cd096504fecb797f338438cad86f}
+Fixed point longitude value with degrees stored in units of 1/100000 degrees and minutes stored in units of 1/100000 degrees \hypertarget{struct_current_gps_reading_a945cd91f9de479289bc93bc4018e978d}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!longitude\+Degrees@{longitude\+Degrees}}
+\index{longitude\+Degrees@{longitude\+Degrees}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{longitude\+Degrees}]{\setlength{\rightskip}{0pt plus 5cm}long longitude\+Degrees}\label{struct_current_gps_reading_a945cd91f9de479289bc93bc4018e978d}
+Only longitude degrees \hypertarget{struct_current_gps_reading_ab693b677bdc9ded12b06daf49778101c}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!minutes@{minutes}}
+\index{minutes@{minutes}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{minutes}]{\setlength{\rightskip}{0pt plus 5cm}int minutes}\label{struct_current_gps_reading_ab693b677bdc9ded12b06daf49778101c}
+Current minute \hypertarget{struct_current_gps_reading_aa17df66ce835adf67ec6fbaf721b62c6}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!minutes\+Lat@{minutes\+Lat}}
+\index{minutes\+Lat@{minutes\+Lat}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{minutes\+Lat}]{\setlength{\rightskip}{0pt plus 5cm}long minutes\+Lat}\label{struct_current_gps_reading_aa17df66ce835adf67ec6fbaf721b62c6}
+Only latitude minutes \hypertarget{struct_current_gps_reading_a714b41fa9a0ab79d6e1188fe2b2f5bdc}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!minutes\+Lon@{minutes\+Lon}}
+\index{minutes\+Lon@{minutes\+Lon}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{minutes\+Lon}]{\setlength{\rightskip}{0pt plus 5cm}long minutes\+Lon}\label{struct_current_gps_reading_a714b41fa9a0ab79d6e1188fe2b2f5bdc}
+Only longitude minutes \hypertarget{struct_current_gps_reading_a691915f3fb4792e167a2351c6e932483}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!satellites@{satellites}}
+\index{satellites@{satellites}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{satellites}]{\setlength{\rightskip}{0pt plus 5cm}int satellites}\label{struct_current_gps_reading_a691915f3fb4792e167a2351c6e932483}
+Current number of satellites \hypertarget{struct_current_gps_reading_a77bd4f876bdc3afed5acdd936f775d34}{}\index{Current\+Gps\+Reading@{Current\+Gps\+Reading}!seconds@{seconds}}
+\index{seconds@{seconds}!Current\+Gps\+Reading@{Current\+Gps\+Reading}}
+\subsubsection[{seconds}]{\setlength{\rightskip}{0pt plus 5cm}int seconds}\label{struct_current_gps_reading_a77bd4f876bdc3afed5acdd936f775d34}
+Current second 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/\hyperlink{urs__projekt_8c}{urs\+\_\+projekt.\+c}\end{DoxyCompactItemize}

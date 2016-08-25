@@ -1,0 +1,112 @@
+\hypertarget{serial_8c}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/serial.c File Reference}
+\label{serial_8c}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/serial.\+c@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/serial.\+c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}serial.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}serial\+\_\+device.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__uart_ga739a2a1a0047c98ac1b18ecd25dac092}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~32
+\item 
+\#define \hyperlink{group__uart_ga9ab33647617098646990fe263600b650}{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~16
+\item 
+\#define \hyperlink{group__uart_gaff1f07741fbe1f53f46098687f0a05e2}{F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L}
+\item 
+\#define \hyperlink{group__uart_gaa7907a070ef8e6d68d7d774b34eebe66}{F\+L\+O\+W\+M\+A\+R\+K}~5
+\item 
+\#define \hyperlink{group__uart_gacdf721774c51e08c6609e6fa8cf82cc9}{X\+O\+N}~0x11
+\item 
+\#define \hyperlink{group__uart_ga67fd78ae15d2b67c10d44d69a49ab1c5}{X\+O\+F\+F}~0x13
+\item 
+\#define \hyperlink{group__uart_gaa51318345d7d41d395a6db8484b3ffdd}{S\+E\+R\+I\+A\+L\+D\+A\+T\+A}~0
+\item 
+\#define \hyperlink{group__uart_gabcb483ebd1a604344646038d126a7275}{S\+E\+R\+I\+A\+L\+B}~1
+\item 
+\#define \hyperlink{group__uart_gaa077cc918060f1067f5c2789b9a19254}{S\+E\+R\+I\+A\+L\+C}~2
+\item 
+\#define \hyperlink{group__uart_gaa5bea8111e1e8e5aecf47e828e49ffd4}{S\+E\+R\+I\+A\+L\+A}~3
+\item 
+\#define \hyperlink{group__uart_ga6d2ad84277867c58c32694e46224f04f}{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H}~4
+\item 
+\#define \hyperlink{group__uart_ga3e3151352f114d0f544991899fd442f3}{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L}~5
+\item 
+\#define \hyperlink{group__uart_ga41235b09734ef60d0c12ed793fdc0851}{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0}~0
+\item 
+\#define \hyperlink{group__uart_gac3bc8370f2ac121887bde3b9ba8d8731}{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1}~1
+\item 
+\#define \hyperlink{group__uart_ga9e792f4cd909071e8714b25db70710f6}{S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E}~2
+\item 
+\#define \hyperlink{group__uart_ga09233c5e1f7f901ab7397e3c9cf927f2}{S\+E\+R\+I\+A\+L\+R\+X\+E\+N}~3
+\item 
+\#define \hyperlink{group__uart_ga9e6c7fbd3272364902664d08a1e20029}{S\+E\+R\+I\+A\+L\+T\+X\+E\+N}~4
+\item 
+\#define \hyperlink{group__uart_gaefb2912e438c706aafbf43ac5c89392d}{S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E}~5
+\item 
+\#define \hyperlink{group__uart_ga044671436e16c3dde4f4a6fa829708f2}{S\+E\+R\+I\+A\+L\+U\+D\+R\+E}~6
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga1ea963b291215ad9c5e8a0610f116b90}{serial\+Available} (void)
+\item 
+void \hyperlink{group__uart_ga73d4335cb201753c580c87954f493886}{serial\+Init} (uint8\+\_\+t uart, uint16\+\_\+t baud)
+\item 
+void \hyperlink{group__uart_gaa16a5ecaf9e40660ded50737ff1d0a88}{serial\+Close} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_ga5d5de9e3ed5a0be11f707113cfff33f5}{set\+Flow} (uint8\+\_\+t uart, uint8\+\_\+t on)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga266a54dcf3c4b85d92bf6b16bdcb5069}{serial\+Has\+Char} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_gaf7c4238a9a5e8fff64af1faf1689a5a4}{serial\+Get\+Blocking} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_gaa9d6e44600b215154c3f66193df151f6}{serial\+Get} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga73d16b244172336e7306ea2e4cf90fa1}{serial\+Rx\+Buffer\+Full} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga742268372398b85935564fded999b198}{serial\+Rx\+Buffer\+Empty} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_ga388583adaa7db4fad121b6454668b347}{serial\+Write} (uint8\+\_\+t uart, uint8\+\_\+t data)
+\item 
+void \hyperlink{group__uart_ga054d68834f9ca19f3b2cf9d714337de4}{serial\+Write\+String} (uint8\+\_\+t uart, const char $\ast$data)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga8a6adfd3c350ceb55605d003a62a36a4}{serial\+Tx\+Buffer\+Full} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga14c345ea0707111e988a80ef1da65e32}{serial\+Tx\+Buffer\+Empty} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_gae943e7783790ebcc3e9abc6921949be8}{serial\+Receive\+Interrupt} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_ga711c6d173f7a379426d995760ed95f1b}{serial\+Transmit\+Interrupt} (uint8\+\_\+t uart)
+\item 
+\hyperlink{group__uart_ga7a36d30320b27d7d863762b7e54b540d}{I\+S\+R} (S\+E\+R\+I\+A\+L\+R\+E\+C\+I\+E\+V\+E\+I\+N\+T\+E\+R\+R\+U\+P\+T)
+\item 
+\hyperlink{group__uart_gac456aaea36551ccfea05338b693f6f82}{I\+S\+R} (S\+E\+R\+I\+A\+L\+T\+R\+A\+N\+S\+M\+I\+T\+I\+N\+T\+E\+R\+R\+U\+P\+T)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_gab7018b7927b8cccfbae6f9aaa0568004}{rx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}\mbox{[}\hyperlink{group__uart_ga739a2a1a0047c98ac1b18ecd25dac092}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga7f4d2b5ef19fd7e6d9a75757f290c68f}{tx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}\mbox{[}\hyperlink{group__uart_ga9ab33647617098646990fe263600b650}{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga0f60a5b7ebf2fe97d44ceeada8b42007}{rx\+Read} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga1cdf2c2d0be76d213e71977232b2fbac}{rx\+Write} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga9da1183eed5d114e277463b1313454d6}{tx\+Read} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga51f11860503e517cd61cfcd7a4c960eb}{tx\+Write} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga156a853afd97bd4938e2f98d5960ffc2}{should\+Start\+Transmission} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_gaa1a502a415b55c96a957f18c7c52be21}{send\+This\+Next} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga32736da4f1f69aab6da0d54da60baf4f}{flow} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga06e68070e3b56c88cd70d1da68ec05b3}{rx\+Buffer\+Elements} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+A\+R\+T Library Implementation 

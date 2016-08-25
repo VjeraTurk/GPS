@@ -1,0 +1,195 @@
+\hypertarget{group___l_c_d_library}{}\section{L\+C\+D\+Library}
+\label{group___l_c_d_library}\index{L\+C\+D\+Library@{L\+C\+D\+Library}}
+
+
+L\+C\+D Graphic Support Library.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___l_c_d_library_gaff527cc0d939f5b1fe4573915b27b5ca}{Put\+Pixel}(x,  y)~\hyperlink{group___s_s_d1289_ga1e7159fb1589ae14a93d4b8e5503a571}{L\+C\+D\+\_\+\+Put\+Pixel}(x,y)
+\item 
+\#define \hyperlink{group___l_c_d_library_ga699fc5286b5921b6037f1be9d2c3cf72}{Fill\+Rectangle}(x1,  y1,  x2,  y2)~\hyperlink{group___s_s_d1289_ga69b45f8c8ad7e99e27138691149cd1f9}{L\+C\+D\+\_\+\+Bar}(x1, y1, x2, y2, \hyperlink{group___s_s_d1289_ga0eb009d359fe9f8ec383fd9fa31f7c33}{Get\+Color}())
+\item 
+\#define \hyperlink{group___l_c_d_library_ga48e88028ef3176fab6f4ac3439c3f2f0}{Bevel}(x1,  y1,  x2,  y2,  r)~\hyperlink{group___l_c_d_library_ga9584a175765628382707bdc8397c0e2b}{Round\+Rectangle}(x1,y1,x2,y2,r,0)
+\item 
+\#define \hyperlink{group___l_c_d_library_ga3012a22ab5045f42d5a50e783f363749}{Bevel\+Fill}(x1,  y1,  x2,  y2,  r)~\hyperlink{group___l_c_d_library_ga9584a175765628382707bdc8397c0e2b}{Round\+Rectangle}(x1,y1,x2,y2,r,1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___l_c_d_library_ga4999ab642f55d64b5e4e614ccb2752cd}{Line} (unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)
+\begin{DoxyCompactList}\small\item\em Draw a line on a graphic L\+C\+D using Bresenham\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d_library_ga7fe61e0d7f105ae26b8199ca361c58f1}{Rectangle} (unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)
+\begin{DoxyCompactList}\small\item\em Draw a rectangle on a graphic L\+C\+D. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d_library_ga9584a175765628382707bdc8397c0e2b}{Round\+Rectangle} (unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned int radius, unsigned char fill)
+\begin{DoxyCompactList}\small\item\em Draws a beveled figure on the screen. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d_library_ga94223e7939b705919cbf0cb9434e5fb8}{Circle} (unsigned int x, unsigned int y, unsigned int radius, unsigned char fill)
+\begin{DoxyCompactList}\small\item\em Draw a circle on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+C\+D Graphic Support Library. 
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <\hyperlink{_graphic_8h}{Graphic.h}>} 
+\end{DoxyCode}
+
+
+\begin{DoxyAuthor}{Authors}
+Jaruwit Supa 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group___l_c_d_library_ga48e88028ef3176fab6f4ac3439c3f2f0}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Bevel@{Bevel}}
+\index{Bevel@{Bevel}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Bevel}]{\setlength{\rightskip}{0pt plus 5cm}\#define Bevel(
+\begin{DoxyParamCaption}
+\item[{}]{x1, }
+\item[{}]{y1, }
+\item[{}]{x2, }
+\item[{}]{y2, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf Round\+Rectangle}(x1,y1,x2,y2,r,0)}\label{group___l_c_d_library_ga48e88028ef3176fab6f4ac3439c3f2f0}
+\hypertarget{group___l_c_d_library_ga3012a22ab5045f42d5a50e783f363749}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Bevel\+Fill@{Bevel\+Fill}}
+\index{Bevel\+Fill@{Bevel\+Fill}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Bevel\+Fill}]{\setlength{\rightskip}{0pt plus 5cm}\#define Bevel\+Fill(
+\begin{DoxyParamCaption}
+\item[{}]{x1, }
+\item[{}]{y1, }
+\item[{}]{x2, }
+\item[{}]{y2, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf Round\+Rectangle}(x1,y1,x2,y2,r,1)}\label{group___l_c_d_library_ga3012a22ab5045f42d5a50e783f363749}
+\hypertarget{group___l_c_d_library_ga699fc5286b5921b6037f1be9d2c3cf72}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Fill\+Rectangle@{Fill\+Rectangle}}
+\index{Fill\+Rectangle@{Fill\+Rectangle}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Fill\+Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}\#define Fill\+Rectangle(
+\begin{DoxyParamCaption}
+\item[{}]{x1, }
+\item[{}]{y1, }
+\item[{}]{x2, }
+\item[{}]{y2}
+\end{DoxyParamCaption}
+)~{\bf L\+C\+D\+\_\+\+Bar}(x1, y1, x2, y2, {\bf Get\+Color}())}\label{group___l_c_d_library_ga699fc5286b5921b6037f1be9d2c3cf72}
+\hypertarget{group___l_c_d_library_gaff527cc0d939f5b1fe4573915b27b5ca}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Put\+Pixel@{Put\+Pixel}}
+\index{Put\+Pixel@{Put\+Pixel}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Put\+Pixel}]{\setlength{\rightskip}{0pt plus 5cm}\#define Put\+Pixel(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf L\+C\+D\+\_\+\+Put\+Pixel}(x,y)}\label{group___l_c_d_library_gaff527cc0d939f5b1fe4573915b27b5ca}
+
+
+\subsection{Function Documentation}
+\hypertarget{group___l_c_d_library_ga94223e7939b705919cbf0cb9434e5fb8}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Circle@{Circle}}
+\index{Circle@{Circle}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Circle(unsigned int x, unsigned int y, unsigned int radius, unsigned char fill)}]{\setlength{\rightskip}{0pt plus 5cm}void Circle (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned int}]{y, }
+\item[{unsigned int}]{radius, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{group___l_c_d_library_ga94223e7939b705919cbf0cb9434e5fb8}
+
+
+Draw a circle on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordinate X of the center of the circle \\
+\hline
+{\em y} & Coordinate Y of the center of the circle \\
+\hline
+{\em rad} & Defines the radius of the circle \\
+\hline
+{\em fill} & Fill yes or no \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___l_c_d_library_ga4999ab642f55d64b5e4e614ccb2752cd}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Line@{Line}}
+\index{Line@{Line}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Line(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)}]{\setlength{\rightskip}{0pt plus 5cm}void Line (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x1, }
+\item[{unsigned int}]{y1, }
+\item[{unsigned int}]{x2, }
+\item[{unsigned int}]{y2}
+\end{DoxyParamCaption}
+)}\label{group___l_c_d_library_ga4999ab642f55d64b5e4e614ccb2752cd}
+
+
+Draw a line on a graphic L\+C\+D using Bresenham\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Starting coordinate X \\
+\hline
+{\em y1} & Starting coordinate Y \\
+\hline
+{\em x2} & Ending coordinate X \\
+\hline
+{\em y2} & Ending coordinate Y \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___l_c_d_library_ga7fe61e0d7f105ae26b8199ca361c58f1}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Rectangle@{Rectangle}}
+\index{Rectangle@{Rectangle}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Rectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)}]{\setlength{\rightskip}{0pt plus 5cm}void Rectangle (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x1, }
+\item[{unsigned int}]{y1, }
+\item[{unsigned int}]{x2, }
+\item[{unsigned int}]{y2}
+\end{DoxyParamCaption}
+)}\label{group___l_c_d_library_ga7fe61e0d7f105ae26b8199ca361c58f1}
+
+
+Draw a rectangle on a graphic L\+C\+D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Starting coordinate X \\
+\hline
+{\em y1} & Starting coordinate Y \\
+\hline
+{\em x2} & Ending coordinate X \\
+\hline
+{\em y2} & Ending coordinate Y \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___l_c_d_library_ga9584a175765628382707bdc8397c0e2b}{}\index{L\+C\+D\+Library@{L\+C\+D\+Library}!Round\+Rectangle@{Round\+Rectangle}}
+\index{Round\+Rectangle@{Round\+Rectangle}!L\+C\+D\+Library@{L\+C\+D\+Library}}
+\subsubsection[{Round\+Rectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned int radius, unsigned char fill)}]{\setlength{\rightskip}{0pt plus 5cm}void Round\+Rectangle (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x1, }
+\item[{unsigned int}]{y1, }
+\item[{unsigned int}]{x2, }
+\item[{unsigned int}]{y2, }
+\item[{unsigned int}]{radius, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{group___l_c_d_library_ga9584a175765628382707bdc8397c0e2b}
+
+
+Draws a beveled figure on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Starting coordinate X of the upper left center \\
+\hline
+{\em y1} & Starting coordinate Y of the upper left center \\
+\hline
+{\em x2} & Ending coordinate X of the lower right center \\
+\hline
+{\em y2} & Ending coordinate Y of the lower right center \\
+\hline
+{\em rad} & Defines the radius of the circle \\
+\hline
+{\em fill} & Fill yes or no \\
+\hline
+\end{DoxyParams}

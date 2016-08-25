@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['cal_5fposx',['cal_posx',['../urs__projekt_8c.html#a20e81f6be6f97101a90599e35e7aa2da',1,'urs_projekt.c']]],
+  ['cal_5fposy',['cal_posy',['../urs__projekt_8c.html#abeb44505f469c46d9c95efb2ffb5993d',1,'urs_projekt.c']]],
+  ['calctextheight',['CalcTextHeight',['../font_8c.html#a15309fa52fbdc936dabe70a3858818bb',1,'CalcTextHeight(char *Text):&#160;font.c'],['../font_8h.html#a15309fa52fbdc936dabe70a3858818bb',1,'CalcTextHeight(char *Text):&#160;font.c']]],
+  ['calctextwidth',['CalcTextWidth',['../font_8c.html#abfcc1ee7d5c12775f4e4fde03158a62b',1,'CalcTextWidth(char *Text):&#160;font.c'],['../font_8h.html#abfcc1ee7d5c12775f4e4fde03158a62b',1,'CalcTextWidth(char *Text):&#160;font.c']]],
+  ['ccx',['ccx',['../urs__projekt_8c.html#a485477bc44eaa2e03e4a1450598920f0',1,'urs_projekt.c']]],
+  ['ccy',['ccy',['../urs__projekt_8c.html#a9fa68276ef1ca5eae7903eb0c50eddf4',1,'urs_projekt.c']]],
+  ['chalfx',['chalfx',['../urs__projekt_8c.html#a36438f00b2063391de0da2eb7b7661d6',1,'urs_projekt.c']]],
+  ['chalfy',['chalfy',['../urs__projekt_8c.html#afd2356ff711ddc425b98f8376fae13a5',1,'urs_projekt.c']]],
+  ['circle',['Circle',['../group___l_c_d_library.html#ga94223e7939b705919cbf0cb9434e5fb8',1,'Circle(unsigned int x, unsigned int y, unsigned int radius, unsigned char fill):&#160;Graphic.c'],['../group___l_c_d_library.html#ga94223e7939b705919cbf0cb9434e5fb8',1,'Circle(unsigned int x, unsigned int y, unsigned int radius, unsigned char fill):&#160;Graphic.c']]],
+  ['clouds',['CLOUDS',['../group___s_s_d1289.html#ga21a063d3331bc256d5e7c757a00310b4',1,'SSD1289x16.h']]],
+  ['clrb',['Clrb',['../app__config_8h.html#a4f0ad36ab7c05a11bc48236f643f1652',1,'app_config.h']]],
+  ['cm1x',['cm1x',['../urs__projekt_8c.html#a7282983eb92515fef38863099f8149b5',1,'urs_projekt.c']]],
+  ['cm1y',['cm1y',['../urs__projekt_8c.html#ae4a4df5e101b4443da29c233088ac18e',1,'urs_projekt.c']]],
+  ['cm2x',['cm2x',['../urs__projekt_8c.html#a8da7360157eeeb3035a6da0df66ec302',1,'urs_projekt.c']]],
+  ['cm2y',['cm2y',['../urs__projekt_8c.html#a72dd2d1f233fe2f3e5aaf5620c9579fe',1,'urs_projekt.c']]],
+  ['comicsans_2eh',['comicsans.h',['../comicsans_8h.html',1,'']]],
+  ['currentgpsreading',['CurrentGpsReading',['../struct_current_gps_reading.html',1,'']]],
+  ['currentreading',['currentReading',['../urs__projekt_8c.html#a149973f06d759a4fdbaf801d9bea84e6',1,'urs_projekt.c']]],
+  ['currentscreen',['currentScreen',['../urs__projekt_8c.html#a9787c7a9a223da169e9471b6cf189c84',1,'urs_projekt.c']]],
+  ['cursorx',['cursorX',['../font_8c.html#a31b3e0f195ebe68aeeaab5a2805b362a',1,'cursorX():&#160;font.c'],['../font_8h.html#a31b3e0f195ebe68aeeaab5a2805b362a',1,'cursorX():&#160;font.c']]],
+  ['cursory',['cursorY',['../font_8c.html#afeb0001391a3ce8a4043f3a6dfc4fb5e',1,'cursorY():&#160;font.c'],['../font_8h.html#afeb0001391a3ce8a4043f3a6dfc4fb5e',1,'cursorY():&#160;font.c']]],
+  ['cyan',['CYAN',['../group___s_s_d1289.html#gad243f93c16bc4c1d3e0a13b84421d760',1,'SSD1289x16.h']]]
+];

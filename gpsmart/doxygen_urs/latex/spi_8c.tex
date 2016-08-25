@@ -1,0 +1,98 @@
+\hypertarget{spi_8c}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/spi.c File Reference}
+\label{spi_8c}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/spi.\+c@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/spi.\+c}}
+{\ttfamily \#include \char`\"{}app\+\_\+config.\+h\char`\"{}}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982}{spi\+\_\+status\+\_\+t} \{ \hyperlink{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a3b368c531eb77a6e4baaacdeba1c733c}{S\+P\+I\+\_\+\+I\+D\+L\+E}, 
+\hyperlink{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a77af10511cd7c60df95c66e904a13643}{S\+P\+I\+\_\+\+B\+U\+S\+Y}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi_8c_aba28bf48e011bc2086b041279382109a}{S\+P\+I\+Master\+Enable} (uint8\+\_\+t clk\+\_\+pol, uint8\+\_\+t clk\+\_\+phase, uint8\+\_\+t clk\+\_\+div, uint8\+\_\+t order, uint8\+\_\+t int\+\_\+enable)
+\item 
+void \hyperlink{spi_8c_aaa0fb9cf7f102210b0d8e4c60bed5cf4}{S\+P\+I\+Master\+Disable} ()
+\item 
+void \hyperlink{spi_8c_a89d32048dd23a0d81c920f1e787acea5}{S\+P\+I\+Master\+Transfer} (int len, unsigned char $\ast$buf)
+\item 
+uint8\+\_\+t \hyperlink{spi_8c_a829cd1c4c46203400deff8ae99b87764}{S\+P\+I\+Is\+Busy} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982}{spi\+\_\+status\+\_\+t} volatile \hyperlink{spi_8c_a55e3ce9068014e9cb76c5c3fdf50d62c}{spi\+\_\+status} = \hyperlink{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a3b368c531eb77a6e4baaacdeba1c733c}{S\+P\+I\+\_\+\+I\+D\+L\+E}
+\item 
+int \hyperlink{spi_8c_acb26bb1aabae02ccd3a74c36d5eb38fc}{spi\+\_\+cnt}
+\item 
+int \hyperlink{spi_8c_aad5bed66fe9bf70aeb89d4db5b0dd414}{spi\+\_\+ri}
+\item 
+int \hyperlink{spi_8c_a7ba5c5c3fd154da30ada0aa03903f0e5}{spi\+\_\+wi}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982}{}\index{spi.\+c@{spi.\+c}!spi\+\_\+status\+\_\+t@{spi\+\_\+status\+\_\+t}}
+\index{spi\+\_\+status\+\_\+t@{spi\+\_\+status\+\_\+t}!spi.\+c@{spi.\+c}}
+\subsubsection[{spi\+\_\+status\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf spi\+\_\+status\+\_\+t}}\label{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+P\+I\+\_\+\+I\+D\+L\+E@{S\+P\+I\+\_\+\+I\+D\+L\+E}!spi.\+c@{spi.\+c}}\index{spi.\+c@{spi.\+c}!S\+P\+I\+\_\+\+I\+D\+L\+E@{S\+P\+I\+\_\+\+I\+D\+L\+E}}\item[{\em 
+\hypertarget{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a3b368c531eb77a6e4baaacdeba1c733c}{}S\+P\+I\+\_\+\+I\+D\+L\+E\label{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a3b368c531eb77a6e4baaacdeba1c733c}
+}]\index{S\+P\+I\+\_\+\+B\+U\+S\+Y@{S\+P\+I\+\_\+\+B\+U\+S\+Y}!spi.\+c@{spi.\+c}}\index{spi.\+c@{spi.\+c}!S\+P\+I\+\_\+\+B\+U\+S\+Y@{S\+P\+I\+\_\+\+B\+U\+S\+Y}}\item[{\em 
+\hypertarget{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a77af10511cd7c60df95c66e904a13643}{}S\+P\+I\+\_\+\+B\+U\+S\+Y\label{spi_8c_a856ecadf3d7fe18c4fc3ae56500f8982a77af10511cd7c60df95c66e904a13643}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{spi_8c_a829cd1c4c46203400deff8ae99b87764}{}\index{spi.\+c@{spi.\+c}!S\+P\+I\+Is\+Busy@{S\+P\+I\+Is\+Busy}}
+\index{S\+P\+I\+Is\+Busy@{S\+P\+I\+Is\+Busy}!spi.\+c@{spi.\+c}}
+\subsubsection[{S\+P\+I\+Is\+Busy()}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t S\+P\+I\+Is\+Busy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spi_8c_a829cd1c4c46203400deff8ae99b87764}
+\hypertarget{spi_8c_aaa0fb9cf7f102210b0d8e4c60bed5cf4}{}\index{spi.\+c@{spi.\+c}!S\+P\+I\+Master\+Disable@{S\+P\+I\+Master\+Disable}}
+\index{S\+P\+I\+Master\+Disable@{S\+P\+I\+Master\+Disable}!spi.\+c@{spi.\+c}}
+\subsubsection[{S\+P\+I\+Master\+Disable()}]{\setlength{\rightskip}{0pt plus 5cm}void S\+P\+I\+Master\+Disable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spi_8c_aaa0fb9cf7f102210b0d8e4c60bed5cf4}
+\hypertarget{spi_8c_aba28bf48e011bc2086b041279382109a}{}\index{spi.\+c@{spi.\+c}!S\+P\+I\+Master\+Enable@{S\+P\+I\+Master\+Enable}}
+\index{S\+P\+I\+Master\+Enable@{S\+P\+I\+Master\+Enable}!spi.\+c@{spi.\+c}}
+\subsubsection[{S\+P\+I\+Master\+Enable(uint8\+\_\+t clk\+\_\+pol, uint8\+\_\+t clk\+\_\+phase, uint8\+\_\+t clk\+\_\+div, uint8\+\_\+t order, uint8\+\_\+t int\+\_\+enable)}]{\setlength{\rightskip}{0pt plus 5cm}void S\+P\+I\+Master\+Enable (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{clk\+\_\+pol, }
+\item[{uint8\+\_\+t}]{clk\+\_\+phase, }
+\item[{uint8\+\_\+t}]{clk\+\_\+div, }
+\item[{uint8\+\_\+t}]{order, }
+\item[{uint8\+\_\+t}]{int\+\_\+enable}
+\end{DoxyParamCaption}
+)}\label{spi_8c_aba28bf48e011bc2086b041279382109a}
+\hypertarget{spi_8c_a89d32048dd23a0d81c920f1e787acea5}{}\index{spi.\+c@{spi.\+c}!S\+P\+I\+Master\+Transfer@{S\+P\+I\+Master\+Transfer}}
+\index{S\+P\+I\+Master\+Transfer@{S\+P\+I\+Master\+Transfer}!spi.\+c@{spi.\+c}}
+\subsubsection[{S\+P\+I\+Master\+Transfer(int len, unsigned char $\ast$buf)}]{\setlength{\rightskip}{0pt plus 5cm}void S\+P\+I\+Master\+Transfer (
+\begin{DoxyParamCaption}
+\item[{int}]{len, }
+\item[{unsigned char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}\label{spi_8c_a89d32048dd23a0d81c920f1e787acea5}
+
+
+\subsection{Variable Documentation}
+\hypertarget{spi_8c_acb26bb1aabae02ccd3a74c36d5eb38fc}{}\index{spi.\+c@{spi.\+c}!spi\+\_\+cnt@{spi\+\_\+cnt}}
+\index{spi\+\_\+cnt@{spi\+\_\+cnt}!spi.\+c@{spi.\+c}}
+\subsubsection[{spi\+\_\+cnt}]{\setlength{\rightskip}{0pt plus 5cm}int spi\+\_\+cnt}\label{spi_8c_acb26bb1aabae02ccd3a74c36d5eb38fc}
+\hypertarget{spi_8c_aad5bed66fe9bf70aeb89d4db5b0dd414}{}\index{spi.\+c@{spi.\+c}!spi\+\_\+ri@{spi\+\_\+ri}}
+\index{spi\+\_\+ri@{spi\+\_\+ri}!spi.\+c@{spi.\+c}}
+\subsubsection[{spi\+\_\+ri}]{\setlength{\rightskip}{0pt plus 5cm}int spi\+\_\+ri}\label{spi_8c_aad5bed66fe9bf70aeb89d4db5b0dd414}
+\hypertarget{spi_8c_a55e3ce9068014e9cb76c5c3fdf50d62c}{}\index{spi.\+c@{spi.\+c}!spi\+\_\+status@{spi\+\_\+status}}
+\index{spi\+\_\+status@{spi\+\_\+status}!spi.\+c@{spi.\+c}}
+\subsubsection[{spi\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf spi\+\_\+status\+\_\+t} volatile spi\+\_\+status = {\bf S\+P\+I\+\_\+\+I\+D\+L\+E}}\label{spi_8c_a55e3ce9068014e9cb76c5c3fdf50d62c}
+\hypertarget{spi_8c_a7ba5c5c3fd154da30ada0aa03903f0e5}{}\index{spi.\+c@{spi.\+c}!spi\+\_\+wi@{spi\+\_\+wi}}
+\index{spi\+\_\+wi@{spi\+\_\+wi}!spi.\+c@{spi.\+c}}
+\subsubsection[{spi\+\_\+wi}]{\setlength{\rightskip}{0pt plus 5cm}int spi\+\_\+wi}\label{spi_8c_a7ba5c5c3fd154da30ada0aa03903f0e5}

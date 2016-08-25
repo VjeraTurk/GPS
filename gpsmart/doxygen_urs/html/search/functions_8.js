@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['scanpen',['ScanPen',['../urs__projekt_8c.html#a7e64a2723a083ef44aa80f644883475a',1,'urs_projekt.c']]],
+  ['serialavailable',['serialAvailable',['../group__uart.html#ga1ea963b291215ad9c5e8a0610f116b90',1,'serial.c']]],
+  ['serialclose',['serialClose',['../group__uart.html#gaa16a5ecaf9e40660ded50737ff1d0a88',1,'serial.c']]],
+  ['serialget',['serialGet',['../group__uart.html#gaa9d6e44600b215154c3f66193df151f6',1,'serial.c']]],
+  ['serialgetblocking',['serialGetBlocking',['../group__uart.html#gaf7c4238a9a5e8fff64af1faf1689a5a4',1,'serial.c']]],
+  ['serialhaschar',['serialHasChar',['../group__uart.html#ga266a54dcf3c4b85d92bf6b16bdcb5069',1,'serial.c']]],
+  ['serialinit',['serialInit',['../group__uart.html#ga73d4335cb201753c580c87954f493886',1,'serial.c']]],
+  ['serialreceiveinterrupt',['serialReceiveInterrupt',['../group__uart.html#gae943e7783790ebcc3e9abc6921949be8',1,'serial.c']]],
+  ['serialrxbufferempty',['serialRxBufferEmpty',['../group__uart.html#ga742268372398b85935564fded999b198',1,'serial.c']]],
+  ['serialrxbufferfull',['serialRxBufferFull',['../group__uart.html#ga73d16b244172336e7306ea2e4cf90fa1',1,'serial.c']]],
+  ['serialtransmitinterrupt',['serialTransmitInterrupt',['../group__uart.html#ga711c6d173f7a379426d995760ed95f1b',1,'serial.c']]],
+  ['serialtxbufferempty',['serialTxBufferEmpty',['../group__uart.html#ga14c345ea0707111e988a80ef1da65e32',1,'serial.c']]],
+  ['serialtxbufferfull',['serialTxBufferFull',['../group__uart.html#ga8a6adfd3c350ceb55605d003a62a36a4',1,'serial.c']]],
+  ['serialwrite',['serialWrite',['../group__uart.html#ga388583adaa7db4fad121b6454668b347',1,'serial.c']]],
+  ['serialwritestring',['serialWriteString',['../group__uart.html#ga054d68834f9ca19f3b2cf9d714337de4',1,'serial.c']]],
+  ['setflow',['setFlow',['../group__uart.html#ga5d5de9e3ed5a0be11f707113cfff33f5',1,'serial.c']]],
+  ['showaltitude',['showAltitude',['../urs__projekt_8c.html#a8432924a1f4700081f1aea777a82d92c',1,'urs_projekt.c']]],
+  ['showcalc',['showCalc',['../urs__projekt_8c.html#a8b06b1f79b465476b4884def3f435d2b',1,'urs_projekt.c']]],
+  ['showdistances',['showDistances',['../urs__projekt_8c.html#a3dbbbfba0fc69bd838f823d6e5853f36',1,'urs_projekt.c']]],
+  ['showlivegps',['showLiveGPS',['../urs__projekt_8c.html#aeb15a360cdce7f9f3f0495da679ea9f9',1,'urs_projekt.c']]],
+  ['showmenu',['showMenu',['../urs__projekt_8c.html#aba5bd9067aa6f261123165a337c7957d',1,'urs_projekt.c']]],
+  ['spiisbusy',['SPIIsBusy',['../spi_8c.html#a829cd1c4c46203400deff8ae99b87764',1,'SPIIsBusy():&#160;spi.c'],['../spi_8h.html#af246fa345c71a41e57c1ed96f8654eb7',1,'SPIIsBusy(void):&#160;spi.c']]],
+  ['spimasterdisable',['SPIMasterDisable',['../spi_8c.html#aaa0fb9cf7f102210b0d8e4c60bed5cf4',1,'SPIMasterDisable():&#160;spi.c'],['../spi_8h.html#a57c52b5e544791bf6aca3c11882aa71b',1,'SPIMasterDisable(void):&#160;spi.c']]],
+  ['spimasterenable',['SPIMasterEnable',['../spi_8c.html#aba28bf48e011bc2086b041279382109a',1,'SPIMasterEnable(uint8_t clk_pol, uint8_t clk_phase, uint8_t clk_div, uint8_t order, uint8_t int_enable):&#160;spi.c'],['../spi_8h.html#aba28bf48e011bc2086b041279382109a',1,'SPIMasterEnable(uint8_t clk_pol, uint8_t clk_phase, uint8_t clk_div, uint8_t order, uint8_t int_enable):&#160;spi.c']]],
+  ['spimastertransfer',['SPIMasterTransfer',['../spi_8c.html#a89d32048dd23a0d81c920f1e787acea5',1,'SPIMasterTransfer(int len, unsigned char *buf):&#160;spi.c'],['../spi_8h.html#a89d32048dd23a0d81c920f1e787acea5',1,'SPIMasterTransfer(int len, unsigned char *buf):&#160;spi.c']]]
+];

@@ -1,0 +1,62 @@
+\hypertarget{uart_8h}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/uart.h File Reference}
+\label{uart_8h}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/uart.\+h@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/uart.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__avr-uart_ga610107710886611e83a969b670164787}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D}
+\item 
+\#define \hyperlink{group__avr-uart_gab8bc9ef5bc3b98f92244ad33e3aa710b}{U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~128
+\item 
+\#define \hyperlink{group__avr-uart_gaa4710900760f3d4aed60b8df217816af}{U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~128
+\item 
+\#define \hyperlink{group__avr-uart_ga180ede29fa62d3514484ae6450b4ffbe}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T}(baud\+Rate,  \hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})~(((\hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})+8\+U\+L$\ast$(baud\+Rate))/(16\+U\+L$\ast$(baud\+Rate))-\/1\+U\+L)
+\begin{DoxyCompactList}\small\item\em U\+A\+R\+T Baudrate Expression. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__avr-uart_ga77aa486f11fb4e932bba24dff9754921}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D}(baud\+Rate,  \hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})~((((\hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})+4\+U\+L$\ast$(baud\+Rate))/(8\+U\+L$\ast$(baud\+Rate))-\/1)$\vert$0x8000)
+\begin{DoxyCompactList}\small\item\em U\+A\+R\+T Baudrate Expression for A\+Tmega double speed mode. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__avr-uart_gabcdb1041d763560cd8f8e722370dfd37}{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R}~0x0800
+\item 
+\#define \hyperlink{group__avr-uart_ga3183177e3613d8785d8cc8516931beb6}{U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R}~0x0400
+\item 
+\#define \hyperlink{group__avr-uart_ga94758f3dad6864703b7417d3e40f11df}{U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}~0x0200
+\item 
+\#define \hyperlink{group__avr-uart_ga77ba544d423ff42d400220a05303f268}{U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A}~0x0100
+\item 
+\#define \hyperlink{group__avr-uart_gac57b09cedba351e3a7f318bf42754b2b}{uart\+\_\+init}(b)        ~\hyperlink{group__avr-uart_ga51de0a3b835652d285f354c078669e75}{uart0\+\_\+init}(b)
+\item 
+\#define \hyperlink{group__avr-uart_ga9002030884b4b63417ade03811a6c599}{uart\+\_\+getc}()          ~\hyperlink{group__avr-uart_ga35407e8f77fa39c1a6b8504707b13dd2}{uart0\+\_\+getc}()
+\item 
+\#define \hyperlink{group__avr-uart_ga9ea2cac96dccfb809ac3dfc721740ce9}{uart\+\_\+putc}(d)        ~\hyperlink{group__avr-uart_gaf52cb65e977992c01d1f2b7220243f94}{uart0\+\_\+putc}(d)
+\item 
+\#define \hyperlink{group__avr-uart_gad80ccb7c25bb3a00beeac5061ae88b66}{uart\+\_\+puts}(s)        ~\hyperlink{group__avr-uart_gaeff5f5ff60334be95f0b895f96c10998}{uart0\+\_\+puts}(s)
+\item 
+\#define \hyperlink{group__avr-uart_gadebe9e3d0f325ed34b3d351078565b67}{uart\+\_\+puts\+\_\+p}(s)    ~\hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p}(s)
+\item 
+\#define \hyperlink{group__avr-uart_gaf84771d5473f9b43dabbefa32917a5aa}{uart\+\_\+available}()~\hyperlink{group__avr-uart_gac369ee64442157556e517078029e9aab}{uart0\+\_\+available}()
+\item 
+\#define \hyperlink{group__avr-uart_gab04c4a21f4830426faafbcd68adf584d}{uart\+\_\+flush}()        ~\hyperlink{group__avr-uart_gab3e2b412a31f1d05a9a5be70f4b01109}{uart0\+\_\+flush}()
+\item 
+\#define \hyperlink{group__avr-uart_gab33ef3d9e3ece415aa37e713fe4385b5}{uart\+\_\+puts\+\_\+\+P}(\+\_\+\+\_\+s)          ~\hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p}(P\+S\+T\+R(\+\_\+\+\_\+s))
+\begin{DoxyCompactList}\small\item\em Macro to automatically put a string constant into program memory. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__avr-uart_gaeae7603fe1b81b748384fd38a1430974}{uart0\+\_\+puts\+\_\+\+P}(\+\_\+\+\_\+s)        ~\hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p}(P\+S\+T\+R(\+\_\+\+\_\+s))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__avr-uart_ga51de0a3b835652d285f354c078669e75}{uart0\+\_\+init} (uint16\+\_\+t baudrate)
+\begin{DoxyCompactList}\small\item\em Initialize U\+A\+R\+T and set baudrate. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__avr-uart_ga35407e8f77fa39c1a6b8504707b13dd2}{uart0\+\_\+getc} (void)
+\begin{DoxyCompactList}\small\item\em Get received byte from ringbuffer. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__avr-uart_ga7f0372a14af24f02f5c6615afd6671a0}{uart0\+\_\+peek} (void)
+\begin{DoxyCompactList}\small\item\em Peek at next byte in ringbuffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gaf52cb65e977992c01d1f2b7220243f94}{uart0\+\_\+putc} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Put byte to ringbuffer for transmitting via U\+A\+R\+T. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gaeff5f5ff60334be95f0b895f96c10998}{uart0\+\_\+puts} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Put string to ringbuffer for transmitting via U\+A\+R\+T. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Put string from program memory to ringbuffer for transmitting via U\+A\+R\+T. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__avr-uart_gac369ee64442157556e517078029e9aab}{uart0\+\_\+available} (void)
+\begin{DoxyCompactList}\small\item\em Return number of bytes waiting in the receive buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gab3e2b412a31f1d05a9a5be70f4b01109}{uart0\+\_\+flush} (void)
+\begin{DoxyCompactList}\small\item\em Flush bytes waiting in receive buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}

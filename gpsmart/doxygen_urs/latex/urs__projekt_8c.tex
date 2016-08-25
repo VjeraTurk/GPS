@@ -1,0 +1,445 @@
+\hypertarget{urs__projekt_8c}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/urs\+\_\+projekt.c File Reference}
+\label{urs__projekt_8c}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/urs\+\_\+projekt.\+c@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/urs\+\_\+projekt.\+c}}
+
+
+The main file receiving data from the gps module, showing graphics on the screen and managing touch events on the screen.  
+
+
+{\ttfamily \#include \char`\"{}app\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$util/delay.\+h$>$}\\*
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}S\+S\+D1289x16.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}font.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ft18x34.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}serial.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Graphic.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_current_gps_reading}{Current\+Gps\+Reading}
+\begin{DoxyCompactList}\small\item\em A structure to keep the current G\+P\+S data. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_previous_gps_reading}{Previous\+Gps\+Reading}
+\begin{DoxyCompactList}\small\item\em A structure to keep one previous G\+P\+S data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{urs__projekt_8c_ae2ac5aaed8d5c1d6747ac395e52b0a7b}{T\+C\+Get\+H}()~\hyperlink{group___t_c_gaee0209bfc5eebc394ecd7983e6332fd5}{T\+C\+Get\+Y}()
+\item 
+\#define \hyperlink{urs__projekt_8c_a031069127220afbc17e614679946ef92}{T\+C\+Get\+V}()~\hyperlink{group___t_c_gad8f951414d812509bbddccf70d190ad4}{T\+C\+Get\+X}()
+\item 
+\#define \hyperlink{urs__projekt_8c_a1daf785e3f68d293c7caa1c756d5cb74}{pi}~3.\+14159265358979323846
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{urs__projekt_8c_a20e81f6be6f97101a90599e35e7aa2da}{cal\+\_\+posx} (unsigned short x)
+\begin{DoxyCompactList}\small\item\em A function for getting the exact x-\/position of the touch event. \end{DoxyCompactList}\item 
+long \hyperlink{urs__projekt_8c_abeb44505f469c46d9c95efb2ffb5993d}{cal\+\_\+posy} (unsigned short y)
+\begin{DoxyCompactList}\small\item\em A function for getting the exact y-\/position of the touch event. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_aba5bd9067aa6f261123165a337c7957d}{show\+Menu} ()
+\begin{DoxyCompactList}\small\item\em A function for showing a selectable menu to the other screens. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_aeb15a360cdce7f9f3f0495da679ea9f9}{show\+Live\+G\+P\+S} ()
+\begin{DoxyCompactList}\small\item\em A function for showing a live G\+P\+S readings on a dedicated screen. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_a3dbbbfba0fc69bd838f823d6e5853f36}{show\+Distances} ()
+\begin{DoxyCompactList}\small\item\em A function for showing distances from the current G\+P\+S location to some hardcoded cities on a dedicated screen. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_a8432924a1f4700081f1aea777a82d92c}{show\+Altitude} ()
+\begin{DoxyCompactList}\small\item\em A function for graphical representation of the current altitude data on a dedicated screen. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_a8b06b1f79b465476b4884def3f435d2b}{show\+Calc} ()
+\begin{DoxyCompactList}\small\item\em A function for showing a Distance Calculator creen. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_a2f57fdd8b0479b781a5862e7fa6c4407}{read\+G\+P\+S} ()
+\begin{DoxyCompactList}\small\item\em A function for receiving G\+P\+S data and assigning the values to current and previous G\+P\+S struct variables. \end{DoxyCompactList}\item 
+double \hyperlink{urs__projekt_8c_ab5894dabbabca6ac03e5822b8c1f76bd}{distance} (long lat1, long lon1, double lat2, double lon2, char unit)
+\begin{DoxyCompactList}\small\item\em A function for calculating a distance between two G\+P\+S points. \end{DoxyCompactList}\item 
+double \hyperlink{urs__projekt_8c_a8012f8bd66798ffbdd27462c9f593a54}{deg2rad} (double deg)
+\begin{DoxyCompactList}\small\item\em A function for getting radians from degrees. \end{DoxyCompactList}\item 
+double \hyperlink{urs__projekt_8c_ad71ec851896bb003290612760ae0c451}{rad2deg} (double rad)
+\begin{DoxyCompactList}\small\item\em A function for getting degrees from radians. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{urs__projekt_8c_a689a6031667d240cc896873a7970ce54}{parse\+Hex} (char c)
+\begin{DoxyCompactList}\small\item\em A function that returns the decimal equivalent of a Hex value. \end{DoxyCompactList}\item 
+void \hyperlink{urs__projekt_8c_a7e64a2723a083ef44aa80f644883475a}{Scan\+Pen} (void)
+\begin{DoxyCompactList}\small\item\em A function for detecting touch events and calling the appropriate functions depending on the touch event. \end{DoxyCompactList}\item 
+int \hyperlink{urs__projekt_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\begin{DoxyCompactList}\small\item\em A function that initializes touch screen, U\+A\+R\+T and interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const long \hyperlink{urs__projekt_8c_a36438f00b2063391de0da2eb7b7661d6}{chalfx} = \hyperlink{app__config_8h_a6496265674309f27adc6ac8f8bd9f109}{T\+S\+\_\+\+S\+I\+Z\+E\+\_\+\+X}/2
+\item 
+const long \hyperlink{urs__projekt_8c_afd2356ff711ddc425b98f8376fae13a5}{chalfy} = \hyperlink{app__config_8h_ad7246d756d19c532d67630d5bddb1e34}{T\+S\+\_\+\+S\+I\+Z\+E\+\_\+\+Y}/2
+\item 
+long \hyperlink{urs__projekt_8c_a485477bc44eaa2e03e4a1450598920f0}{ccx} = 0x00000834
+\item 
+long \hyperlink{urs__projekt_8c_a7282983eb92515fef38863099f8149b5}{cm1x} = 0x00000007
+\item 
+long \hyperlink{urs__projekt_8c_a8da7360157eeeb3035a6da0df66ec302}{cm2x} = 0x\+F\+F\+F\+F\+F\+F\+B8
+\item 
+long \hyperlink{urs__projekt_8c_a9fa68276ef1ca5eae7903eb0c50eddf4}{ccy} = 0x00000815
+\item 
+long \hyperlink{urs__projekt_8c_ae4a4df5e101b4443da29c233088ac18e}{cm1y} = 0x0000000\+C
+\item 
+long \hyperlink{urs__projekt_8c_a72dd2d1f233fe2f3e5aaf5620c9579fe}{cm2y} = 0x000000\+A3
+\item 
+struct \hyperlink{struct_current_gps_reading}{Current\+Gps\+Reading} \hyperlink{urs__projekt_8c_a149973f06d759a4fdbaf801d9bea84e6}{current\+Reading}
+\item 
+struct \hyperlink{struct_previous_gps_reading}{Previous\+Gps\+Reading} \hyperlink{urs__projekt_8c_a2fcbaf276eb5351e17515ce59852c91a}{previous\+Reading}
+\item 
+int \hyperlink{urs__projekt_8c_a9787c7a9a223da169e9471b6cf189c84}{current\+Screen}
+\item 
+char \hyperlink{urs__projekt_8c_af3f9e2b8f323be59321622676da1bf15}{latitude\+Input} \mbox{[}11\mbox{]}
+\item 
+char \hyperlink{urs__projekt_8c_ae2be8fdca84d01b8c8a2a6e8167f1f0c}{longitude\+Input} \mbox{[}11\mbox{]}
+\item 
+int \hyperlink{urs__projekt_8c_a9841c8d0c093a6404a2e6ac0aff8007d}{focused\+Field} = 0
+\item 
+unsigned char \hyperlink{urs__projekt_8c_aefabf12793a13c13a0b2ebda729ff9e8}{last\+\_\+pen\+\_\+check} = 0
+\item 
+\hyperlink{app__config_8h_a6140d5bcb437e2f03b47518b9d236d56}{so\+\_\+pos\+\_\+t} \hyperlink{urs__projekt_8c_a377a8cee7299a546df82521ce0087039}{hpos}
+\item 
+\hyperlink{app__config_8h_a6140d5bcb437e2f03b47518b9d236d56}{so\+\_\+pos\+\_\+t} \hyperlink{urs__projekt_8c_a5996d965a430d3c5ad2f115ac2cd1683}{vpos}
+\item 
+\hyperlink{app__config_8h_aaa06db4cff02f58c85a9ed881a28e002}{pstatus\+\_\+t} \hyperlink{urs__projekt_8c_a17bfeb81602d52b621d3c23112680d04}{p\+\_\+stat}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main file receiving data from the gps module, showing graphics on the screen and managing touch events on the screen. 
+
+\begin{DoxyAuthor}{Author}
+Sandro Babic, David Kreso, Marin Krmpotic, Ana Tomas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 Feb 2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{urs__projekt_8c_a1daf785e3f68d293c7caa1c756d5cb74}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!pi@{pi}}
+\index{pi@{pi}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{pi}]{\setlength{\rightskip}{0pt plus 5cm}\#define pi~3.\+14159265358979323846}\label{urs__projekt_8c_a1daf785e3f68d293c7caa1c756d5cb74}
+Value of the P\+I constant \hypertarget{urs__projekt_8c_ae2ac5aaed8d5c1d6747ac395e52b0a7b}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!T\+C\+Get\+H@{T\+C\+Get\+H}}
+\index{T\+C\+Get\+H@{T\+C\+Get\+H}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{T\+C\+Get\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+C\+Get\+H(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf T\+C\+Get\+Y}()}\label{urs__projekt_8c_ae2ac5aaed8d5c1d6747ac395e52b0a7b}
+\hypertarget{urs__projekt_8c_a031069127220afbc17e614679946ef92}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!T\+C\+Get\+V@{T\+C\+Get\+V}}
+\index{T\+C\+Get\+V@{T\+C\+Get\+V}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{T\+C\+Get\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+C\+Get\+V(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf T\+C\+Get\+X}()}\label{urs__projekt_8c_a031069127220afbc17e614679946ef92}
+
+
+\subsection{Function Documentation}
+\hypertarget{urs__projekt_8c_a20e81f6be6f97101a90599e35e7aa2da}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!cal\+\_\+posx@{cal\+\_\+posx}}
+\index{cal\+\_\+posx@{cal\+\_\+posx}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{cal\+\_\+posx(unsigned short x)}]{\setlength{\rightskip}{0pt plus 5cm}long cal\+\_\+posx (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{x}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a20e81f6be6f97101a90599e35e7aa2da}
+
+
+A function for getting the exact x-\/position of the touch event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate buffer value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position X 
+\end{DoxyReturn}
+\hypertarget{urs__projekt_8c_abeb44505f469c46d9c95efb2ffb5993d}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!cal\+\_\+posy@{cal\+\_\+posy}}
+\index{cal\+\_\+posy@{cal\+\_\+posy}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{cal\+\_\+posy(unsigned short y)}]{\setlength{\rightskip}{0pt plus 5cm}long cal\+\_\+posy (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{y}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_abeb44505f469c46d9c95efb2ffb5993d}
+
+
+A function for getting the exact y-\/position of the touch event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & y-\/coordinate buffer value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position Y 
+\end{DoxyReturn}
+\hypertarget{urs__projekt_8c_a8012f8bd66798ffbdd27462c9f593a54}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!deg2rad@{deg2rad}}
+\index{deg2rad@{deg2rad}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{deg2rad(double deg)}]{\setlength{\rightskip}{0pt plus 5cm}double deg2rad (
+\begin{DoxyParamCaption}
+\item[{double}]{deg}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a8012f8bd66798ffbdd27462c9f593a54}
+
+
+A function for getting radians from degrees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deg} & Double precision degrees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Radians 
+\end{DoxyReturn}
+\hypertarget{urs__projekt_8c_ab5894dabbabca6ac03e5822b8c1f76bd}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!distance@{distance}}
+\index{distance@{distance}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{distance(long lat1, long lon1, double lat2, double lon2, char unit)}]{\setlength{\rightskip}{0pt plus 5cm}double distance (
+\begin{DoxyParamCaption}
+\item[{long}]{lat1, }
+\item[{long}]{lon1, }
+\item[{double}]{lat2, }
+\item[{double}]{lon2, }
+\item[{char}]{unit}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_ab5894dabbabca6ac03e5822b8c1f76bd}
+
+
+A function for calculating a distance between two G\+P\+S points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lat1} & First point latitude \\
+\hline
+{\em lon1} & First point longitude \\
+\hline
+{\em lat2} & Second point latitude \\
+\hline
+{\em lon2} & Second point longitude \\
+\hline
+{\em unit} & Distance unit. M for miles, K for kilometers, N for nautical miles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance in desired distance unit 
+\end{DoxyReturn}
+$<$ Longitude difference
+
+$<$ Distance that is going to be returned to the caller
+
+$<$ Double precision of first point latitude
+
+$<$ Double precision of first point longitude \hypertarget{urs__projekt_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!main@{main}}
+\index{main@{main}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{main(void)}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a840291bc02cba5474a4cb46a9b9566fe}
+
+
+A function that initializes touch screen, U\+A\+R\+T and interrupts. 
+
+This function is called only once on the start of the app. \hypertarget{urs__projekt_8c_a689a6031667d240cc896873a7970ce54}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!parse\+Hex@{parse\+Hex}}
+\index{parse\+Hex@{parse\+Hex}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{parse\+Hex(char c)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t parse\+Hex (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a689a6031667d240cc896873a7970ce54}
+
+
+A function that returns the decimal equivalent of a Hex value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Hex value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decimal equivalent 
+\end{DoxyReturn}
+\hypertarget{urs__projekt_8c_ad71ec851896bb003290612760ae0c451}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!rad2deg@{rad2deg}}
+\index{rad2deg@{rad2deg}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{rad2deg(double rad)}]{\setlength{\rightskip}{0pt plus 5cm}double rad2deg (
+\begin{DoxyParamCaption}
+\item[{double}]{rad}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_ad71ec851896bb003290612760ae0c451}
+
+
+A function for getting degrees from radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deg} & Double precision radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Degrees 
+\end{DoxyReturn}
+\hypertarget{urs__projekt_8c_a2f57fdd8b0479b781a5862e7fa6c4407}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!read\+G\+P\+S@{read\+G\+P\+S}}
+\index{read\+G\+P\+S@{read\+G\+P\+S}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{read\+G\+P\+S()}]{\setlength{\rightskip}{0pt plus 5cm}void read\+G\+P\+S (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a2f57fdd8b0479b781a5862e7fa6c4407}
+
+
+A function for receiving G\+P\+S data and assigning the values to current and previous G\+P\+S struct variables. 
+
+$<$ A temporary buffer storing the degrees
+
+$<$ A temporary array storing 120 chars received from the serial
+
+$<$ A temporary string storing hours
+
+$<$ A temporary string storing minutes
+
+$<$ A temporary string storing seconds
+
+$<$ Pointer used for sliding through an array of chars
+
+$<$ A degree from the degree buffer is stored here \hypertarget{urs__projekt_8c_a7e64a2723a083ef44aa80f644883475a}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!Scan\+Pen@{Scan\+Pen}}
+\index{Scan\+Pen@{Scan\+Pen}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{Scan\+Pen(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Scan\+Pen (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a7e64a2723a083ef44aa80f644883475a}
+
+
+A function for detecting touch events and calling the appropriate functions depending on the touch event. 
+
+This function should be called in an indefinite loop. \hypertarget{urs__projekt_8c_a8432924a1f4700081f1aea777a82d92c}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!show\+Altitude@{show\+Altitude}}
+\index{show\+Altitude@{show\+Altitude}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{show\+Altitude()}]{\setlength{\rightskip}{0pt plus 5cm}void show\+Altitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a8432924a1f4700081f1aea777a82d92c}
+
+
+A function for graphical representation of the current altitude data on a dedicated screen. 
+
+This screen is shown when a user selects it from the menu. $<$ A flag showing if this is the first time showing the screen
+
+$<$ A helper string used to store text that is to be shown on the screen \hypertarget{urs__projekt_8c_a8b06b1f79b465476b4884def3f435d2b}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!show\+Calc@{show\+Calc}}
+\index{show\+Calc@{show\+Calc}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{show\+Calc()}]{\setlength{\rightskip}{0pt plus 5cm}void show\+Calc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a8b06b1f79b465476b4884def3f435d2b}
+
+
+A function for showing a Distance Calculator creen. 
+
+This screen is shown when a user selects it from the menu. $<$ A flag showing if this is the first time showing the screen
+
+$<$ A helper string used to store text that is to be shown on the screen
+
+$<$ Double precision latitude value
+
+$<$ Double precision longitude value
+
+$<$ A flag showing which input field is focused \hypertarget{urs__projekt_8c_a3dbbbfba0fc69bd838f823d6e5853f36}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!show\+Distances@{show\+Distances}}
+\index{show\+Distances@{show\+Distances}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{show\+Distances()}]{\setlength{\rightskip}{0pt plus 5cm}void show\+Distances (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_a3dbbbfba0fc69bd838f823d6e5853f36}
+
+
+A function for showing distances from the current G\+P\+S location to some hardcoded cities on a dedicated screen. 
+
+This screen is shown when a user selects it from the menu. $<$ A flag showing if this is the first time showing the screen
+
+$<$ A helper string used to store text that is to be shown on the screen \hypertarget{urs__projekt_8c_aeb15a360cdce7f9f3f0495da679ea9f9}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!show\+Live\+G\+P\+S@{show\+Live\+G\+P\+S}}
+\index{show\+Live\+G\+P\+S@{show\+Live\+G\+P\+S}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{show\+Live\+G\+P\+S()}]{\setlength{\rightskip}{0pt plus 5cm}void show\+Live\+G\+P\+S (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_aeb15a360cdce7f9f3f0495da679ea9f9}
+
+
+A function for showing a live G\+P\+S readings on a dedicated screen. 
+
+This screen is shown when a user selects it from the menu. $<$ A flag showing if this is the first time showing the screen
+
+$<$ A helper string used to store text that is to be shown on the screen \hypertarget{urs__projekt_8c_aba5bd9067aa6f261123165a337c7957d}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!show\+Menu@{show\+Menu}}
+\index{show\+Menu@{show\+Menu}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{show\+Menu()}]{\setlength{\rightskip}{0pt plus 5cm}void show\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{urs__projekt_8c_aba5bd9067aa6f261123165a337c7957d}
+
+
+A function for showing a selectable menu to the other screens. 
+
+This screen is shown when the app is started. 
+
+\subsection{Variable Documentation}
+\hypertarget{urs__projekt_8c_a485477bc44eaa2e03e4a1450598920f0}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!ccx@{ccx}}
+\index{ccx@{ccx}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{ccx}]{\setlength{\rightskip}{0pt plus 5cm}long ccx = 0x00000834}\label{urs__projekt_8c_a485477bc44eaa2e03e4a1450598920f0}
+\hypertarget{urs__projekt_8c_a9fa68276ef1ca5eae7903eb0c50eddf4}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!ccy@{ccy}}
+\index{ccy@{ccy}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{ccy}]{\setlength{\rightskip}{0pt plus 5cm}long ccy = 0x00000815}\label{urs__projekt_8c_a9fa68276ef1ca5eae7903eb0c50eddf4}
+\hypertarget{urs__projekt_8c_a36438f00b2063391de0da2eb7b7661d6}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!chalfx@{chalfx}}
+\index{chalfx@{chalfx}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{chalfx}]{\setlength{\rightskip}{0pt plus 5cm}const long chalfx = {\bf T\+S\+\_\+\+S\+I\+Z\+E\+\_\+\+X}/2}\label{urs__projekt_8c_a36438f00b2063391de0da2eb7b7661d6}
+\hypertarget{urs__projekt_8c_afd2356ff711ddc425b98f8376fae13a5}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!chalfy@{chalfy}}
+\index{chalfy@{chalfy}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{chalfy}]{\setlength{\rightskip}{0pt plus 5cm}const long chalfy = {\bf T\+S\+\_\+\+S\+I\+Z\+E\+\_\+\+Y}/2}\label{urs__projekt_8c_afd2356ff711ddc425b98f8376fae13a5}
+\hypertarget{urs__projekt_8c_a7282983eb92515fef38863099f8149b5}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!cm1x@{cm1x}}
+\index{cm1x@{cm1x}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{cm1x}]{\setlength{\rightskip}{0pt plus 5cm}long cm1x = 0x00000007}\label{urs__projekt_8c_a7282983eb92515fef38863099f8149b5}
+\hypertarget{urs__projekt_8c_ae4a4df5e101b4443da29c233088ac18e}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!cm1y@{cm1y}}
+\index{cm1y@{cm1y}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{cm1y}]{\setlength{\rightskip}{0pt plus 5cm}long cm1y = 0x0000000\+C}\label{urs__projekt_8c_ae4a4df5e101b4443da29c233088ac18e}
+\hypertarget{urs__projekt_8c_a8da7360157eeeb3035a6da0df66ec302}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!cm2x@{cm2x}}
+\index{cm2x@{cm2x}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{cm2x}]{\setlength{\rightskip}{0pt plus 5cm}long cm2x = 0x\+F\+F\+F\+F\+F\+F\+B8}\label{urs__projekt_8c_a8da7360157eeeb3035a6da0df66ec302}
+\hypertarget{urs__projekt_8c_a72dd2d1f233fe2f3e5aaf5620c9579fe}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!cm2y@{cm2y}}
+\index{cm2y@{cm2y}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{cm2y}]{\setlength{\rightskip}{0pt plus 5cm}long cm2y = 0x000000\+A3}\label{urs__projekt_8c_a72dd2d1f233fe2f3e5aaf5620c9579fe}
+\hypertarget{urs__projekt_8c_a149973f06d759a4fdbaf801d9bea84e6}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!current\+Reading@{current\+Reading}}
+\index{current\+Reading@{current\+Reading}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{current\+Reading}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Current\+Gps\+Reading}  current\+Reading}\label{urs__projekt_8c_a149973f06d759a4fdbaf801d9bea84e6}
+\hypertarget{urs__projekt_8c_a9787c7a9a223da169e9471b6cf189c84}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!current\+Screen@{current\+Screen}}
+\index{current\+Screen@{current\+Screen}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{current\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}int current\+Screen}\label{urs__projekt_8c_a9787c7a9a223da169e9471b6cf189c84}
+The screen currently being shown \hypertarget{urs__projekt_8c_a9841c8d0c093a6404a2e6ac0aff8007d}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!focused\+Field@{focused\+Field}}
+\index{focused\+Field@{focused\+Field}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{focused\+Field}]{\setlength{\rightskip}{0pt plus 5cm}int focused\+Field = 0}\label{urs__projekt_8c_a9841c8d0c093a6404a2e6ac0aff8007d}
+Which input field is focused \hypertarget{urs__projekt_8c_a377a8cee7299a546df82521ce0087039}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!hpos@{hpos}}
+\index{hpos@{hpos}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{hpos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf so\+\_\+pos\+\_\+t} hpos}\label{urs__projekt_8c_a377a8cee7299a546df82521ce0087039}
+Horizontal position of the touch event \hypertarget{urs__projekt_8c_aefabf12793a13c13a0b2ebda729ff9e8}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!last\+\_\+pen\+\_\+check@{last\+\_\+pen\+\_\+check}}
+\index{last\+\_\+pen\+\_\+check@{last\+\_\+pen\+\_\+check}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{last\+\_\+pen\+\_\+check}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char last\+\_\+pen\+\_\+check = 0}\label{urs__projekt_8c_aefabf12793a13c13a0b2ebda729ff9e8}
+A flag used to define if touch has just been made or hold \hypertarget{urs__projekt_8c_af3f9e2b8f323be59321622676da1bf15}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!latitude\+Input@{latitude\+Input}}
+\index{latitude\+Input@{latitude\+Input}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{latitude\+Input}]{\setlength{\rightskip}{0pt plus 5cm}char latitude\+Input\mbox{[}11\mbox{]}}\label{urs__projekt_8c_af3f9e2b8f323be59321622676da1bf15}
+Latitude input field content, defined by the user \hypertarget{urs__projekt_8c_ae2be8fdca84d01b8c8a2a6e8167f1f0c}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!longitude\+Input@{longitude\+Input}}
+\index{longitude\+Input@{longitude\+Input}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{longitude\+Input}]{\setlength{\rightskip}{0pt plus 5cm}char longitude\+Input\mbox{[}11\mbox{]}}\label{urs__projekt_8c_ae2be8fdca84d01b8c8a2a6e8167f1f0c}
+Longitude input field content, defined by the user \hypertarget{urs__projekt_8c_a17bfeb81602d52b621d3c23112680d04}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!p\+\_\+stat@{p\+\_\+stat}}
+\index{p\+\_\+stat@{p\+\_\+stat}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{p\+\_\+stat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pstatus\+\_\+t} p\+\_\+stat}\label{urs__projekt_8c_a17bfeb81602d52b621d3c23112680d04}
+Status of event \hypertarget{urs__projekt_8c_a2fcbaf276eb5351e17515ce59852c91a}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!previous\+Reading@{previous\+Reading}}
+\index{previous\+Reading@{previous\+Reading}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{previous\+Reading}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Previous\+Gps\+Reading}  previous\+Reading}\label{urs__projekt_8c_a2fcbaf276eb5351e17515ce59852c91a}
+\hypertarget{urs__projekt_8c_a5996d965a430d3c5ad2f115ac2cd1683}{}\index{urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}!vpos@{vpos}}
+\index{vpos@{vpos}!urs\+\_\+projekt.\+c@{urs\+\_\+projekt.\+c}}
+\subsubsection[{vpos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf so\+\_\+pos\+\_\+t} vpos}\label{urs__projekt_8c_a5996d965a430d3c5ad2f115ac2cd1683}
+Vertical position of the touch event 

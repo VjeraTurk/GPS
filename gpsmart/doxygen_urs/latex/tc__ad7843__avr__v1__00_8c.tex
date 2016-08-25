@@ -1,0 +1,53 @@
+\hypertarget{tc__ad7843__avr__v1__00_8c}{}\section{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.2/urs\+\_\+projekt/urs\+\_\+projekt/tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.c File Reference}
+\label{tc__ad7843__avr__v1__00_8c}\index{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{C\+:/\+Users/\+Marin/\+Documents/\+Atmel Studio/6.\+2/urs\+\_\+projekt/urs\+\_\+projekt/tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}}
+{\ttfamily \#include \char`\"{}app\+\_\+config.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tc__ad7843__avr__v1__00_8c_a5363040fdd6b744e4d5be839dd70ae0c}{T\+C\+\_\+\+C\+R\+\_\+\+Y}~0x90
+\item 
+\#define \hyperlink{tc__ad7843__avr__v1__00_8c_a9129f504677982b036b2538077fcc012}{T\+C\+\_\+\+C\+R\+\_\+\+X}~0x\+D0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \hyperlink{group___t_c_gad8f951414d812509bbddccf70d190ad4}{T\+C\+Get\+X} (void)
+\begin{DoxyCompactList}\small\item\em call this after \hyperlink{group___t_c_ga4f0731336c332b00c2efc02470a6862a}{T\+C\+Read()} to get X value \end{DoxyCompactList}\item 
+unsigned short \hyperlink{group___t_c_gaee0209bfc5eebc394ecd7983e6332fd5}{T\+C\+Get\+Y} (void)
+\begin{DoxyCompactList}\small\item\em call this after \hyperlink{group___t_c_ga4f0731336c332b00c2efc02470a6862a}{T\+C\+Read()} to get Y value \end{DoxyCompactList}\item 
+unsigned char \hyperlink{group___t_c_ga2f124701c2fb0aa1e2123192037b7808}{T\+C\+Is\+Pen\+On} (void)
+\begin{DoxyCompactList}\small\item\em T\+C\+\_\+\+P\+E\+N\+\_\+\+P\+I\+N is 0 when the screen is pressed. \end{DoxyCompactList}\item 
+void \hyperlink{group___t_c_gaed3494e4fc9d42d7fb78b48c65d6582d}{T\+C\+Init} (void)
+\begin{DoxyCompactList}\small\item\em initial touch screen controller \end{DoxyCompactList}\item 
+void \hyperlink{group___t_c_ga4f0731336c332b00c2efc02470a6862a}{T\+C\+Read} (void)
+\begin{DoxyCompactList}\small\item\em read analog voltage \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned short \hyperlink{tc__ad7843__avr__v1__00_8c_aa56700a071343a76bd964df6cec85a89}{tc\+\_\+x}
+\item 
+volatile unsigned short \hyperlink{tc__ad7843__avr__v1__00_8c_aa780b7215e775c2f1ac3a7070242454e}{tc\+\_\+y}
+\item 
+unsigned char \hyperlink{tc__ad7843__avr__v1__00_8c_ace905c2587e410d574f30f66bc309646}{spi\+\_\+buf} \mbox{[}8\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{tc__ad7843__avr__v1__00_8c_a9129f504677982b036b2538077fcc012}{}\index{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}!T\+C\+\_\+\+C\+R\+\_\+\+X@{T\+C\+\_\+\+C\+R\+\_\+\+X}}
+\index{T\+C\+\_\+\+C\+R\+\_\+\+X@{T\+C\+\_\+\+C\+R\+\_\+\+X}!tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}}
+\subsubsection[{T\+C\+\_\+\+C\+R\+\_\+\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+C\+\_\+\+C\+R\+\_\+\+X~0x\+D0}\label{tc__ad7843__avr__v1__00_8c_a9129f504677982b036b2538077fcc012}
+\hypertarget{tc__ad7843__avr__v1__00_8c_a5363040fdd6b744e4d5be839dd70ae0c}{}\index{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}!T\+C\+\_\+\+C\+R\+\_\+\+Y@{T\+C\+\_\+\+C\+R\+\_\+\+Y}}
+\index{T\+C\+\_\+\+C\+R\+\_\+\+Y@{T\+C\+\_\+\+C\+R\+\_\+\+Y}!tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}}
+\subsubsection[{T\+C\+\_\+\+C\+R\+\_\+\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+C\+\_\+\+C\+R\+\_\+\+Y~0x90}\label{tc__ad7843__avr__v1__00_8c_a5363040fdd6b744e4d5be839dd70ae0c}
+
+
+\subsection{Variable Documentation}
+\hypertarget{tc__ad7843__avr__v1__00_8c_ace905c2587e410d574f30f66bc309646}{}\index{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}!spi\+\_\+buf@{spi\+\_\+buf}}
+\index{spi\+\_\+buf@{spi\+\_\+buf}!tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}}
+\subsubsection[{spi\+\_\+buf}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char spi\+\_\+buf\mbox{[}8\mbox{]}}\label{tc__ad7843__avr__v1__00_8c_ace905c2587e410d574f30f66bc309646}
+\hypertarget{tc__ad7843__avr__v1__00_8c_aa56700a071343a76bd964df6cec85a89}{}\index{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}!tc\+\_\+x@{tc\+\_\+x}}
+\index{tc\+\_\+x@{tc\+\_\+x}!tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}}
+\subsubsection[{tc\+\_\+x}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned short tc\+\_\+x}\label{tc__ad7843__avr__v1__00_8c_aa56700a071343a76bd964df6cec85a89}
+\hypertarget{tc__ad7843__avr__v1__00_8c_aa780b7215e775c2f1ac3a7070242454e}{}\index{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}!tc\+\_\+y@{tc\+\_\+y}}
+\index{tc\+\_\+y@{tc\+\_\+y}!tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c@{tc\+\_\+ad7843\+\_\+avr\+\_\+v1\+\_\+00.\+c}}
+\subsubsection[{tc\+\_\+y}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned short tc\+\_\+y}\label{tc__ad7843__avr__v1__00_8c_aa780b7215e775c2f1ac3a7070242454e}

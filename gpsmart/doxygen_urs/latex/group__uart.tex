@@ -1,0 +1,436 @@
+\hypertarget{group__uart}{}\section{U\+A\+R\+T Library}
+\label{group__uart}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{serial_8c}{serial.\+c}
+\item 
+file \hyperlink{serial_8h}{serial.\+h}
+\item 
+file \hyperlink{serial__device_8h}{serial\+\_\+device.\+h}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__uart_ga739a2a1a0047c98ac1b18ecd25dac092}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~32
+\item 
+\#define \hyperlink{group__uart_ga9ab33647617098646990fe263600b650}{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~16
+\item 
+\#define \hyperlink{group__uart_gaff1f07741fbe1f53f46098687f0a05e2}{F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L}
+\item 
+\#define \hyperlink{group__uart_gaa7907a070ef8e6d68d7d774b34eebe66}{F\+L\+O\+W\+M\+A\+R\+K}~5
+\item 
+\#define \hyperlink{group__uart_gacdf721774c51e08c6609e6fa8cf82cc9}{X\+O\+N}~0x11
+\item 
+\#define \hyperlink{group__uart_ga67fd78ae15d2b67c10d44d69a49ab1c5}{X\+O\+F\+F}~0x13
+\item 
+\#define \hyperlink{group__uart_gaa51318345d7d41d395a6db8484b3ffdd}{S\+E\+R\+I\+A\+L\+D\+A\+T\+A}~0
+\item 
+\#define \hyperlink{group__uart_gabcb483ebd1a604344646038d126a7275}{S\+E\+R\+I\+A\+L\+B}~1
+\item 
+\#define \hyperlink{group__uart_gaa077cc918060f1067f5c2789b9a19254}{S\+E\+R\+I\+A\+L\+C}~2
+\item 
+\#define \hyperlink{group__uart_gaa5bea8111e1e8e5aecf47e828e49ffd4}{S\+E\+R\+I\+A\+L\+A}~3
+\item 
+\#define \hyperlink{group__uart_ga6d2ad84277867c58c32694e46224f04f}{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H}~4
+\item 
+\#define \hyperlink{group__uart_ga3e3151352f114d0f544991899fd442f3}{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L}~5
+\item 
+\#define \hyperlink{group__uart_ga41235b09734ef60d0c12ed793fdc0851}{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0}~0
+\item 
+\#define \hyperlink{group__uart_gac3bc8370f2ac121887bde3b9ba8d8731}{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1}~1
+\item 
+\#define \hyperlink{group__uart_ga9e792f4cd909071e8714b25db70710f6}{S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E}~2
+\item 
+\#define \hyperlink{group__uart_ga09233c5e1f7f901ab7397e3c9cf927f2}{S\+E\+R\+I\+A\+L\+R\+X\+E\+N}~3
+\item 
+\#define \hyperlink{group__uart_ga9e6c7fbd3272364902664d08a1e20029}{S\+E\+R\+I\+A\+L\+T\+X\+E\+N}~4
+\item 
+\#define \hyperlink{group__uart_gaefb2912e438c706aafbf43ac5c89392d}{S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E}~5
+\item 
+\#define \hyperlink{group__uart_ga044671436e16c3dde4f4a6fa829708f2}{S\+E\+R\+I\+A\+L\+U\+D\+R\+E}~6
+\item 
+\#define \hyperlink{group__uart_gafccfd7d1315f0763ac404c6104883341}{B\+A\+U\+D}(baud\+Rate,  xtal\+Cpu)~((xtal\+Cpu)/((baud\+Rate)$\ast$16l)-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga1ea963b291215ad9c5e8a0610f116b90}{serial\+Available} (void)
+\item 
+void \hyperlink{group__uart_ga73d4335cb201753c580c87954f493886}{serial\+Init} (uint8\+\_\+t uart, uint16\+\_\+t baud)
+\item 
+void \hyperlink{group__uart_gaa16a5ecaf9e40660ded50737ff1d0a88}{serial\+Close} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_ga5d5de9e3ed5a0be11f707113cfff33f5}{set\+Flow} (uint8\+\_\+t uart, uint8\+\_\+t on)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga266a54dcf3c4b85d92bf6b16bdcb5069}{serial\+Has\+Char} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_gaf7c4238a9a5e8fff64af1faf1689a5a4}{serial\+Get\+Blocking} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_gaa9d6e44600b215154c3f66193df151f6}{serial\+Get} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga73d16b244172336e7306ea2e4cf90fa1}{serial\+Rx\+Buffer\+Full} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga742268372398b85935564fded999b198}{serial\+Rx\+Buffer\+Empty} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_ga388583adaa7db4fad121b6454668b347}{serial\+Write} (uint8\+\_\+t uart, uint8\+\_\+t data)
+\item 
+void \hyperlink{group__uart_ga054d68834f9ca19f3b2cf9d714337de4}{serial\+Write\+String} (uint8\+\_\+t uart, const char $\ast$data)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga8a6adfd3c350ceb55605d003a62a36a4}{serial\+Tx\+Buffer\+Full} (uint8\+\_\+t uart)
+\item 
+uint8\+\_\+t \hyperlink{group__uart_ga14c345ea0707111e988a80ef1da65e32}{serial\+Tx\+Buffer\+Empty} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_gae943e7783790ebcc3e9abc6921949be8}{serial\+Receive\+Interrupt} (uint8\+\_\+t uart)
+\item 
+void \hyperlink{group__uart_ga711c6d173f7a379426d995760ed95f1b}{serial\+Transmit\+Interrupt} (uint8\+\_\+t uart)
+\item 
+\hyperlink{group__uart_ga7a36d30320b27d7d863762b7e54b540d}{I\+S\+R} (S\+E\+R\+I\+A\+L\+R\+E\+C\+I\+E\+V\+E\+I\+N\+T\+E\+R\+R\+U\+P\+T)
+\item 
+\hyperlink{group__uart_gac456aaea36551ccfea05338b693f6f82}{I\+S\+R} (S\+E\+R\+I\+A\+L\+T\+R\+A\+N\+S\+M\+I\+T\+I\+N\+T\+E\+R\+R\+U\+P\+T)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_gab7018b7927b8cccfbae6f9aaa0568004}{rx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}\mbox{[}\hyperlink{group__uart_ga739a2a1a0047c98ac1b18ecd25dac092}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga7f4d2b5ef19fd7e6d9a75757f290c68f}{tx\+Buffer} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}\mbox{[}\hyperlink{group__uart_ga9ab33647617098646990fe263600b650}{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga0f60a5b7ebf2fe97d44ceeada8b42007}{rx\+Read} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga1cdf2c2d0be76d213e71977232b2fbac}{rx\+Write} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga9da1183eed5d114e277463b1313454d6}{tx\+Read} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint16\+\_\+t volatile \hyperlink{group__uart_ga51f11860503e517cd61cfcd7a4c960eb}{tx\+Write} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga156a853afd97bd4938e2f98d5960ffc2}{should\+Start\+Transmission} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_gaa1a502a415b55c96a957f18c7c52be21}{send\+This\+Next} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga32736da4f1f69aab6da0d54da60baf4f}{flow} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\item 
+uint8\+\_\+t volatile \hyperlink{group__uart_ga06e68070e3b56c88cd70d1da68ec05b3}{rx\+Buffer\+Elements} \mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+A\+R\+T Library enabling you to control all available U\+A\+R\+T Modules. With X\+O\+N/\+X\+O\+F\+F Flow Control and buffered Receiving and Transmitting. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__uart_gafccfd7d1315f0763ac404c6104883341}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!B\+A\+U\+D@{B\+A\+U\+D}}
+\index{B\+A\+U\+D@{B\+A\+U\+D}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{B\+A\+U\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+U\+D(
+\begin{DoxyParamCaption}
+\item[{}]{baud\+Rate, }
+\item[{}]{xtal\+Cpu}
+\end{DoxyParamCaption}
+)~((xtal\+Cpu)/((baud\+Rate)$\ast$16l)-\/1)}\label{group__uart_gafccfd7d1315f0763ac404c6104883341}
+Calculate Baudrate Register Value \hypertarget{group__uart_gaff1f07741fbe1f53f46098687f0a05e2}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L@{F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L}}
+\index{F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L@{F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+O\+W\+C\+O\+N\+T\+R\+O\+L}\label{group__uart_gaff1f07741fbe1f53f46098687f0a05e2}
+Defining this enables incoming X\+O\+N X\+O\+F\+F (sends X\+O\+F\+F if rx buff is full) \hypertarget{group__uart_gaa7907a070ef8e6d68d7d774b34eebe66}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!F\+L\+O\+W\+M\+A\+R\+K@{F\+L\+O\+W\+M\+A\+R\+K}}
+\index{F\+L\+O\+W\+M\+A\+R\+K@{F\+L\+O\+W\+M\+A\+R\+K}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{F\+L\+O\+W\+M\+A\+R\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+O\+W\+M\+A\+R\+K~5}\label{group__uart_gaa7907a070ef8e6d68d7d774b34eebe66}
+Space remaining to trigger xoff/xon \hypertarget{group__uart_ga739a2a1a0047c98ac1b18ecd25dac092}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}
+\index{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E~32}\label{group__uart_ga739a2a1a0047c98ac1b18ecd25dac092}
+If you define this, a \textquotesingle{}\textbackslash{}r\textquotesingle{} (C\+R) will be put in front of a \textquotesingle{}\textbackslash{}n\textquotesingle{} (L\+F) when sending a byte. Binary Communication will then be impossible!\+R\+X Buffer Size in Bytes (Power of 2) \hypertarget{group__uart_gaa5bea8111e1e8e5aecf47e828e49ffd4}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+A@{S\+E\+R\+I\+A\+L\+A}}
+\index{S\+E\+R\+I\+A\+L\+A@{S\+E\+R\+I\+A\+L\+A}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+A~3}\label{group__uart_gaa5bea8111e1e8e5aecf47e828e49ffd4}
+\hypertarget{group__uart_gabcb483ebd1a604344646038d126a7275}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+B@{S\+E\+R\+I\+A\+L\+B}}
+\index{S\+E\+R\+I\+A\+L\+B@{S\+E\+R\+I\+A\+L\+B}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+B}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+B~1}\label{group__uart_gabcb483ebd1a604344646038d126a7275}
+\hypertarget{group__uart_gaa077cc918060f1067f5c2789b9a19254}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+C@{S\+E\+R\+I\+A\+L\+C}}
+\index{S\+E\+R\+I\+A\+L\+C@{S\+E\+R\+I\+A\+L\+C}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+C~2}\label{group__uart_gaa077cc918060f1067f5c2789b9a19254}
+\hypertarget{group__uart_gaa51318345d7d41d395a6db8484b3ffdd}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+D\+A\+T\+A@{S\+E\+R\+I\+A\+L\+D\+A\+T\+A}}
+\index{S\+E\+R\+I\+A\+L\+D\+A\+T\+A@{S\+E\+R\+I\+A\+L\+D\+A\+T\+A}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+D\+A\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+D\+A\+T\+A~0}\label{group__uart_gaa51318345d7d41d395a6db8484b3ffdd}
+\hypertarget{group__uart_ga9e792f4cd909071e8714b25db70710f6}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E@{S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E}}
+\index{S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E@{S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+R\+X\+C\+I\+E~2}\label{group__uart_ga9e792f4cd909071e8714b25db70710f6}
+\hypertarget{group__uart_ga09233c5e1f7f901ab7397e3c9cf927f2}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+R\+X\+E\+N@{S\+E\+R\+I\+A\+L\+R\+X\+E\+N}}
+\index{S\+E\+R\+I\+A\+L\+R\+X\+E\+N@{S\+E\+R\+I\+A\+L\+R\+X\+E\+N}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+R\+X\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+R\+X\+E\+N~3}\label{group__uart_ga09233c5e1f7f901ab7397e3c9cf927f2}
+\hypertarget{group__uart_ga9e6c7fbd3272364902664d08a1e20029}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+T\+X\+E\+N@{S\+E\+R\+I\+A\+L\+T\+X\+E\+N}}
+\index{S\+E\+R\+I\+A\+L\+T\+X\+E\+N@{S\+E\+R\+I\+A\+L\+T\+X\+E\+N}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+T\+X\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+T\+X\+E\+N~4}\label{group__uart_ga9e6c7fbd3272364902664d08a1e20029}
+\hypertarget{group__uart_ga6d2ad84277867c58c32694e46224f04f}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H@{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H}}
+\index{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H@{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+H~4}\label{group__uart_ga6d2ad84277867c58c32694e46224f04f}
+\hypertarget{group__uart_ga3e3151352f114d0f544991899fd442f3}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L@{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L}}
+\index{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L@{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+U\+B\+R\+R\+L~5}\label{group__uart_ga3e3151352f114d0f544991899fd442f3}
+\hypertarget{group__uart_ga41235b09734ef60d0c12ed793fdc0851}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0@{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0}}
+\index{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0@{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+U\+C\+S\+Z0~0}\label{group__uart_ga41235b09734ef60d0c12ed793fdc0851}
+\hypertarget{group__uart_gac3bc8370f2ac121887bde3b9ba8d8731}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1@{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1}}
+\index{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1@{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+U\+C\+S\+Z1~1}\label{group__uart_gac3bc8370f2ac121887bde3b9ba8d8731}
+\hypertarget{group__uart_ga044671436e16c3dde4f4a6fa829708f2}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+U\+D\+R\+E@{S\+E\+R\+I\+A\+L\+U\+D\+R\+E}}
+\index{S\+E\+R\+I\+A\+L\+U\+D\+R\+E@{S\+E\+R\+I\+A\+L\+U\+D\+R\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+U\+D\+R\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+U\+D\+R\+E~6}\label{group__uart_ga044671436e16c3dde4f4a6fa829708f2}
+\hypertarget{group__uart_gaefb2912e438c706aafbf43ac5c89392d}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E@{S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E}}
+\index{S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E@{S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+I\+A\+L\+U\+D\+R\+I\+E~5}\label{group__uart_gaefb2912e438c706aafbf43ac5c89392d}
+\hypertarget{group__uart_ga9ab33647617098646990fe263600b650}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}
+\index{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E~16}\label{group__uart_ga9ab33647617098646990fe263600b650}
+T\+X Buffer Size in Bytes (Power of 2) \hypertarget{group__uart_ga67fd78ae15d2b67c10d44d69a49ab1c5}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!X\+O\+F\+F@{X\+O\+F\+F}}
+\index{X\+O\+F\+F@{X\+O\+F\+F}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{X\+O\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\+O\+F\+F~0x13}\label{group__uart_ga67fd78ae15d2b67c10d44d69a49ab1c5}
+X\+O\+F\+F Value \hypertarget{group__uart_gacdf721774c51e08c6609e6fa8cf82cc9}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!X\+O\+N@{X\+O\+N}}
+\index{X\+O\+N@{X\+O\+N}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{X\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\+O\+N~0x11}\label{group__uart_gacdf721774c51e08c6609e6fa8cf82cc9}
+X\+O\+N Value 
+
+\subsection{Function Documentation}
+\hypertarget{group__uart_ga7a36d30320b27d7d863762b7e54b540d}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!I\+S\+R@{I\+S\+R}}
+\index{I\+S\+R@{I\+S\+R}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{I\+S\+R(\+S\+E\+R\+I\+A\+L\+R\+E\+C\+I\+E\+V\+E\+I\+N\+T\+E\+R\+R\+U\+P\+T)}]{\setlength{\rightskip}{0pt plus 5cm}I\+S\+R (
+\begin{DoxyParamCaption}
+\item[{S\+E\+R\+I\+A\+L\+R\+E\+C\+I\+E\+V\+E\+I\+N\+T\+E\+R\+R\+U\+P\+T}]{}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga7a36d30320b27d7d863762b7e54b540d}
+\hypertarget{group__uart_gac456aaea36551ccfea05338b693f6f82}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!I\+S\+R@{I\+S\+R}}
+\index{I\+S\+R@{I\+S\+R}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{I\+S\+R(\+S\+E\+R\+I\+A\+L\+T\+R\+A\+N\+S\+M\+I\+T\+I\+N\+T\+E\+R\+R\+U\+P\+T)}]{\setlength{\rightskip}{0pt plus 5cm}I\+S\+R (
+\begin{DoxyParamCaption}
+\item[{S\+E\+R\+I\+A\+L\+T\+R\+A\+N\+S\+M\+I\+T\+I\+N\+T\+E\+R\+R\+U\+P\+T}]{}
+\end{DoxyParamCaption}
+)}\label{group__uart_gac456aaea36551ccfea05338b693f6f82}
+\hypertarget{group__uart_ga1ea963b291215ad9c5e8a0610f116b90}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Available@{serial\+Available}}
+\index{serial\+Available@{serial\+Available}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Available(void)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Available (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga1ea963b291215ad9c5e8a0610f116b90}
+Get number of available U\+A\+R\+T modules. \begin{DoxyReturn}{Returns}
+number of modules 
+\end{DoxyReturn}
+\hypertarget{group__uart_gaa16a5ecaf9e40660ded50737ff1d0a88}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Close@{serial\+Close}}
+\index{serial\+Close@{serial\+Close}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Close(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}void serial\+Close (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_gaa16a5ecaf9e40660ded50737ff1d0a88}
+Stop the U\+A\+R\+T Hardware. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to stop \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__uart_gaa9d6e44600b215154c3f66193df151f6}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Get@{serial\+Get}}
+\index{serial\+Get@{serial\+Get}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Get(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Get (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_gaa9d6e44600b215154c3f66193df151f6}
+Read a single byte. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Received byte or 0 
+\end{DoxyReturn}
+\hypertarget{group__uart_gaf7c4238a9a5e8fff64af1faf1689a5a4}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Get\+Blocking@{serial\+Get\+Blocking}}
+\index{serial\+Get\+Blocking@{serial\+Get\+Blocking}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Get\+Blocking(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Get\+Blocking (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_gaf7c4238a9a5e8fff64af1faf1689a5a4}
+Wait until a character is received. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Received byte 
+\end{DoxyReturn}
+\hypertarget{group__uart_ga266a54dcf3c4b85d92bf6b16bdcb5069}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Has\+Char@{serial\+Has\+Char}}
+\index{serial\+Has\+Char@{serial\+Has\+Char}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Has\+Char(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Has\+Char (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga266a54dcf3c4b85d92bf6b16bdcb5069}
+Check if a byte was received. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a byte was received, 0 if not 
+\end{DoxyReturn}
+\hypertarget{group__uart_ga73d4335cb201753c580c87954f493886}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Init@{serial\+Init}}
+\index{serial\+Init@{serial\+Init}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Init(uint8\+\_\+t uart, uint16\+\_\+t baud)}]{\setlength{\rightskip}{0pt plus 5cm}void serial\+Init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart, }
+\item[{uint16\+\_\+t}]{baud}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga73d4335cb201753c580c87954f493886}
+Initialize the U\+A\+R\+T Hardware. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to initialize \\
+\hline
+{\em baud} & Baudrate. Use the \hyperlink{group__uart_gafccfd7d1315f0763ac404c6104883341}{B\+A\+U\+D()} macro! \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__uart_gae943e7783790ebcc3e9abc6921949be8}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Receive\+Interrupt@{serial\+Receive\+Interrupt}}
+\index{serial\+Receive\+Interrupt@{serial\+Receive\+Interrupt}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Receive\+Interrupt(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}void serial\+Receive\+Interrupt (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_gae943e7783790ebcc3e9abc6921949be8}
+\hypertarget{group__uart_ga742268372398b85935564fded999b198}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Rx\+Buffer\+Empty@{serial\+Rx\+Buffer\+Empty}}
+\index{serial\+Rx\+Buffer\+Empty@{serial\+Rx\+Buffer\+Empty}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Rx\+Buffer\+Empty(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Rx\+Buffer\+Empty (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga742268372398b85935564fded999b198}
+Check if the receive buffer is empty. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if buffer is empty, 0 if not. 
+\end{DoxyReturn}
+\hypertarget{group__uart_ga73d16b244172336e7306ea2e4cf90fa1}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Rx\+Buffer\+Full@{serial\+Rx\+Buffer\+Full}}
+\index{serial\+Rx\+Buffer\+Full@{serial\+Rx\+Buffer\+Full}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Rx\+Buffer\+Full(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Rx\+Buffer\+Full (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga73d16b244172336e7306ea2e4cf90fa1}
+Check if the receive buffer is full. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if buffer is full, 0 if not 
+\end{DoxyReturn}
+\hypertarget{group__uart_ga711c6d173f7a379426d995760ed95f1b}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Transmit\+Interrupt@{serial\+Transmit\+Interrupt}}
+\index{serial\+Transmit\+Interrupt@{serial\+Transmit\+Interrupt}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Transmit\+Interrupt(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}void serial\+Transmit\+Interrupt (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga711c6d173f7a379426d995760ed95f1b}
+\hypertarget{group__uart_ga14c345ea0707111e988a80ef1da65e32}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Tx\+Buffer\+Empty@{serial\+Tx\+Buffer\+Empty}}
+\index{serial\+Tx\+Buffer\+Empty@{serial\+Tx\+Buffer\+Empty}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Tx\+Buffer\+Empty(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Tx\+Buffer\+Empty (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga14c345ea0707111e988a80ef1da65e32}
+Check if the transmit buffer is empty. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if buffer is empty, 0 if not. 
+\end{DoxyReturn}
+\hypertarget{group__uart_ga8a6adfd3c350ceb55605d003a62a36a4}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Tx\+Buffer\+Full@{serial\+Tx\+Buffer\+Full}}
+\index{serial\+Tx\+Buffer\+Full@{serial\+Tx\+Buffer\+Full}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Tx\+Buffer\+Full(uint8\+\_\+t uart)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t serial\+Tx\+Buffer\+Full (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga8a6adfd3c350ceb55605d003a62a36a4}
+Check if the transmit buffer is full. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if buffer is full, 0 if not 
+\end{DoxyReturn}
+\hypertarget{group__uart_ga388583adaa7db4fad121b6454668b347}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Write@{serial\+Write}}
+\index{serial\+Write@{serial\+Write}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Write(uint8\+\_\+t uart, uint8\+\_\+t data)}]{\setlength{\rightskip}{0pt plus 5cm}void serial\+Write (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart, }
+\item[{uint8\+\_\+t}]{data}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga388583adaa7db4fad121b6454668b347}
+Send a byte. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to write to \\
+\hline
+{\em data} & Byte to send \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__uart_ga054d68834f9ca19f3b2cf9d714337de4}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!serial\+Write\+String@{serial\+Write\+String}}
+\index{serial\+Write\+String@{serial\+Write\+String}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{serial\+Write\+String(uint8\+\_\+t uart, const char $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void serial\+Write\+String (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart, }
+\item[{const char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga054d68834f9ca19f3b2cf9d714337de4}
+Send a string. 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to write to \\
+\hline
+{\em data} & Null-\/\+Terminated String \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__uart_ga5d5de9e3ed5a0be11f707113cfff33f5}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!set\+Flow@{set\+Flow}}
+\index{set\+Flow@{set\+Flow}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{set\+Flow(uint8\+\_\+t uart, uint8\+\_\+t on)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Flow (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{uart, }
+\item[{uint8\+\_\+t}]{on}
+\end{DoxyParamCaption}
+)}\label{group__uart_ga5d5de9e3ed5a0be11f707113cfff33f5}
+Manually change the flow control. Flow Control has to be compiled into the library! 
+\begin{DoxyParams}{Parameters}
+{\em uart} & U\+A\+R\+T Module to operate on \\
+\hline
+{\em on} & 1 of on, 0 if off \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{group__uart_ga32736da4f1f69aab6da0d54da60baf4f}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!flow@{flow}}
+\index{flow@{flow}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{flow}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t volatile flow\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga32736da4f1f69aab6da0d54da60baf4f}
+\hypertarget{group__uart_gab7018b7927b8cccfbae6f9aaa0568004}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!rx\+Buffer@{rx\+Buffer}}
+\index{rx\+Buffer@{rx\+Buffer}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{rx\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t volatile rx\+Buffer\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}\mbox{[}{\bf R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}\mbox{]}}\label{group__uart_gab7018b7927b8cccfbae6f9aaa0568004}
+\hypertarget{group__uart_ga06e68070e3b56c88cd70d1da68ec05b3}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!rx\+Buffer\+Elements@{rx\+Buffer\+Elements}}
+\index{rx\+Buffer\+Elements@{rx\+Buffer\+Elements}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{rx\+Buffer\+Elements}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t volatile rx\+Buffer\+Elements\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga06e68070e3b56c88cd70d1da68ec05b3}
+\hypertarget{group__uart_ga0f60a5b7ebf2fe97d44ceeada8b42007}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!rx\+Read@{rx\+Read}}
+\index{rx\+Read@{rx\+Read}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{rx\+Read}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t volatile rx\+Read\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga0f60a5b7ebf2fe97d44ceeada8b42007}
+\hypertarget{group__uart_ga1cdf2c2d0be76d213e71977232b2fbac}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!rx\+Write@{rx\+Write}}
+\index{rx\+Write@{rx\+Write}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{rx\+Write}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t volatile rx\+Write\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga1cdf2c2d0be76d213e71977232b2fbac}
+\hypertarget{group__uart_gaa1a502a415b55c96a957f18c7c52be21}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!send\+This\+Next@{send\+This\+Next}}
+\index{send\+This\+Next@{send\+This\+Next}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{send\+This\+Next}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t volatile send\+This\+Next\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_gaa1a502a415b55c96a957f18c7c52be21}
+\hypertarget{group__uart_ga156a853afd97bd4938e2f98d5960ffc2}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!should\+Start\+Transmission@{should\+Start\+Transmission}}
+\index{should\+Start\+Transmission@{should\+Start\+Transmission}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{should\+Start\+Transmission}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t volatile should\+Start\+Transmission\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga156a853afd97bd4938e2f98d5960ffc2}
+\hypertarget{group__uart_ga7f4d2b5ef19fd7e6d9a75757f290c68f}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!tx\+Buffer@{tx\+Buffer}}
+\index{tx\+Buffer@{tx\+Buffer}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{tx\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t volatile tx\+Buffer\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}\mbox{[}{\bf T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}\mbox{]}}\label{group__uart_ga7f4d2b5ef19fd7e6d9a75757f290c68f}
+\hypertarget{group__uart_ga9da1183eed5d114e277463b1313454d6}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!tx\+Read@{tx\+Read}}
+\index{tx\+Read@{tx\+Read}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{tx\+Read}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t volatile tx\+Read\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga9da1183eed5d114e277463b1313454d6}
+\hypertarget{group__uart_ga51f11860503e517cd61cfcd7a4c960eb}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!tx\+Write@{tx\+Write}}
+\index{tx\+Write@{tx\+Write}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{tx\+Write}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t volatile tx\+Write\mbox{[}U\+A\+R\+T\+\_\+\+C\+O\+U\+N\+T\mbox{]}}\label{group__uart_ga51f11860503e517cd61cfcd7a4c960eb}

@@ -1,0 +1,398 @@
+\hypertarget{group__avr-uart}{}\section{U\+A\+R\+T Library}
+\label{group__avr-uart}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+
+
+Interrupt U\+A\+R\+T library using the built-\/in U\+A\+R\+T with transmit and receive circular buffers.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__avr-uart_ga610107710886611e83a969b670164787}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D}
+\item 
+\#define \hyperlink{group__avr-uart_gab8bc9ef5bc3b98f92244ad33e3aa710b}{U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~128
+\item 
+\#define \hyperlink{group__avr-uart_gaa4710900760f3d4aed60b8df217816af}{U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~128
+\item 
+\#define \hyperlink{group__avr-uart_ga180ede29fa62d3514484ae6450b4ffbe}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T}(baud\+Rate,  \hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})~(((\hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})+8\+U\+L$\ast$(baud\+Rate))/(16\+U\+L$\ast$(baud\+Rate))-\/1\+U\+L)
+\begin{DoxyCompactList}\small\item\em U\+A\+R\+T Baudrate Expression. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__avr-uart_ga77aa486f11fb4e932bba24dff9754921}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D}(baud\+Rate,  \hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})~((((\hyperlink{app__config_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+P\+U})+4\+U\+L$\ast$(baud\+Rate))/(8\+U\+L$\ast$(baud\+Rate))-\/1)$\vert$0x8000)
+\begin{DoxyCompactList}\small\item\em U\+A\+R\+T Baudrate Expression for A\+Tmega double speed mode. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__avr-uart_gabcdb1041d763560cd8f8e722370dfd37}{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R}~0x0800
+\item 
+\#define \hyperlink{group__avr-uart_ga3183177e3613d8785d8cc8516931beb6}{U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R}~0x0400
+\item 
+\#define \hyperlink{group__avr-uart_ga94758f3dad6864703b7417d3e40f11df}{U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}~0x0200
+\item 
+\#define \hyperlink{group__avr-uart_ga77ba544d423ff42d400220a05303f268}{U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A}~0x0100
+\item 
+\#define \hyperlink{group__avr-uart_gac57b09cedba351e3a7f318bf42754b2b}{uart\+\_\+init}(b)        ~\hyperlink{group__avr-uart_ga51de0a3b835652d285f354c078669e75}{uart0\+\_\+init}(b)
+\item 
+\#define \hyperlink{group__avr-uart_ga9002030884b4b63417ade03811a6c599}{uart\+\_\+getc}()          ~\hyperlink{group__avr-uart_ga35407e8f77fa39c1a6b8504707b13dd2}{uart0\+\_\+getc}()
+\item 
+\#define \hyperlink{group__avr-uart_ga9ea2cac96dccfb809ac3dfc721740ce9}{uart\+\_\+putc}(d)        ~\hyperlink{group__avr-uart_gaf52cb65e977992c01d1f2b7220243f94}{uart0\+\_\+putc}(d)
+\item 
+\#define \hyperlink{group__avr-uart_gad80ccb7c25bb3a00beeac5061ae88b66}{uart\+\_\+puts}(s)        ~\hyperlink{group__avr-uart_gaeff5f5ff60334be95f0b895f96c10998}{uart0\+\_\+puts}(s)
+\item 
+\#define \hyperlink{group__avr-uart_gadebe9e3d0f325ed34b3d351078565b67}{uart\+\_\+puts\+\_\+p}(s)    ~\hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p}(s)
+\item 
+\#define \hyperlink{group__avr-uart_gaf84771d5473f9b43dabbefa32917a5aa}{uart\+\_\+available}()~\hyperlink{group__avr-uart_gac369ee64442157556e517078029e9aab}{uart0\+\_\+available}()
+\item 
+\#define \hyperlink{group__avr-uart_gab04c4a21f4830426faafbcd68adf584d}{uart\+\_\+flush}()        ~\hyperlink{group__avr-uart_gab3e2b412a31f1d05a9a5be70f4b01109}{uart0\+\_\+flush}()
+\item 
+\#define \hyperlink{group__avr-uart_gab33ef3d9e3ece415aa37e713fe4385b5}{uart\+\_\+puts\+\_\+\+P}(\+\_\+\+\_\+s)          ~\hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p}(P\+S\+T\+R(\+\_\+\+\_\+s))
+\begin{DoxyCompactList}\small\item\em Macro to automatically put a string constant into program memory. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__avr-uart_gaeae7603fe1b81b748384fd38a1430974}{uart0\+\_\+puts\+\_\+\+P}(\+\_\+\+\_\+s)        ~\hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p}(P\+S\+T\+R(\+\_\+\+\_\+s))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__avr-uart_ga51de0a3b835652d285f354c078669e75}{uart0\+\_\+init} (uint16\+\_\+t baudrate)
+\begin{DoxyCompactList}\small\item\em Initialize U\+A\+R\+T and set baudrate. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__avr-uart_ga35407e8f77fa39c1a6b8504707b13dd2}{uart0\+\_\+getc} (void)
+\begin{DoxyCompactList}\small\item\em Get received byte from ringbuffer. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__avr-uart_ga7f0372a14af24f02f5c6615afd6671a0}{uart0\+\_\+peek} (void)
+\begin{DoxyCompactList}\small\item\em Peek at next byte in ringbuffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gaf52cb65e977992c01d1f2b7220243f94}{uart0\+\_\+putc} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Put byte to ringbuffer for transmitting via U\+A\+R\+T. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gaeff5f5ff60334be95f0b895f96c10998}{uart0\+\_\+puts} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Put string to ringbuffer for transmitting via U\+A\+R\+T. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{uart0\+\_\+puts\+\_\+p} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Put string from program memory to ringbuffer for transmitting via U\+A\+R\+T. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__avr-uart_gac369ee64442157556e517078029e9aab}{uart0\+\_\+available} (void)
+\begin{DoxyCompactList}\small\item\em Return number of bytes waiting in the receive buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__avr-uart_gab3e2b412a31f1d05a9a5be70f4b01109}{uart0\+\_\+flush} (void)
+\begin{DoxyCompactList}\small\item\em Flush bytes waiting in receive buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interrupt U\+A\+R\+T library using the built-\/in U\+A\+R\+T with transmit and receive circular buffers. 
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <\hyperlink{uart_8h}{uart.h}>} 
+\end{DoxyCode}
+
+
+This library can be used to transmit and receive data through the built in U\+A\+R\+T.
+
+An interrupt is generated when the U\+A\+R\+T has finished transmitting or receiving a byte. The interrupt handling routines use circular buffers for buffering received and transmitted data.
+
+The U\+A\+R\+T\+\_\+\+R\+Xn\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E and U\+A\+R\+T\+\_\+\+T\+Xn\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E constants define the size of the circular buffers in bytes. Note that these constants must be a power of 2.
+
+You need to define these buffer sizes in \hyperlink{uart_8h}{uart.\+h}
+
+\begin{DoxyNote}{Note}
+Based on Atmel Application Note A\+V\+R306 
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Andy Gock \href{mailto:andy@gock.net}{\tt andy@gock.\+net} 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+Based on original library by Peter Fleury and Tim Sharpe. 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__avr-uart_gaeae7603fe1b81b748384fd38a1430974}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+puts\+\_\+\+P@{uart0\+\_\+puts\+\_\+\+P}}
+\index{uart0\+\_\+puts\+\_\+\+P@{uart0\+\_\+puts\+\_\+\+P}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+puts\+\_\+\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart0\+\_\+puts\+\_\+\+P(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+\+\_\+s}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+puts\+\_\+p}(P\+S\+T\+R(\+\_\+\+\_\+s))}\label{group__avr-uart_gaeae7603fe1b81b748384fd38a1430974}
+\hypertarget{group__avr-uart_gaf84771d5473f9b43dabbefa32917a5aa}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+available@{uart\+\_\+available}}
+\index{uart\+\_\+available@{uart\+\_\+available}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+available}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+available(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+available}()}\label{group__avr-uart_gaf84771d5473f9b43dabbefa32917a5aa}
+\hypertarget{group__avr-uart_ga180ede29fa62d3514484ae6450b4ffbe}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T@{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T}}
+\index{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T@{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T(
+\begin{DoxyParamCaption}
+\item[{}]{baud\+Rate, }
+\item[{}]{{\bf F\+\_\+\+C\+P\+U}}
+\end{DoxyParamCaption}
+)~((({\bf F\+\_\+\+C\+P\+U})+8\+U\+L$\ast$(baud\+Rate))/(16\+U\+L$\ast$(baud\+Rate))-\/1\+U\+L)}\label{group__avr-uart_ga180ede29fa62d3514484ae6450b4ffbe}
+
+
+U\+A\+R\+T Baudrate Expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xtal\+Cpu} & system clock in Mhz, e.\+g. 4000000\+L for 4\+Mhz \\
+\hline
+{\em baud\+Rate} & baudrate in bps, e.\+g. 1200, 2400, 9600 \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__avr-uart_ga77aa486f11fb4e932bba24dff9754921}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D@{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D}}
+\index{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D@{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D(
+\begin{DoxyParamCaption}
+\item[{}]{baud\+Rate, }
+\item[{}]{{\bf F\+\_\+\+C\+P\+U}}
+\end{DoxyParamCaption}
+)~(((({\bf F\+\_\+\+C\+P\+U})+4\+U\+L$\ast$(baud\+Rate))/(8\+U\+L$\ast$(baud\+Rate))-\/1)$\vert$0x8000)}\label{group__avr-uart_ga77aa486f11fb4e932bba24dff9754921}
+
+
+U\+A\+R\+T Baudrate Expression for A\+Tmega double speed mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xtal\+Cpu} & system clock in Mhz, e.\+g. 4000000\+L for 4\+Mhz \\
+\hline
+{\em baud\+Rate} & baudrate in bps, e.\+g. 1200, 2400, 9600 \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__avr-uart_ga94758f3dad6864703b7417d3e40f11df}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W@{U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}}
+\index{U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W@{U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W~0x0200}\label{group__avr-uart_ga94758f3dad6864703b7417d3e40f11df}
+receive ringbuffer overflow \hypertarget{group__avr-uart_gab04c4a21f4830426faafbcd68adf584d}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+flush@{uart\+\_\+flush}}
+\index{uart\+\_\+flush@{uart\+\_\+flush}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+flush}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+flush(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+flush}()}\label{group__avr-uart_gab04c4a21f4830426faafbcd68adf584d}
+\hypertarget{group__avr-uart_gabcdb1041d763560cd8f8e722370dfd37}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R@{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R}}
+\index{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R@{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R~0x0800}\label{group__avr-uart_gabcdb1041d763560cd8f8e722370dfd37}
+Framing Error by U\+A\+R\+T \hypertarget{group__avr-uart_ga9002030884b4b63417ade03811a6c599}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+getc@{uart\+\_\+getc}}
+\index{uart\+\_\+getc@{uart\+\_\+getc}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+getc}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+getc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+getc}()}\label{group__avr-uart_ga9002030884b4b63417ade03811a6c599}
+\hypertarget{group__avr-uart_gac57b09cedba351e3a7f318bf42754b2b}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+init@{uart\+\_\+init}}
+\index{uart\+\_\+init@{uart\+\_\+init}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+init(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+init}(b)}\label{group__avr-uart_gac57b09cedba351e3a7f318bf42754b2b}
+\hypertarget{group__avr-uart_ga77ba544d423ff42d400220a05303f268}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A@{U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A}}
+\index{U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A@{U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A~0x0100}\label{group__avr-uart_ga77ba544d423ff42d400220a05303f268}
+no receive data available \hypertarget{group__avr-uart_ga3183177e3613d8785d8cc8516931beb6}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R@{U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R}}
+\index{U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R@{U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R~0x0400}\label{group__avr-uart_ga3183177e3613d8785d8cc8516931beb6}
+Overrun condition by U\+A\+R\+T \hypertarget{group__avr-uart_ga9ea2cac96dccfb809ac3dfc721740ce9}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+putc@{uart\+\_\+putc}}
+\index{uart\+\_\+putc@{uart\+\_\+putc}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+putc}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+putc(
+\begin{DoxyParamCaption}
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+putc}(d)}\label{group__avr-uart_ga9ea2cac96dccfb809ac3dfc721740ce9}
+\hypertarget{group__avr-uart_gad80ccb7c25bb3a00beeac5061ae88b66}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+puts@{uart\+\_\+puts}}
+\index{uart\+\_\+puts@{uart\+\_\+puts}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+puts}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+puts(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+puts}(s)}\label{group__avr-uart_gad80ccb7c25bb3a00beeac5061ae88b66}
+\hypertarget{group__avr-uart_gadebe9e3d0f325ed34b3d351078565b67}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+puts\+\_\+p@{uart\+\_\+puts\+\_\+p}}
+\index{uart\+\_\+puts\+\_\+p@{uart\+\_\+puts\+\_\+p}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+puts\+\_\+p}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+puts\+\_\+p(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+puts\+\_\+p}(s)}\label{group__avr-uart_gadebe9e3d0f325ed34b3d351078565b67}
+\hypertarget{group__avr-uart_gab33ef3d9e3ece415aa37e713fe4385b5}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart\+\_\+puts\+\_\+\+P@{uart\+\_\+puts\+\_\+\+P}}
+\index{uart\+\_\+puts\+\_\+\+P@{uart\+\_\+puts\+\_\+\+P}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart\+\_\+puts\+\_\+\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\+\_\+puts\+\_\+\+P(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+\+\_\+s}
+\end{DoxyParamCaption}
+)~{\bf uart0\+\_\+puts\+\_\+p}(P\+S\+T\+R(\+\_\+\+\_\+s))}\label{group__avr-uart_gab33ef3d9e3ece415aa37e713fe4385b5}
+
+
+Macro to automatically put a string constant into program memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+s} & string in program memory \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__avr-uart_gab8bc9ef5bc3b98f92244ad33e3aa710b}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}
+\index{U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+R\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E~128}\label{group__avr-uart_gab8bc9ef5bc3b98f92244ad33e3aa710b}
+Size of the circular receive buffer, must be power of 2 \hypertarget{group__avr-uart_gaa4710900760f3d4aed60b8df217816af}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}
+\index{U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+T\+X0\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E~128}\label{group__avr-uart_gaa4710900760f3d4aed60b8df217816af}
+Size of the circular transmit buffer, must be power of 2 \hypertarget{group__avr-uart_ga610107710886611e83a969b670164787}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D@{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D}}
+\index{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D@{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+D}\label{group__avr-uart_ga610107710886611e83a969b670164787}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__avr-uart_gac369ee64442157556e517078029e9aab}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+available@{uart0\+\_\+available}}
+\index{uart0\+\_\+available@{uart0\+\_\+available}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+available(void)}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t uart0\+\_\+available (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_gac369ee64442157556e517078029e9aab}
+
+
+Return number of bytes waiting in the receive buffer. 
+
+\begin{DoxyReturn}{Returns}
+bytes waiting in the receive buffer 
+\end{DoxyReturn}
+\hypertarget{group__avr-uart_gab3e2b412a31f1d05a9a5be70f4b01109}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+flush@{uart0\+\_\+flush}}
+\index{uart0\+\_\+flush@{uart0\+\_\+flush}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+flush(void)}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_gab3e2b412a31f1d05a9a5be70f4b01109}
+
+
+Flush bytes waiting in receive buffer. 
+
+\hypertarget{group__avr-uart_ga35407e8f77fa39c1a6b8504707b13dd2}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+getc@{uart0\+\_\+getc}}
+\index{uart0\+\_\+getc@{uart0\+\_\+getc}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+getc(void)}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t uart0\+\_\+getc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_ga35407e8f77fa39c1a6b8504707b13dd2}
+
+
+Get received byte from ringbuffer. 
+
+Returns in the lower byte the received character and in the higher byte the last receive error. U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A is returned when no data is available.
+
+\begin{DoxyReturn}{Returns}
+lower byte\+: received byte from ringbuffer 
+
+higher byte\+: last receive status
+\begin{DoxyItemize}
+\item {\bfseries 0} successfully received data from U\+A\+R\+T
+\item {\bfseries U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A} ~\newline
+no receive data available
+\item {\bfseries U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W} ~\newline
+Receive ringbuffer overflow. We are not reading the receive buffer fast enough, one or more received character have been dropped
+\item {\bfseries U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R} ~\newline
+Overrun condition by U\+A\+R\+T. A character already present in the U\+A\+R\+T U\+D\+R register was not read by the interrupt handler before the next character arrived, one or more received characters have been dropped.
+\item {\bfseries U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R} ~\newline
+Framing Error by U\+A\+R\+T 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{group__avr-uart_ga51de0a3b835652d285f354c078669e75}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+init@{uart0\+\_\+init}}
+\index{uart0\+\_\+init@{uart0\+\_\+init}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+init(uint16\+\_\+t baudrate)}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{baudrate}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_ga51de0a3b835652d285f354c078669e75}
+
+
+Initialize U\+A\+R\+T and set baudrate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em baudrate} & Specify baudrate using macro \hyperlink{group__avr-uart_ga180ede29fa62d3514484ae6450b4ffbe}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+S\+E\+L\+E\+C\+T()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\hypertarget{group__avr-uart_ga7f0372a14af24f02f5c6615afd6671a0}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+peek@{uart0\+\_\+peek}}
+\index{uart0\+\_\+peek@{uart0\+\_\+peek}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+peek(void)}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t uart0\+\_\+peek (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_ga7f0372a14af24f02f5c6615afd6671a0}
+
+
+Peek at next byte in ringbuffer. 
+
+Returns the next byte (character) of incoming U\+A\+R\+T data without removing it from the internal ring buffer. That is, successive calls to uart\+N\+\_\+peek() will return the same character, as will the next call to uart\+N\+\_\+getc().
+
+U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A is returned when no data is available.
+
+\begin{DoxyReturn}{Returns}
+lower byte\+: next byte in ringbuffer 
+
+higher byte\+: last receive status
+\begin{DoxyItemize}
+\item {\bfseries 0} successfully received data from U\+A\+R\+T
+\item {\bfseries U\+A\+R\+T\+\_\+\+N\+O\+\_\+\+D\+A\+T\+A} ~\newline
+no receive data available
+\item {\bfseries U\+A\+R\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W} ~\newline
+Receive ringbuffer overflow. We are not reading the receive buffer fast enough, one or more received character have been dropped
+\item {\bfseries U\+A\+R\+T\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+O\+R} ~\newline
+Overrun condition by U\+A\+R\+T. A character already present in the U\+A\+R\+T U\+D\+R register was not read by the interrupt handler before the next character arrived, one or more received characters have been dropped.
+\item {\bfseries U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+O\+R} ~\newline
+Framing Error by U\+A\+R\+T 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{group__avr-uart_gaf52cb65e977992c01d1f2b7220243f94}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+putc@{uart0\+\_\+putc}}
+\index{uart0\+\_\+putc@{uart0\+\_\+putc}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+putc(uint8\+\_\+t data)}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+putc (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{data}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_gaf52cb65e977992c01d1f2b7220243f94}
+
+
+Put byte to ringbuffer for transmitting via U\+A\+R\+T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & byte to be transmitted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\hypertarget{group__avr-uart_gaeff5f5ff60334be95f0b895f96c10998}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+puts@{uart0\+\_\+puts}}
+\index{uart0\+\_\+puts@{uart0\+\_\+puts}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+puts(const char $\ast$s)}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+puts (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_gaeff5f5ff60334be95f0b895f96c10998}
+
+
+Put string to ringbuffer for transmitting via U\+A\+R\+T. 
+
+The string is buffered by the uart library in a circular buffer and one character at a time is transmitted to the U\+A\+R\+T using interrupts. Blocks if it can not write the whole string into the circular buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string to be transmitted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\hypertarget{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}{}\index{U\+A\+R\+T Library@{U\+A\+R\+T Library}!uart0\+\_\+puts\+\_\+p@{uart0\+\_\+puts\+\_\+p}}
+\index{uart0\+\_\+puts\+\_\+p@{uart0\+\_\+puts\+\_\+p}!U\+A\+R\+T Library@{U\+A\+R\+T Library}}
+\subsubsection[{uart0\+\_\+puts\+\_\+p(const char $\ast$s)}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+puts\+\_\+p (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{group__avr-uart_gad55b367ecb822ff1c172c78af6013fe5}
+
+
+Put string from program memory to ringbuffer for transmitting via U\+A\+R\+T. 
+
+The string is buffered by the uart library in a circular buffer and one character at a time is transmitted to the U\+A\+R\+T using interrupts. Blocks if it can not write the whole string into the circular buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & program memory string to be transmitted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__avr-uart_gaeae7603fe1b81b748384fd38a1430974}{uart0\+\_\+puts\+\_\+\+P} 
+\end{DoxySeeAlso}
