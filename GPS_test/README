@@ -1,0 +1,4 @@
+Kod korišten uz Sparkfun 5V LCD. 
+-Izračun kuta kretanja na osnovu posljednje 2 lokacije i nagiba pravca (neuspješno-neprecizno)
+
+-Kut kretanja  izvučen iz GPRMC, dovoljno precizan ako je brzina veća od 1
