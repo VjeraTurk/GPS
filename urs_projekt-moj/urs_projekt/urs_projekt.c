@@ -34,9 +34,9 @@
 
 #define pi 3.14159265358979323846 /**< Value of the PI constant */
 
-#define R 90
+#define R 85
 #define LOWER 50
-#define minSpeed 0.7
+#define minSpeed 0.0
 
 const long chalfx = TS_SIZE_X/2;
 const long chalfy = TS_SIZE_Y/2;
@@ -80,14 +80,6 @@ void showMenu();
  */
 void showLiveGPS();
 
-
-void Needle(float angle, int r, int fill);
-
-void DrawDegrees(int r, int step);
-
-void showLiveCompass();
-void test_circle();
-
 /**
  * @brief A function for showing distances from the current GPS location to some hardcoded cities on a dedicated screen.
  *
@@ -103,18 +95,46 @@ void showDistances();
 void showAltitude();
 
 /**
- * @brief A function for showing a Distance Calculator creen.
+ * @brief A function for showing a Distance Calculator screen.
  *
  * This screen is shown when a user selects it from the menu.
  */
 void showCalc();
+/**
+ * @brief A function for showing a Live Compass screen.
+ *
+ * This screen is shown when a user selects it from the menu.
+ */
+void showLiveCompass();
+/**
+* @brief A function for drawing a compass needle showing cardinal_dir[0] with red and cardinal_dir[2] with white point.
+* @param angle tracking angle which is used to calculate cardinal_dir[0] angle
+* @param r needle length
+* @param s	s=0 needle is simple, points cardinal_dir[0] only
+			s=1 needle consists of 2 triangles and points cardinal_dir[0] and cardinal_dir[2]
+*/
+void Needle(float angle, int r, int s);
+/**
+* @brief A function for drawing compass scale
+* @param r Scale radius
+* @param step Step between lines on scale (etc. step = 10 means label will be drawn on each tenth degree)
+*/
+void DrawDegrees(int r, int step);
+
+void test_circle();
 
 /**
  * @brief A function for receiving GPS data and assigning the values to current and previous GPS struct variables.
+	It parses GPRMC sentence which contains tracking angle and speed if module is being moved.
+ */
+int readGPRMC();
+
+/**
+ * @brief A function for receiving GPS data and assigning the values to current and previous GPS struct variables.
+ *It parses GPGGA sentence which contains number of satellites.
  */
 void readGPS();
 
-int readGPRMC();
 /**
  * @brief A function for calculating a distance between two GPS points
  *
@@ -226,14 +246,6 @@ struct PreviousGpsReading
 	float angle;
 	
 } previousReading;
-
-struct Compass{
-
-	float speed;
-	float angle;
-	float previousAngle;
-	
-}compass;
 
 int currentScreen; /**< The screen currently being shown */
 char latitudeInput[11]; /**< Latitude input field content, defined by the user */
@@ -574,8 +586,8 @@ void DrawDegrees(int r, int step){
 
 	int full;
 	SetColor(BLACK);
-	for(full=0; full!=360; full=full+step){
-		Needle(full, r+10, 0);
+	for(full=0; full!=180; full=full+step){
+		Needle(full, r+5, 0);
 	}
 	
 	SetColor(TURQUOISE);
@@ -583,90 +595,119 @@ void DrawDegrees(int r, int step){
 	
 }
 
-void Needle(float angle, int r, int fill)
+//drawing text coordinates
+
+float x_t[4]={240,240,240,240},y_t[4]={320,320,320,320}; //first delete
+float cardinal_dir[4]={0.0f,0.0f,0.0f,0.0f};
+
+int first=1;
+
+void Needle(float angle, int r, int s)
 {
-	//north
-	float north = angle + 90 ;
-	if(north>360) north = north-360;
+	//cardinal_dir[0]
+	float _2pi=deg2rad(360);
+	cardinal_dir[0] = angle + 90 ;
+	if(cardinal_dir[0]>360) cardinal_dir[0] = cardinal_dir[0]-360;
 	
-	north=deg2rad(north);
 	
-	float south=north+deg2rad(180);
-	if(south>360) north = north-360;
+	cardinal_dir[0]=deg2rad(cardinal_dir[0]);
+
+	cardinal_dir[1]=cardinal_dir[0]+deg2rad(90);  //W
+	cardinal_dir[2]=cardinal_dir[0]+deg2rad(180); //S
+	cardinal_dir[3]=cardinal_dir[0]+deg2rad(270); //E (-90 or + 270)
+	
+	if(cardinal_dir[2]>_2pi) cardinal_dir[2] = cardinal_dir[2]-_2pi; 
+	if(cardinal_dir[1]>_2pi) cardinal_dir[1] = cardinal_dir[1]-_2pi;
+	if(cardinal_dir[3]>_2pi) cardinal_dir[3] = cardinal_dir[3]-_2pi;
+	
 		
 	float x1, x2, y1, y2, _x, _y;
 	
 	x1 = GetMaxX()/2;
 	y1 = GetMaxY()/2 + LOWER;
-
-	x2 = x1 + cos(north) * r;
-	y2 = y1 -( sin(north) * r);
+	if (s){
+		
+		SetFgColor(CLOUDS);
+		for(int i=0; i<=3;i++){	
+			switch(i){
+				case 0: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"N", ALINE_LEFT);break;
+				case 1: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"W", ALINE_LEFT);break;
+				case 2: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"S", ALINE_LEFT);break;
+				case 3: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"E", ALINE_LEFT);break;
+			}
+			x_t[i] = x1 + cos(cardinal_dir[i]) * (r+20);
+			y_t[i] = y1 - sin(cardinal_dir[i]) * (r+20);
+		}	
+			SetFgColor(BLACK);
+			
+		for(int i=0; i<=3;i++){
+			switch(i){
+				case 0: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"N", ALINE_LEFT);break;
+				case 1: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"W", ALINE_LEFT);break;
+				case 2: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"S", ALINE_LEFT);break;
+				case 3: DrawText((int)x_t[i]-5,(int)y_t[i],(int)x_t[i]-5,(int)y_t[i],"E", ALINE_LEFT);break;
+			}
+		}
+		
+	}
+	x2 = x1 + cos(cardinal_dir[0]) * r;
+	y2 = y1 -( sin(cardinal_dir[0]) * r);
 	
-	if(!fill) Line((int) x1, (int) y1, (int) x2, (int) y2);
+	if(!s) Line((int) x1, (int) y1, (int) x2, (int) y2);
 
 
 	int w = 10;
 
-	if (fill){
-	
-	north = north + deg2rad(180)- deg2rad(w);	
-	//float a=north;
-	
+	if (s){
+///red point
+	SetColor(RED);
+	cardinal_dir[0] = cardinal_dir[0] + deg2rad(180)- deg2rad(w);
 	x1 = x2;
 	y1 = y2;
 	
-	x2 =_x = x1 + cos(north) * r;
-	y2 =_y= y1 -( sin(north) * r);
+	x2 =_x = x1 + cos(cardinal_dir[0]) * r;
+	y2 =_y= y1 -( sin(cardinal_dir[0]) * r);
 
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 
-	north = north+ 2*deg2rad(w);
+	cardinal_dir[0] = cardinal_dir[0]+ 2*deg2rad(w);
 
-	x2 = x1 + cos(north) * r;
-	y2 = y1 -( sin(north) * r);
+	x2 = x1 + cos(cardinal_dir[0]) * r;
+	y2 = y1 -( sin(cardinal_dir[0]) * r);
 
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
-	
 	Line((int) _x, (int) _y, (int) x2, (int) y2);
-	////
-/*
-		for(north = north; north>a; north = north - deg2rad(0.1))
-		{
-			x2 = x1 + cos(north) * r;
-			y2 = y1 -( sin(north) * r);
-
-			Line((int) x1, (int) y1, (int) x2, (int) y2);
-			//Line((int) _x, (int) _y, (int) x2, (int) y2);
-		}
-
-*/
-	}
 	
+	}
+///white point	
 	x1 = GetMaxX()/2;
 	y1 = GetMaxY()/2 + LOWER;
 
-	x2 = x1 + cos(south) * r;
-	y2 = y1 -( sin(south) * r);
-
-	//if(!fill) Line((int) x1, (int) y1, (int) x2, (int) y2);
-
-	if(fill){
+	x2 = x1 + cos(cardinal_dir[2]) * r;
+	y2 = y1 -( sin(cardinal_dir[2]) * r);
+	
+	if(!s)Line(x1,y1,x2,y2);
+	
+	if(s){
+	
+		
 	SetColor(CLOUDS);
-	south = south + deg2rad(180)- deg2rad(w);
-	//float a=north;
+	cardinal_dir[2] = cardinal_dir[2] + deg2rad(180)- deg2rad(w);
+	//float a=cardinal_dir[0];
 	
 	x1 = x2;
 	y1 = y2;
 	
-	x2 =_x = x1 + cos(south) * r;
-	y2 =_y= y1 -( sin(south) * r);
+	x2=_x = x1 + cos(cardinal_dir[2]) * r;
+	y2=_y= y1 -( sin(cardinal_dir[2]) * r);
+	
 
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 
-	south = south+ 2*deg2rad(w);
-
-	x2 = x1 + cos(south) * r;
-	y2 = y1 -( sin(south) * r);
+	cardinal_dir[2] = cardinal_dir[2]+ 2*deg2rad(w);
+	
+	x2 = x1 + cos(cardinal_dir[2]) * r;
+	y2 = y1 -( sin(cardinal_dir[2]) * r);
 
 	Line((int) x1, (int) y1, (int) x2, (int) y2);
 	
@@ -675,13 +716,20 @@ void Needle(float angle, int r, int fill)
 	}
 	
 }
+
 void test_circle(){
-	SetColor(CLOUDS); //CLOUDS
+	/*SetColor(CLOUDS); //CLOUDS
 	BevelFill(0, 41, GetMaxX(), GetMaxY(), 0);
 	while(1){
 		SetColor(TURQUOISE); //CLOUDS		
 		Circle(GetMaxX()/2, GetMaxY()/2,80,1);
-	}
+	}*/
+	//float i;
+	//for(i=0;i<180;i+=10){
+		//_delay_ms(1000);
+		//Needle(190,R,1);
+		//};
+		
 }
 void showLiveCompass(){
 	
@@ -708,16 +756,24 @@ void showLiveCompass(){
 	SetColor(CLOUDS);
 		
 	DrawDegrees(R,10);
-
+	previousReading.speed=-1;
+	previousReading.angle=-1;
+	
+	currentReading.angle=0;
+	
 	while(currentScreen == 6) {
 		
 		ScanPen();
-
-		previousReading.speed = currentReading.speed;
-		previousReading.angle = currentReading.angle;
-	
-		int fix=readGPRMC();
+//debugging:
+//currentReading.angle+=5;
+//if(currentReading.angle>=360)currentReading.angle=0;
+//int fix=1;
 		
+	
+	previousReading.speed = currentReading.speed;
+	previousReading.angle = currentReading.angle;
+	int fix=readGPRMC();
+	
 	if( fix && ( (int)currentReading.angle != (int)previousReading.angle ||  (int)currentReading.speed != (int)previousReading.speed || firstShow ) ){
 		
 		memset(str, 0, 20);
@@ -725,36 +781,30 @@ void showLiveCompass(){
 		SetFgColor(WET_ASPHALT);//WET_ASPHALT
 
 		if ((int)currentReading.speed != (int)previousReading.speed || firstShow) {
-			SetColor(CLOUDS);
-		
-			BevelFill(127, 83, GetMaxX(), 110, 0);
+			//SetColor(CLOUDS);
+			SetColor(ALIZARIN);
+			BevelFill(127, 83, GetMaxX()+30, 105, 0);
 			sprintf(str, "speed:%d", (int)currentReading.speed /* * 1.85200*/);
 			DrawText(20, 90, GetMaxX() - 20, 100, str, ALINE_RIGHT);
 			//1 knots =	1.85200 kilometers per hour
 		}
 
 		
-		if (currentReading.speed>minSpeed && ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
+		if (currentReading.speed>=minSpeed && ((int)currentReading.angle != (int)previousReading.angle || firstShow)) { //pobriši prošlo stanje
 			
-			if(currentReading.speed>minSpeed)no_speed=0;
+			if(currentReading.speed>=minSpeed)no_speed=0;
 				else no_speed=1;
 				
-			if(currentReading.angle<(float) 361 && currentReading.angle>(float) 0 ){
+			if(currentReading.angle<(float) 361 && currentReading.angle>=(float) 0 ){
 			
 					SetColor(CLOUDS);
 					BevelFill(10, 83, 130, 110, 0);
-					
 					sprintf(str, "tra:%d ", (int)currentReading.angle);
-					DrawText(20, 90, GetMaxX() - 20, 100, str, ALINE_LEFT);
-					/*
-					BevelFill(127, 83, GetMaxX(), 110, 0);
-					sprintf(str, "ex:%d", (int)previousReading.angle);
-					DrawText(20, 100, GetMaxX() - 20, 100, str, ALINE_RIGHT);
-					*/		
+					DrawText(20, 85, GetMaxX() - 20, 100, str, ALINE_LEFT);
 					
 					SetColor(TURQUOISE); //pobrisi prosli kut
-					Circle(GetMaxX()/2,GetMaxY()/2+LOWER, R-5,1);
-					SetColor(RED);
+					Circle(GetMaxX()/2,(GetMaxY()/2+LOWER), (R-5),1);
+				
 					Needle(currentReading.angle,R-5,1);
 				
 			} 
@@ -762,14 +812,15 @@ void showLiveCompass(){
 		
 			
 		
-	}else if( no_speed!=1 && currentReading.speed<minSpeed){
+	}else if( no_speed!=1 && currentReading.speed<=minSpeed){
 		
 		no_speed=1;
 		SetColor(CLOUDS);
-		BevelFill(10, 83, 130, 110, 0);
+		//SetColor(ALIZARIN);
+		BevelFill(10, 85, 130, 105, 0);
 		SetFgColor(RED);
 		sprintf(str,"Gain speed");
-		DrawText(10, 90, GetMaxX() - 20, 100, str, ALINE_LEFT);
+		DrawText(10, 83, GetMaxX() - 20, 100, str, ALINE_LEFT);
 	}
 	
 	firstShow = 0;
@@ -780,7 +831,12 @@ void showLiveCompass(){
 	
 }
 void showMenu() {
-	
+	/*
+	while(1){
+		test_circle();
+		_delay_ms(1000);
+	}
+	*/
 	//int dotFlag = 0;
 
 	currentScreen = 0;
@@ -1081,7 +1137,7 @@ void readGPS() {
 }
 
 
-char storesGPRMC[20];
+//char storesGPRMC[20];
 
 #define MAXLINELENGHT 120
 
@@ -1130,7 +1186,7 @@ int readGPRMC() {
 				  if (sum != 0) {
 					  return 0;
 				  }else{
-					  return 0; //Github Adafruit newest commit 8_2016
+					  return 0; //Github Adafruit necardinal_dir[3] commit 8_2016
 				  }
 			  }
 			
@@ -1254,7 +1310,7 @@ int readGPRMC() {
 					//parse out speed
 					//previousReading.speed = currentReading.speed;
 					currentReading.speed = atof(p);
-					strncpy(storesGPRMC, p, 20); 
+					//strncpy(storesGPRMC, p, 20); 
 				}
 				
 				p = strchr(p, ',')+1;
@@ -1307,7 +1363,7 @@ void showLiveGPS() {
 				sprintf(str, "Time: %02d:%02d:%02d", currentReading.hours, currentReading.minutes, currentReading.seconds);
 				//sprintf(str, "tra:%f speed:%f", currentReading.angle, currentReading.speed);	
 				if (currentReading.hours != previousReading.hours || firstShow) { //pobriši prošlo stanje
-					BevelFill(70, 83, 95, 110, 0);
+					BevelFill(70, 83, 95, 105, 0);
 				}
 				if (currentReading.minutes != previousReading.minutes || firstShow) {
 					BevelFill(101, 83, 121, 110, 0);
@@ -1354,7 +1410,7 @@ void showDistances() {
 	currentReading.lat[1] = '\0';
 	int firstShow = 1; /**< A flag showing if this is the first time showing the screen */
 	char str[20]; /**< A helper string used to store text that is to be shown on the screen */
-	
+	/*
 	if (currentScreen == 2) {
 		SetColor(WHITE);
 		FillRectangle(GetMaxX() / 2 + 1, GetMaxY() - 49, GetMaxX() - 21, GetMaxY() - 21);
@@ -1444,7 +1500,7 @@ void showDistances() {
 
 		
 	}
-	
+	*/
 
 }
 

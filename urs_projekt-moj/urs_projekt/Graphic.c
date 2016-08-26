@@ -49,6 +49,7 @@ void Line(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)
     if ((x1 == x2) || (y1 == y2))  
     {  
         FillRectangle(x1, y1, x2, y2);  
+		FillRectangle(x2, y2, x1, y1); 
         return;  
     }  
  
@@ -103,7 +104,7 @@ void Line(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)
     }   
 }   
    
-   
+ 
 void Rectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)   
 {   
     FillRectangle(x1, y1, x2, y1);    // top   
@@ -147,8 +148,7 @@ void Circle(unsigned int x, unsigned int y, unsigned int radius, unsigned char f
 		P+= 5 + 2*(a++ - b--);
 	} while(a <= b);
 }
-
-   
+  
 void RoundRectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned int radius, unsigned char fill)   
 {   
     signed int a, b, P;   
@@ -223,5 +223,6 @@ void RoundRectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned 
         FillRectangle(x1-radius, y1       , x1-radius, y2       );  // left   
         FillRectangle(x2+radius, y1       , x2+radius, y2       );  // right   
     }   
+
 }   
 

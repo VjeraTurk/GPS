@@ -163,7 +163,7 @@ uint8_t DrawChar(unsigned char c)
    
     return(charwidth * FontXScale + FontSpace);   
 }   
-   
+  
 unsigned int CalcTextWidth(char *Text)   
 {   
     unsigned int strSize = 0;   
@@ -191,12 +191,12 @@ unsigned int CalcTextWidth(char *Text)
     }   
     return strSize ;   
 }   
-   
+  /* 
 unsigned int CalcTextHeight(char *Text)   
 {   
     return FontHeight * FontYScale;   
 }   
-   
+  */
 // draw string   
 unsigned int DrawStr(char *Text)   
 {      
@@ -211,7 +211,7 @@ unsigned int DrawStr(char *Text)
     }   
     return sizeofstring;   
 }   
-   
+/*    
 unsigned int DrawStrP(char *Text)   
 {   
     char c;   
@@ -227,7 +227,7 @@ unsigned int DrawStrP(char *Text)
 }   
    
    
-/*  
+ 
 void DrawNumber(uint32_t src, uint8_t digit, uint8_t decimal, uint8_t Parameter)  
 {  
     char text[10+1];  
