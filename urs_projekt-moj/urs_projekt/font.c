@@ -279,7 +279,7 @@ void DrawText(uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, char
     SetCursorY(top);   
     DrawStr(Text);   
 }   
-   
+  /* 
 void DrawTextP(uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, const char *Text, uint8_t aline)   
 {   
     char TextP[100+1];   
@@ -294,4 +294,5 @@ void DrawTextP(uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, con
    
     TextP[i] = 0;   // terminate string   
     DrawText(left, top, right, bottom, TextP, aline);   
-}
+
+}*/

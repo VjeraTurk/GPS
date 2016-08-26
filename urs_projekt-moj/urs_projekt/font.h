@@ -71,7 +71,7 @@ extern unsigned int CalcTextHeight(char *Text);
 * @param aline The alignment of text
 */
 extern void DrawText(uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, char *Text, uint8_t aline);
-extern void DrawTextP(uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, const char *Text, uint8_t aline);
+//extern void DrawTextP(uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, const char *Text, uint8_t aline);
 
 extern uint8_t 	rot;
 extern uint16_t FgColor;
